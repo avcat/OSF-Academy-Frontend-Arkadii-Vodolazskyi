@@ -22,7 +22,16 @@ html {
 
 .wrapper {
   padding-left: 4.3%;
-  padding-right: 4.3%; }
+  padding-right: 4.3%;
+  text-align: center; }
+
+main section.slider .wrapper .slider-dots div.img a, main section.slider .wrapper div.advert div.follow a, main section.pop-items .wrapper button.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-radius: 25px;
+  cursor: pointer; }
 
 /* Header ------------------------------------------------ */
 header {
@@ -32,21 +41,21 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 14px; }
+    padding-top: 1rem; }
     header .wrapper a.logo {
       display: flex;
       align-items: center;
-      margin-bottom: 14px; }
+      margin-bottom: 1rem; }
       header .wrapper a.logo .img {
         width: 64px;
         height: 64px;
         margin-right: 5px; }
       header .wrapper a.logo div h1 {
-        font-size: 32px;
+        font-size: 2.2857142857rem;
         letter-spacing: 6.33px;
         color: #011847; }
       header .wrapper a.logo div h2 {
-        font-size: 18px;
+        font-size: 1.2857142857rem;
         color: #84bc22; }
     header .wrapper nav {
       display: flex;
@@ -92,18 +101,19 @@ main {
   main section.slider .wrapper {
     display: flex;
     padding-top: 30px;
-    padding-bottom: 30px; }
+    padding-bottom: 30px;
+    height: 36.0714285714rem; }
     main section.slider .wrapper .slider-dots {
       width: 75%;
       margin-right: 2.5%;
-      height: 505px;
       position: relative; }
       main section.slider .wrapper .slider-dots div.img {
         padding: 70px 60px 104px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        align-items: flex-start; }
+        align-items: flex-start;
+        text-align: left; }
         main section.slider .wrapper .slider-dots div.img * {
           color: #fff; }
         main section.slider .wrapper .slider-dots div.img h3 {
@@ -114,12 +124,10 @@ main {
           width: 340px;
           margin-bottom: 30px; }
         main section.slider .wrapper .slider-dots div.img a {
-          display: inline-block;
-          text-transform: uppercase;
-          border: 2px solid rgba(255, 255, 255, 0.5);
-          background-color: transparent;
-          padding: 10px 33px;
-          border-radius: 20px; }
+          padding: 0.5714285714rem 2.5rem;
+          opacity: 0.7; }
+          main section.slider .wrapper .slider-dots div.img a:hover {
+            opacity: 1; }
       main section.slider .wrapper .slider-dots ul.dots {
         position: absolute;
         left: 50%;
@@ -144,7 +152,172 @@ main {
     main section.slider .wrapper div.advert {
       width: 22.5%; }
       main section.slider .wrapper div.advert div.img {
-        height: 335px;
-        border-radius: 10px; }
+        height: 22.5rem;
+        margin-bottom: 1.7857142857rem;
+        padding: 2.1428571429rem;
+        border-radius: 10px;
+        text-align: center; }
+        main section.slider .wrapper div.advert div.img * {
+          color: #fff; }
+        main section.slider .wrapper div.advert div.img span {
+          font-size: 7.1428571429rem; }
+        main section.slider .wrapper div.advert div.img p {
+          margin-top: 3.5714285714rem;
+          font-size: 2.1428571429rem;
+          text-transform: uppercase; }
+      main section.slider .wrapper div.advert div.follow {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center; }
+        main section.slider .wrapper div.advert div.follow * {
+          background: linear-gradient(to top, #08d2bd, #1b9bb2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        main section.slider .wrapper div.advert div.follow h4 {
+          margin-bottom: 1rem;
+          font-size: 1.2857142857rem; }
+        main section.slider .wrapper div.advert div.follow p {
+          margin-bottom: 1.4285714286rem;
+          font-size: 0.9285714286rem; }
+        main section.slider .wrapper div.advert div.follow a {
+          padding: 0.5714285714rem 1.6428571429rem;
+          border-color: #3a5b96; }
+          main section.slider .wrapper div.advert div.follow a svg {
+            margin-right: 10px;
+            color: #3a5b96; }
+          main section.slider .wrapper div.advert div.follow a:hover {
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background: #3a5b96;
+            color: #fff; }
+            main section.slider .wrapper div.advert div.follow a:hover svg {
+              color: #fff; }
+  main section.pop-items {
+    background-color: #262a32; }
+    main section.pop-items .wrapper {
+      padding-top: 4.2857142857rem;
+      padding-bottom: 4.2857142857rem; }
+      main section.pop-items .wrapper h2 {
+        padding: 3.5714285714rem 0;
+        background-color: #262a32;
+        background: linear-gradient(to top, #08d2bd, #1b9bb2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        position: relative; }
+        main section.pop-items .wrapper h2::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 20%;
+          height: 100%;
+          background-color: inherit; }
+        main section.pop-items .wrapper h2::after {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          content: "";
+          width: 100%;
+          border-bottom: 1px solid #fff;
+          opacity: 0.1; }
+      main section.pop-items .wrapper div.items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1%; }
+        main section.pop-items .wrapper div.items .item {
+          width: 23%;
+          margin: 1%;
+          padding-bottom: 1rem;
+          background-color: #fff;
+          border-radius: 12px;
+          text-align: center; }
+          main section.pop-items .wrapper div.items .item .img {
+            height: 18.5714285714rem;
+            border-radius: 10px 10px 0 0; }
+          main section.pop-items .wrapper div.items .item h4.name {
+            margin: 1rem 0; }
+      main section.pop-items .wrapper button.btn {
+        margin-top: 3.6428571429rem;
+        padding: 0.7142857143rem 6.4285714286rem;
+        color: #fff;
+        font-size: 0.8rem; }
+        main section.pop-items .wrapper button.btn:hover {
+          background-color: #fff;
+          border-color: inherit;
+          color: inherit; }
+  main section.banner {
+    padding: 12.16796875% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    main section.banner * {
+      color: #fff; }
+    main section.banner div.content {
+      text-align: center; }
+      main section.banner div.content h2 {
+        margin-bottom: 2rem;
+        font-size: 3.3571428571rem; }
+      main section.banner div.content p {
+        width: 26%;
+        margin: 0 auto; }
+        main section.banner div.content p span {
+          color: #ff974e; }
+  main section.feat-prod {
+    background-color: #262a32; }
+    main section.feat-prod .wrapper {
+      padding-top: 2.5rem;
+      padding-bottom: 4.5714285714rem; }
+      main section.feat-prod .wrapper h2 {
+        font-size: 2.8571428571rem;
+        color: #fff; }
+      main section.feat-prod .wrapper p {
+        font-size: 1.2857142857rem;
+        color: #fff; }
+      main section.feat-prod .wrapper div.slider-arrows div.arrows {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        margin: 0 auto;
+        padding: 2.5rem; }
+        main section.feat-prod .wrapper div.slider-arrows div.arrows * {
+          margin: 0 0.3rem;
+          color: #fff; }
+        main section.feat-prod .wrapper div.slider-arrows div.arrows button {
+          background-color: #383d49;
+          font-size: 0.8rem;
+          border: none;
+          padding: 0.4285714286rem;
+          cursor: pointer; }
+          main section.feat-prod .wrapper div.slider-arrows div.arrows button:hover {
+            background-color: #474f5d; }
+        main section.feat-prod .wrapper div.slider-arrows div.arrows div {
+          width: 45%;
+          height: 2px;
+          background-color: #fff; }
+        main section.feat-prod .wrapper div.slider-arrows div.arrows p {
+          font-size: 1.4rem;
+          font-weight: bold;
+          font-style: italic;
+          letter-spacing: 2.5px; }
+      main section.feat-prod .wrapper div.slider-arrows div.items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1%; }
+        main section.feat-prod .wrapper div.slider-arrows div.items .item {
+          width: 23%;
+          margin: 1%;
+          padding-bottom: 1.5rem;
+          background-color: #fff;
+          border-radius: 12px;
+          text-align: center; }
+          main section.feat-prod .wrapper div.slider-arrows div.items .item .img {
+            height: 18.5714285714rem;
+            border-radius: 10px 10px 0 0; }
+          main section.feat-prod .wrapper div.slider-arrows div.items .item h4.name {
+            width: 70%;
+            margin: 1rem auto; }
+          main section.feat-prod .wrapper div.slider-arrows div.items .item a {
+            color: #84bc22; }
 
 /* Footer ------------------------------------------------ */

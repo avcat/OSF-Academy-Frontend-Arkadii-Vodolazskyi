@@ -9,6 +9,7 @@
 
 // Variables ------------------------------------------------
 $hor-padd: 4.3%
+$radius: 10px
 
 // General styles -------------------------------------------
 html
@@ -20,9 +21,26 @@ html
 .wrapper
 	padding-left: $hor-padd
 	padding-right: $hor-padd
+	text-align: center
 
 .img
 	@extend %img
+
+%btn
+	display: inline-block
+	text-transform: uppercase
+	border: 3px solid rgba(#fff, 0.5)
+	background-color: transparent
+	border-radius: $radius + 15px
+	cursor: pointer
+
+@mixin text-gradient ($color1, $color2)
+	background: linear-gradient(to top, $color1, $color2)
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+
+@function to-rem ($original)
+	@return $original / 14px * 1rem
 
 /* Header ------------------------------------------------ */
 header
@@ -33,12 +51,12 @@ header
 		display: flex
 		justify-content: space-between
 		align-items: center
-		padding-top: 14px
+		padding-top: 1rem
 
 		a.logo
 			display: flex
 			align-items: center
-			margin-bottom: 14px
+			margin-bottom: 1rem
 
 			.img
 				width: 64px
@@ -47,11 +65,11 @@ header
 
 			div
 				h1
-					font-size: 32px
+					font-size: to-rem(32px)
 					letter-spacing: 6.33px
 					color: #011847
 				h2
-					font-size: 18px
+					font-size: to-rem(18px)
 					color: #84bc22
 
 		nav
@@ -99,8 +117,6 @@ header
 						width: 25px
 						height: 25px
 
-
-
 /* Main -------------------------------------------------- */
 main
 
@@ -110,21 +126,21 @@ main
 			display: flex
 			padding-top: 30px
 			padding-bottom: 30px
+			height: to-rem(505px)
 
 			.slider-dots
 				width: 75%
 				margin-right: 2.5%
-				height: 505px
 				position: relative
 
 				div.img
 					*
 						color: #fff
 					padding: 70px 60px 104px
-					border-radius: 10px
+					border-radius: $radius
 					display: flex
 					flex-direction: column
-					// Aligning slider contents
+					// * add Aligning slider contents
 					align-items: flex-start
 					text-align: left
 					h3
@@ -135,12 +151,11 @@ main
 						width: 340px
 						margin-bottom: 30px
 					a
-						display: inline-block
-						text-transform: uppercase
-						border: 2px solid rgba(#fff, 0.5)
-						background-color: transparent
-						padding: 10px 33px
-						border-radius: 20px
+						@extend %btn
+						padding: to-rem(8px) to-rem(35px)
+						opacity: 0.7
+						&:hover
+							opacity: 1
 
 				ul.dots
 					position: absolute
@@ -170,25 +185,187 @@ main
 			div.advert
 				width: 25% - 2.5%
 				div.img
-					height: 335px
-					border-radius: 10px
+					// height: to-rem(335px)
+					height: to-rem(315px)
+					margin-bottom: to-rem(25px)
+					padding: to-rem(30px)
+					border-radius: $radius
+					text-align: center
+					*
+						color: #fff
+					span
+						font-size: to-rem(100px)
+					p
+						margin-top: to-rem(50px)
+						font-size: to-rem(30px)
+						text-transform: uppercase
+
+				div.follow
+					width: 90%
+					margin: 0 auto
+					text-align: center
+					*
+						@include text-gradient (#08d2bd, #1b9bb2)
+					h4
+						margin-bottom: to-rem(14px)
+						font-size: to-rem(18px)
+					p
+						margin-bottom: to-rem(20px)
+						font-size: to-rem(13px)
+					a
+						@extend %btn
+						padding: to-rem(8px) to-rem(23px)
+						border-color: #3a5b96
+						svg
+							margin-right: 10px
+							color: #3a5b96
+						&:hover
+							-webkit-background-clip: unset
+							-webkit-text-fill-color: unset
+							background: #3a5b96
+							color: #fff
+							svg
+								color: #fff
 
 	/* Popular Items ----------------------------------------- */
 	section.pop-items
+		background-color: #262a32
 		.wrapper
+			padding-top: to-rem(60px)
+			padding-bottom: to-rem(60px)
+			h2
+				padding: (to-rem(50px)) 0
+				background-color: #262a32
+				@include text-gradient (#08d2bd, #1b9bb2)
+				text-align: center
+				position: relative
+				// * doesn't work
+				&::before
+					position: absolute
+					top: 50%
+					left: 0
+					width: 20%
+					height: 100%
+					background-color: inherit
+				&::after
+					position: absolute
+					top: 50%
+					left: 0
+					content: ""
+					width: 100%
+					border-bottom: 1px solid #fff
+					opacity: 0.1
+
+			div.items
+				display: flex
+				flex-wrap: wrap
+				margin: 0 -1%
+				.item
+					width: 25% - 2 * 1%
+					margin: 1%
+					padding-bottom: 1rem
+					background-color: #fff
+					border-radius: $radius + 2px
+					text-align: center
+					.img
+						height: to-rem(260px)
+						border-radius: $radius $radius 0 0
+					h4.name
+						margin: 1rem 0
+
+			button.btn
+				@extend %btn
+				margin-top: to-rem(51px)
+				padding: to-rem(10px) to-rem(90px)
+				color: #fff
+				font-size: 0.8rem
+				&:hover
+					background-color: #fff
+					border-color: inherit
+					color: inherit
 
 	/* Banner ------------------------------------------------ */
 	section.banner
-		.wrapper
+		padding: (445 / 1280 * 35%) 0
+		display: flex
+		flex-direction: column
+		justify-content: center
+		*
+			color: #fff
+		div.content
+			text-align: center
+			h2
+				margin-bottom: 2rem
+				font-size: to-rem(47px)
+			p
+				width: 26%
+				margin: 0 auto
+				span
+					color: #ff974e
 
 	/* Featured Products ------------------------------------- */
 	section.feat-prod
+		background-color: #262a32
 		.wrapper
+			padding-top: to-rem(35px)
+			padding-bottom: to-rem(64px)
+			h2
+				font-size: to-rem(40px)
+				color: #fff
+			p
+				font-size: to-rem(18px)
+				color: #fff
+			div.slider-arrows
+				div.arrows
+					display: flex
+					justify-content: center
+					align-items: center
+					width: 50%
+					margin: 0 auto
+					padding: to-rem(35px)
+					*
+						margin: 0 0.3rem
+						color: #fff
+					button
+						background-color: lighten(#262a32, 8%)
+						font-size: 0.8rem
+						border: none
+						padding: to-rem(6px)
+						cursor: pointer
+						&:hover
+							background-color: lighten(#262a32, 15%)
+					div
+						width: 45%
+						height: 2px
+						background-color: #fff
+					p
+						font-size: 1.4rem
+						font-weight: bold
+						font-style: italic
+						letter-spacing: 2.5px
+				div.items
+					display: flex
+					flex-wrap: wrap
+					margin: 0 -1%
+					.item
+						width: 25% - 2 * 1%
+						margin: 1%
+						padding-bottom: 1.5rem
+						background-color: #fff
+						border-radius: $radius + 2px
+						text-align: center
+						.img
+							height: to-rem(260px)
+							border-radius: $radius $radius 0 0
+						h4.name
+							width: 70%
+							margin: 1rem auto
+						a
+							color: #84bc22
 
 	/* Benefits ---------------------------------------------- */
 	section.benefits
 		.wrapper
-
 
 /* Footer ------------------------------------------------ */
 footer
