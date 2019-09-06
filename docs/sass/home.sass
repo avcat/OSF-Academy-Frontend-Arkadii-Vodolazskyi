@@ -1,0 +1,195 @@
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+// Import variables
+// @import ./helpers/variables
+
+// Variables ------------------------------------------------
+$hor-padd: 4.3%
+
+// General styles -------------------------------------------
+html
+	@if (calc(100vw <= 1280px))
+		font-size: (14 / 1280) * 100vw
+	@else if (calc(100vw > 1280px))
+		font-size: 14px
+
+.wrapper
+	padding-left: $hor-padd
+	padding-right: $hor-padd
+
+.img
+	@extend %img
+
+/* Header ------------------------------------------------ */
+header
+	background-color: #fff
+	border-bottom: 1px solid #ccc
+
+	.wrapper
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding-top: 14px
+
+		a.logo
+			display: flex
+			align-items: center
+			margin-bottom: 14px
+
+			.img
+				width: 64px
+				height: 64px
+				margin-right: 5px
+
+			div
+				h1
+					font-size: 32px
+					letter-spacing: 6.33px
+					color: #011847
+				h2
+					font-size: 18px
+					color: #84bc22
+
+		nav
+			display: flex
+			justify-self: flex-end
+
+			// Arrow style
+			span.arrow-down
+				font-size: 0.7em
+				color: inherit
+
+			> ul
+				> li
+					display: inline-block
+					text-transform: uppercase
+
+			ul.nav-main
+				li
+					position: relative
+					padding: 20px 35px 40px 25px
+					border-bottom: 3px solid transparent
+					span
+						position: absolute
+						color: #fff
+						top: 23px
+						right: 16px
+					&:hover
+						color: #fff
+						background-color: #262a32
+						border-bottom: 3px solid #84bc22
+
+
+			ul.nav-lang
+				*
+					color: #45413e
+				li
+					padding: 20px 25px 40px
+					span
+						margin-left: 5px
+
+			ul.nav-manage
+				li
+					margin: 20px 25px 40px
+					a
+						width: 25px
+						height: 25px
+
+
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Slider ------------------------------------------------ */
+	section.slider
+		.wrapper
+			display: flex
+			padding-top: 30px
+			padding-bottom: 30px
+
+			.slider-dots
+				width: 75%
+				margin-right: 2.5%
+				height: 505px
+				position: relative
+
+				div.img
+					*
+						color: #fff
+					padding: 70px 60px 104px
+					border-radius: 10px
+					display: flex
+					flex-direction: column
+					// Aligning slider contents
+					align-items: flex-start
+					text-align: left
+					h3
+						width: 570px
+						font-size: 48px
+						margin-bottom: 110px
+					p
+						width: 340px
+						margin-bottom: 30px
+					a
+						display: inline-block
+						text-transform: uppercase
+						border: 2px solid rgba(#fff, 0.5)
+						background-color: transparent
+						padding: 10px 33px
+						border-radius: 20px
+
+				ul.dots
+					position: absolute
+					left: 50%
+					transform: translateX(-50%)
+					bottom: 48px
+					li
+						display: inline-block
+						margin: 0 18px
+						a
+							display: inline-block
+							width: 2px
+							height: 2px
+							border-radius: 50%
+
+							opacity: 0.5
+							background-color: #ffffff
+							border: solid 3px transparent
+
+							// Doesn't work
+							box-sizing: content-box
+
+							&.active
+								opacity: 1
+								background-color: transparent
+								border: solid 3px #ffffff
+			div.advert
+				width: 25% - 2.5%
+				div.img
+					height: 335px
+					border-radius: 10px
+
+	/* Popular Items ----------------------------------------- */
+	section.pop-items
+		.wrapper
+
+	/* Banner ------------------------------------------------ */
+	section.banner
+		.wrapper
+
+	/* Featured Products ------------------------------------- */
+	section.feat-prod
+		.wrapper
+
+	/* Benefits ---------------------------------------------- */
+	section.benefits
+		.wrapper
+
+
+/* Footer ------------------------------------------------ */
+footer
+	.wrapper
