@@ -1,11 +1,10 @@
+// sass --watch --sourcemap=none --no-cache sass:css
+
 // Reset styles
 @import ./helpers/reset
 
 // Import mixins
 @import ./helpers/mixins
-
-// Import variables
-// @import ./helpers/variables
 
 // Variables ------------------------------------------------
 $hor-padd: 4.3%
@@ -18,7 +17,11 @@ html
 	@else if (calc(100vw > 1280px))
 		font-size: 14px
 
+body
+	position: relative
+
 .wrapper
+	width: 100%
 	padding-left: $hor-padd
 	padding-right: $hor-padd
 	text-align: center
@@ -26,12 +29,15 @@ html
 .img
 	@extend %img
 
+a, button
+	transition: all 0.5s ease
+
 %btn
 	display: inline-block
 	text-transform: uppercase
 	border: 3px solid rgba(#fff, 0.5)
 	background-color: transparent
-	border-radius: $radius + 15px
+	border-radius: $radius + 25px
 	cursor: pointer
 
 @mixin text-gradient ($color1, $color2)
@@ -46,23 +52,19 @@ html
 header
 	background-color: #fff
 	border-bottom: 1px solid #ccc
-
 	.wrapper
 		display: flex
 		justify-content: space-between
 		align-items: center
 		padding-top: 1rem
-
 		a.logo
 			display: flex
 			align-items: center
-			margin-bottom: 1rem
-
+			padding-bottom: 1rem
 			img
 				width: to-rem(64px)
 				height: to-rem(64px)
 				margin-right: 5px
-
 			div
 				h1
 					font-size: to-rem(32px)
@@ -71,50 +73,104 @@ header
 				h2
 					font-size: to-rem(18px)
 					color: #84bc22
-
+		li
+			transition: all 0.3s ease
 		nav
 			display: flex
 			justify-self: flex-end
-
-			// Arrow style
+			// Arrow styles
 			span.arrow-down
 				font-size: 0.7em
 				color: inherit
-
 			> ul
 				> li
 					display: inline-block
 					text-transform: uppercase
-
 			ul.nav-main
 				li
-					position: relative
-					padding: 20px 35px 40px 25px
-					border-bottom: 3px solid transparent
+					margin-top: 1rem
+					padding: to-rem(15px) to-rem(20px) to-rem(35px) to-rem(20px)
+					border-bottom: 5px solid transparent
+					user-select: none
 					span
-						position: absolute
 						color: #fff
-						top: 23px
-						right: 16px
 					&:hover
 						color: #fff
 						background-color: #262a32
-						border-bottom: 3px solid #84bc22
+						border-bottom: 5px solid #84bc22
+
+					&.menu-open
+						z-index: 20
+						&:hover
+							.menu
+								opacity: 1
+								visibility: visible
+						.menu
+							display: flex
+							flex-direction: row
+							flex-wrap: wrap
+							justify-content: space-evenly
+							padding-top: to-rem(20px)
+							padding-bottom: to-rem(30px)
+							background-color: #262a32
+							*
+								font-size: 1rem
+								color: #fff
+								text-align: left
+							// Hover effects
+							position: absolute
+							opacity: 0
+							visibility: hidden
+							left: 0
+							right: 0
+							top: to-rem(97px)
+							z-index: 10
+
+							div.prod-cat
+								width: 40%
+								display: flex
+								flex-direction: column
+								> div
+									display: flex
+									flex-direction: row
+									flex-wrap: nowrap
+									justify-content: space-between
+									> ul
+										padding-top: to-rem(15px)
+										> li
+											margin: 0
+											padding: to-rem(5px) 0
+											text-transform: capitalize
+							div.sale
+								width: 10%
+								display: flex
+								flex-direction: column
+								> ul
+									padding-top: to-rem(15px)
+									> li
+										margin: 0
+										padding: to-rem(5px) 0
+										text-transform: capitalize
+							img
+								width: 30%
+								height: 100%
+								border-radius: $radius
 
 			ul.nav-lang
 				margin-right: to-rem(50px)
 				*
 					color: #45413e
 				li
-					padding: 20px 25px 40px
+					margin-top: 1rem
+					padding: to-rem(15px) to-rem(15px) to-rem(35px)
 					span
 						margin-left: 5px
 
 			ul.nav-manage
 				li
-					margin: 20px 25px 40px
+					margin: 2rem to-rem(20px) to-rem(35px)
 					a img
-						transform: scale(1.4)
+						transform: scale(1.8)
 
 /* Main -------------------------------------------------- */
 main
@@ -123,8 +179,8 @@ main
 	section.slider
 		.wrapper
 			display: flex
-			padding-top: 30px
-			padding-bottom: 30px
+			padding-top: 2rem
+			padding-bottom: 2rem
 			height: to-rem(505px)
 
 			.slider-dots
@@ -135,20 +191,37 @@ main
 				div.img
 					*
 						color: #fff
-					padding: 70px 60px 104px
+					padding: to-rem(70px) to-rem(60px) to-rem(104px)
 					border-radius: $radius
 					display: flex
 					flex-direction: column
-					// * add Aligning slider contents
-					align-items: flex-start
-					text-align: left
+					// Aligning slider contents
+					&:nth-child(n)
+						align-items: flex-start
+						text-align: left
+					&:nth-child(2n)
+						align-items: center
+						text-align: center
+					&:nth-child(3n)
+						align-items: flex-end
+						text-align: right
+					// Slider interaction
+					position: absolute
+					top: 0
+					left: 0
+					opacity: 0
+					visibility: hidden
+					transition: all 0.8s ease
+					&.active
+						opacity: 1
+						visibility: visible
 					h3
-						width: 570px
-						font-size: 48px
+						width: 50%
+						font-size: to-rem(30px)
 						margin-bottom: 110px
 					p
-						width: 340px
-						margin-bottom: 30px
+						width: 40%
+						margin-bottom: to-rem(30px)
 					a
 						@extend %btn
 						padding: to-rem(8px) to-rem(35px)
@@ -164,28 +237,27 @@ main
 					li
 						display: inline-block
 						margin: 0 18px
-						a
+						button
 							display: inline-block
-							width: 2px
-							height: 2px
+							padding: to-rem(4px)
 							border-radius: 50%
 
 							opacity: 0.5
 							background-color: #ffffff
-							border: solid 3px transparent
+							border: solid 5px transparent
+							cursor: pointer
 
-							// Doesn't work
-							box-sizing: content-box
+							&:hover
+								opacity: 1
 
 							&.active
 								opacity: 1
 								background-color: transparent
-								border: solid 3px #ffffff
+								border: solid 5px #ffffff
 			div.advert
 				width: 25% - 2.5%
 				div.img
-					// height: to-rem(335px)
-					height: to-rem(315px)
+					height: to-rem(305px)
 					margin-bottom: to-rem(25px)
 					padding: to-rem(30px)
 					border-radius: $radius
@@ -195,7 +267,7 @@ main
 					span
 						font-size: to-rem(100px)
 					p
-						margin-top: to-rem(50px)
+						margin-top: to-rem(40px)
 						font-size: to-rem(30px)
 						text-transform: uppercase
 
@@ -233,26 +305,29 @@ main
 			padding-top: to-rem(30px)
 			padding-bottom: to-rem(60px)
 			h2
-				padding: (to-rem(50px)) 0
+				padding: (to-rem(15px)) 0
 				background-color: #262a32
 				@include text-gradient (#08d2bd, #1b9bb2)
 				text-align: center
 				position: relative
-				// * doesn't work
-				&::before
+				&:before
 					position: absolute
-					top: 50%
-					left: 0
-					width: 20%
+					bottom: 50%
+					right: 0
+					content: ""
+					width: 40%
 					height: 100%
 					background-color: inherit
-				&::after
+					border-bottom: 2px solid #fff
+					opacity: 0.1
+				&:after
 					position: absolute
 					top: 50%
 					left: 0
 					content: ""
-					width: 100%
-					border-bottom: 1px solid #fff
+					width: 40%
+					background-color: inherit
+					border-bottom: 2px solid #fff
 					opacity: 0.1
 
 			div.items
@@ -313,6 +388,7 @@ main
 						border-radius: inherit
 						opacity: 0
 						visibility: hidden
+						transition: all 0.4s ease
 						button
 							display: inline-block
 							background-color: #fff
@@ -330,6 +406,39 @@ main
 								background-color: transparent
 								width: 2rem
 								height: 2rem
+					&.com
+						padding-bottom: 0
+						.img
+							height: 100%
+							border-radius: 10px
+						.com-overlay
+							position: absolute
+							top: 0
+							right: 0
+							bottom: 0
+							left: 0
+							background: linear-gradient(to top, #675b99, #dc5987)
+							border-radius: inherit
+							opacity: 0.8
+
+							display: flex
+							flex-direction: column
+							justify-content: flex-end
+							padding: to-rem(35px) to-rem(30px)
+							text-align: left
+							*
+								color: #fff
+							blockquote
+								width: 70%
+								font-size: to-rem(16px)
+								line-height: 1.5
+								p
+									margin-top: to-rem(30px)
+									font-size: 1rem
+									text-transform: uppercase
+									img
+										margin: 0 0.7rem
+										transform: scale(1.8)
 
 			button.btn
 				@extend %btn
@@ -402,24 +511,40 @@ main
 						font-style: italic
 						letter-spacing: 2.5px
 				div.items
-					display: flex
-					flex-wrap: wrap
-					margin: 0 -1%
-					.item
-						width: 25% - 2 * 1%
-						margin: 1%
-						padding-bottom: 1.5rem
-						background-color: #fff
-						border-radius: $radius + 2px
-						text-align: center
-						.img
-							height: to-rem(260px)
-							border-radius: $radius $radius 0 0
-						h4.name
-							width: 70%
-							margin: 1rem auto
-						a
-							color: #84bc22
+					height: to-rem(360px)
+					position: relative
+					.screen
+						width: 95%
+						margin: 0 -1
+						display: flex
+						flex-wrap: nowrap
+						// Slider interactivity
+						position: absolute
+						top: 0
+						left: 50%
+						transform: translateX(-50%)
+						opacity: 0
+						visibility: hidden
+						transition: all 0.8s ease
+						&.active
+							opacity: 1
+							visibility: visible
+
+						.item
+							width: 25% - 2 * 1%
+							margin: 1%
+							padding-bottom: 1.5rem
+							background-color: #fff
+							border-radius: $radius + 2px
+							text-align: center
+							.img
+								height: to-rem(260px)
+								border-radius: $radius $radius 0 0
+							h4.name
+								width: 70%
+								margin: 1rem auto
+							a
+								color: #84bc22
 
 	/* Benefits ---------------------------------------------- */
 	section.benefits
