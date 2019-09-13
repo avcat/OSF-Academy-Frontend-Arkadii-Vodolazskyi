@@ -6,61 +6,17 @@
 // Import mixins
 @import ./helpers/mixins
 
-// Variables ------------------------------------------------
-$hor-padd: 4.3%
-$radius: 10px
-
-// General styles -------------------------------------------
-html
-	@if (calc(100vw <= 1280px))
-		font-size: (14 / 1280) * 100vw
-	@else if (calc(100vw > 1280px))
-		font-size: 14px
-
-body
-	position: relative
-
-.wrapper
-	width: 100%
-	padding-left: $hor-padd
-	padding-right: $hor-padd
-	text-align: center
-
-.img
-	@extend %img
-
-a, button
-	transition: all 0.5s ease
-
-%btn
-	display: inline-block
-	text-transform: uppercase
-	border: 3px solid rgba(#fff, 0.5)
-	background-color: transparent
-	border-radius: $radius + 25px
-	cursor: pointer
-
-@mixin text-gradient ($color1, $color2)
-	background: linear-gradient(to top, $color1, $color2)
-	-webkit-background-clip: text
-	-webkit-text-fill-color: transparent
-
-@function to-rem ($original)
-	@return $original / 14px * 1rem
-
 /* Header ------------------------------------------------ */
 header
 	background-color: #fff
 	border-bottom: 1px solid #ccc
-	.wrapper
+	> .wrapper
 		display: flex
 		justify-content: space-between
-		align-items: center
-		padding-top: 1rem
+		align-items: flex-end
 		a.logo
 			display: flex
-			align-items: center
-			padding-bottom: 1rem
+			align-self: center
 			img
 				width: to-rem(64px)
 				height: to-rem(64px)
@@ -73,32 +29,34 @@ header
 				h2
 					font-size: to-rem(18px)
 					color: #84bc22
-		li
-			transition: all 0.3s ease
+		nav > ul
+			display: flex
+			align-items: flex-end
+			> li
+				display: inline-block
+				padding: to-rem(15px) to-rem(20px) to-rem(30px) to-rem(20px)
+				transition: all 0.3s ease
+				user-select: none
+				&:hover
+					color: #fff
+				> span.arrow-down
+					font-size: 0.7em
+					margin-left: to-rem(8px)
+					color: #45413e
+					opacity: 0.7
 		nav
 			display: flex
 			justify-self: flex-end
-			// Arrow styles
-			span.arrow-down
-				font-size: 0.7em
-				color: inherit
-			> ul
-				> li
-					display: inline-block
-					text-transform: uppercase
+			padding-top: 1rem
 			ul.nav-main
-				li
-					margin-top: 1rem
-					padding: to-rem(15px) to-rem(20px) to-rem(35px) to-rem(20px)
+				> li
+					text-transform: uppercase
 					border-bottom: 5px solid transparent
-					user-select: none
-					span
-						color: #fff
 					&:hover
-						color: #fff
+						*
+							color: #fff
 						background-color: #262a32
 						border-bottom: 5px solid #84bc22
-
 					&.menu-open
 						z-index: 20
 						&:hover
@@ -106,26 +64,35 @@ header
 								opacity: 1
 								visibility: visible
 						.menu
-							display: flex
-							flex-direction: row
-							flex-wrap: wrap
-							justify-content: space-evenly
-							padding-top: to-rem(20px)
-							padding-bottom: to-rem(30px)
 							background-color: #262a32
-							*
-								font-size: 1rem
-								color: #fff
-								text-align: left
 							// Hover effects
 							position: absolute
 							opacity: 0
 							visibility: hidden
 							left: 0
 							right: 0
-							top: to-rem(97px)
+							top: to-rem(83px)
 							z-index: 10
-
+							transition: all 0.4s ease
+							> .wrapper
+								display: flex
+								flex-direction: row
+								flex-wrap: nowrap
+								justify-content: space-between
+								padding-top: to-rem(30px)
+								padding-bottom: to-rem(30px)
+							*
+								font-size: 1rem
+								color: #fff
+								text-align: left
+							h3
+								padding-bottom: to-rem(10px)
+							li
+								padding: to-rem(6px) 0
+								text-transform: capitalize
+								transition: all 0.2s ease
+								&:hover
+									opacity: 0.6
 							div.prod-cat
 								width: 40%
 								display: flex
@@ -135,22 +102,10 @@ header
 									flex-direction: row
 									flex-wrap: nowrap
 									justify-content: space-between
-									> ul
-										padding-top: to-rem(15px)
-										> li
-											margin: 0
-											padding: to-rem(5px) 0
-											text-transform: capitalize
 							div.sale
 								width: 10%
 								display: flex
 								flex-direction: column
-								> ul
-									padding-top: to-rem(15px)
-									> li
-										margin: 0
-										padding: to-rem(5px) 0
-										text-transform: capitalize
 							img
 								width: 30%
 								height: 100%
@@ -160,17 +115,25 @@ header
 				margin-right: to-rem(50px)
 				*
 					color: #45413e
-				li
-					margin-top: 1rem
-					padding: to-rem(15px) to-rem(15px) to-rem(35px)
-					span
-						margin-left: 5px
+				> li
+					border-bottom: 5px solid transparent
+					&:hover
+						*
+							color: #fff
+						background-color: #262a32
+						border-bottom: 5px solid #84bc22
 
 			ul.nav-manage
-				li
-					margin: 2rem to-rem(20px) to-rem(35px)
-					a img
-						transform: scale(1.8)
+				> li
+					a svg
+						color: #45413e
+						opacity: 0.5
+						font-size: 1.7rem
+						path
+							transition: all 0.3s ease
+						&:hover
+							path
+								color: #84bc22
 
 /* Main -------------------------------------------------- */
 main
@@ -233,18 +196,18 @@ main
 					position: absolute
 					left: 50%
 					transform: translateX(-50%)
-					bottom: 48px
+					bottom: to-rem(30px)
 					li
 						display: inline-block
-						margin: 0 18px
+						margin: 0 to-rem(10px)
 						button
 							display: inline-block
-							padding: to-rem(4px)
+							padding: 0.15rem
 							border-radius: 50%
 
 							opacity: 0.5
 							background-color: #ffffff
-							border: solid 5px transparent
+							border: solid 0.25rem transparent
 							cursor: pointer
 
 							&:hover
@@ -253,7 +216,7 @@ main
 							&.active
 								opacity: 1
 								background-color: transparent
-								border: solid 5px #ffffff
+								border: solid 0.25rem #ffffff
 			div.advert
 				width: 25% - 2.5%
 				div.img
@@ -288,6 +251,7 @@ main
 						padding: to-rem(8px) to-rem(23px)
 						border-color: #3a5b96
 						svg
+							transition: all 0.5s ease
 							margin-right: 10px
 							color: #3a5b96
 						&:hover
@@ -333,6 +297,7 @@ main
 			div.items
 				display: flex
 				flex-wrap: wrap
+				justify-content: space-between
 				margin: 0 -1%
 				.item
 					width: 25% - 2 * 1%
@@ -341,6 +306,10 @@ main
 					background-color: #fff
 					border-radius: $radius + 2px
 					text-align: center
+					// Flex
+					display: flex
+					flex-direction: column
+					justify-content: space-between
 					// Card overlay styles
 					position: relative
 					&:hover
@@ -352,7 +321,7 @@ main
 						border-radius: $radius $radius 0 0
 					h4.name
 						font-size: to-rem(16px)
-						width: 80%
+						width: 90%
 						margin: 1rem auto
 					span
 						font-size: 1rem
@@ -511,13 +480,12 @@ main
 						font-style: italic
 						letter-spacing: 2.5px
 				div.items
-					height: to-rem(360px)
 					position: relative
 					.screen
-						width: 95%
-						margin: 0 -1
+						width: 100%
 						display: flex
 						flex-wrap: nowrap
+						justify-content: space-between
 						// Slider interactivity
 						position: absolute
 						top: 0
@@ -527,12 +495,11 @@ main
 						visibility: hidden
 						transition: all 0.8s ease
 						&.active
+							position: relative
 							opacity: 1
 							visibility: visible
-
 						.item
-							width: 25% - 2 * 1%
-							margin: 1%
+							width: 23%
 							padding-bottom: 1.5rem
 							background-color: #fff
 							border-radius: $radius + 2px
@@ -550,19 +517,17 @@ main
 	section.benefits
 		background-color: #45413e
 		.wrapper
-			margin: 0 -2.5% * 2
 			padding-top: to-rem(45px)
 			padding-bottom: to-rem(45px)
 			display: flex
-			justify-content: space-evenly
+			justify-content: space-between
 			div.card
-				width: 23%
-				margin: 0 2.5%
+				width: 25%
 				display: flex
 				align-items: flex-start
+				justify-content: space-between
 				img
-					transform: scale(1.3)
-					margin-top: to-rem(15px)
+					width: to-rem(170px)
 					margin-right: to-rem(35px)
 				h4
 					margin-bottom: to-rem(23px)
@@ -617,6 +582,12 @@ footer
 			ul li
 				display: inline-block
 				margin: 0 to-rem(12px)
-				a img
-					opacity: 0.7
-					transform: scale(1.4)
+				a svg
+					color: #45413e
+					opacity: 0.5
+					font-size: 1.2rem
+					path
+						transition: all 0.3s ease
+					&:hover
+						path
+							color: #84bc22

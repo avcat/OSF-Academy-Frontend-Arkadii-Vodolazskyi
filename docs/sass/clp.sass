@@ -1,0 +1,413 @@
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+/* Header ------------------------------------------------ */
+header
+	background-color: #fff
+	border-bottom: 1px solid #ccc
+	> .wrapper
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+		a.logo
+			display: flex
+			align-self: center
+			img
+				width: to-rem(64px)
+				height: to-rem(64px)
+				margin-right: 5px
+			div
+				h1
+					font-size: to-rem(32px)
+					letter-spacing: 6.33px
+					color: #011847
+				h2
+					font-size: to-rem(18px)
+					color: #84bc22
+		nav > ul
+			display: flex
+			align-items: flex-end
+			> li
+				display: inline-block
+				padding: to-rem(15px) to-rem(20px) to-rem(30px) to-rem(20px)
+				transition: all 0.3s ease
+				user-select: none
+				&:hover
+					color: #fff
+				> span.arrow-down
+					font-size: 0.7em
+					margin-left: to-rem(8px)
+					color: #45413e
+					opacity: 0.7
+		nav
+			display: flex
+			justify-self: flex-end
+			padding-top: 1rem
+			ul.nav-main
+				> li
+					text-transform: uppercase
+					border-bottom: 5px solid transparent
+					&:hover
+						*
+							color: #fff
+						background-color: #262a32
+						border-bottom: 5px solid #84bc22
+					&.menu-open
+						z-index: 20
+						&:hover
+							.menu
+								opacity: 1
+								visibility: visible
+						.menu
+							background-color: #262a32
+							// Hover effects
+							position: absolute
+							opacity: 0
+							visibility: hidden
+							left: 0
+							right: 0
+							top: to-rem(86px)
+							z-index: 10
+							transition: all 0.4s ease
+							> .wrapper
+								display: flex
+								flex-direction: row
+								flex-wrap: nowrap
+								justify-content: space-between
+								padding-top: to-rem(30px)
+								padding-bottom: to-rem(30px)
+							*
+								font-size: 1rem
+								color: #fff
+								text-align: left
+							h3
+								padding-bottom: to-rem(10px)
+							li
+								padding: to-rem(6px) 0
+								text-transform: capitalize
+								transition: all 0.2s ease
+								&:hover
+									opacity: 0.6
+							div.prod-cat
+								width: 40%
+								display: flex
+								flex-direction: column
+								> div
+									display: flex
+									flex-direction: row
+									flex-wrap: nowrap
+									justify-content: space-between
+							div.sale
+								width: 10%
+								display: flex
+								flex-direction: column
+							img
+								width: 30%
+								height: 100%
+								border-radius: $radius
+
+			ul.nav-lang
+				margin-right: to-rem(50px)
+				*
+					color: #45413e
+				> li
+					border-bottom: 5px solid transparent
+					&:hover
+						*
+							color: #fff
+						background-color: #262a32
+						border-bottom: 5px solid #84bc22
+
+			ul.nav-manage
+				> li a
+					svg
+						width: 1.7rem
+						fill: #45413e
+						path
+							opacity: 0.5
+							transition: all 0.3s ease
+					&:hover
+						svg path
+							opacity: 0.8
+							fill: #84bc22
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Popular Items ----------------------------------------- */
+	section.pop-items
+		// * ? Color
+		background-color: #d9d9d9
+		.wrapper
+			padding-top: to-rem(42px)
+			padding-bottom: to-rem(77px)
+			ul.breadcrumbs
+				li
+					display: inline-block
+					margin: 0 0.4rem
+					a
+						color: #84bc22
+			h2
+				padding: to-rem(15px) 0 to-rem(30px)
+				text-align: center
+				position: relative
+				font-size: to-rem(48px)
+				&:before
+					position: absolute
+					bottom: 50%
+					right: 0
+					content: ""
+					width: 35%
+					background-color: transparent
+					border-bottom: 2px solid #fff
+					opacity: 0.5
+				&:after
+					position: absolute
+					top: 50%
+					left: 0
+					content: ""
+					width: 35%
+					background-color: transparent
+					border-bottom: 2px solid #fff
+					opacity: 0.5
+			// Search form
+			form
+				border-radius: $radius
+				padding: to-rem(20px) to-rem(30px)
+				background-color: #fff
+				display: flex
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: space-between
+				> *
+					width: 26%
+					margin: to-rem(15px) 0
+					display: flex
+					justify-content: space-between
+					align-items: center
+					*
+						font-size: 1rem
+					select, ul
+						width: 80%
+				select
+					border: 2px solid rgba(#45413e, 0.5)
+					border-radius: $radius + 25px
+					padding: to-rem(8px) to-rem(20px)
+				.color ul
+					display: flex
+					justify-content: space-between
+					li
+						padding: 0.4rem
+						border-radius: 50%
+						border: 5px solid transparent
+						cursor: pointer
+						transition: all 0.3s ease
+			span.results
+				display: block
+				text-align: center
+				margin: to-rem(35px) 0 to-rem(25px)
+				color: #45413e
+				line-height: 1.37
+			div.items
+				display: flex
+				flex-wrap: wrap
+				justify-content: space-between
+				margin: 0 -1%
+				.item
+					width: 25% - 2 * 1%
+					margin: 1%
+					padding-bottom: 1.5rem
+					background-color: #fff
+					border-radius: $radius + 2px
+					text-align: center
+					// Flex
+					display: flex
+					flex-direction: column
+					justify-content: space-between
+					// Card overlay styles
+					position: relative
+					&:hover
+						.overlay
+							opacity: 0.9
+							visibility: visible
+					.img
+						height: to-rem(260px)
+						border-radius: $radius $radius 0 0
+					h4.name
+						font-size: to-rem(16px)
+						width: 90%
+						margin: 1rem auto
+					span
+						font-size: 1rem
+						color: #bdc3c7
+					// Card overlay styles
+					.overlay
+						position: absolute
+						top: 0
+						right: 0
+						bottom: 0
+						left: 0
+						background: linear-gradient(to top, #1cc167, #2ed3a2)
+						border-radius: inherit
+						opacity: 0
+						visibility: hidden
+						transition: all 0.4s ease
+						button
+							display: inline-block
+							background-color: #fff
+							padding: to-rem(31px)
+							border-radius: 100%
+							border: 1px solid #fff
+							cursor: pointer
+							margin-top: 50%
+							&:hover
+								background-color: darken(#fff, 5%)
+								box-shadow: 0 0 20px darken(#1cc167, 20%)
+							&:nth-child(1)
+								margin-right: to-rem(22px)
+							img
+								background-color: transparent
+								width: 2rem
+								height: 2rem
+			button.btn
+				@extend %btn
+				margin-top: to-rem(120px)
+				padding: to-rem(10px) to-rem(42px)
+				color: #fff
+				font-size: 1rem
+				border: none
+				background-color: #84bc22
+				&:hover
+					background-color: #fff
+					color: #84bc22
+
+	/* Featured Products ------------------------------------- */
+	section.feat-prod
+		background-color: #262a32
+		.wrapper
+			padding-top: to-rem(35px)
+			padding-bottom: to-rem(64px)
+			h2
+				font-size: to-rem(40px)
+				color: #fff
+			p
+				font-size: to-rem(18px)
+				color: #fff
+			div.slider-arrows
+				div.arrows
+					display: flex
+					justify-content: center
+					align-items: center
+					width: 50%
+					margin: 0 auto
+					padding: to-rem(35px)
+					*
+						margin: 0 0.3rem
+						color: #fff
+					button
+						background-color: lighten(#262a32, 8%)
+						font-size: 1rem
+						border: none
+						padding: to-rem(6px)
+						cursor: pointer
+						&:hover
+							background-color: lighten(#262a32, 15%)
+					div
+						width: 45%
+						height: 2px
+						background-color: #fff
+					p
+						font-size: 1.4rem
+						font-weight: bold
+						font-style: italic
+						letter-spacing: 2.5px
+				div.items
+					position: relative
+					.screen
+						width: 100%
+						display: flex
+						flex-wrap: nowrap
+						justify-content: space-between
+						// Slider interactivity
+						position: absolute
+						top: 0
+						left: 50%
+						transform: translateX(-50%)
+						opacity: 0
+						visibility: hidden
+						transition: all 0.8s ease
+						&.active
+							position: relative
+							opacity: 1
+							visibility: visible
+						.item
+							width: 23%
+							padding-bottom: 1.5rem
+							background-color: #fff
+							border-radius: $radius + 2px
+							text-align: center
+							.img
+								height: to-rem(260px)
+								border-radius: $radius $radius 0 0
+							h4.name
+								width: 70%
+								margin: 1rem auto
+							a
+								color: #84bc22
+
+/* Footer ------------------------------------------------ */
+footer
+	.wrapper
+		padding-top: to-rem(32px)
+		padding-bottom: to-rem(38px)
+		display: flex
+		justify-content: space-between
+		*
+			text-align: left
+			font-size: to-rem(13px)
+			color: #45413e
+		h3
+			text-transform: uppercase
+			@include text-gradient(#08d2bd, #1b9bb2)
+			margin-bottom: to-rem(28px)
+		li
+			margin: to-rem(10px) 0
+		.contact
+			width: 17%
+			h3
+				margin-top: to-rem(28px)
+				margin-bottom: 0
+			ul li
+				margin-bottom: to-rem(20px)
+		.categories
+			width: 40%
+			> div
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+				ul li a
+					opacity: 0.7
+					&:hover
+						opacity: 1
+		.about
+			width: 10%
+			ul li a
+				opacity: 0.7
+				&:hover
+					opacity: 1
+		.social
+			ul li
+				display: inline-block
+				margin: 0 to-rem(12px)
+				a svg
+					color: #45413e
+					opacity: 0.5
+					font-size: 1.2rem
+					path
+						transition: all 0.3s ease
+					&:hover
+						path
+							color: #84bc22
