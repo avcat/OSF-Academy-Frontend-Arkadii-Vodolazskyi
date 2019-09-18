@@ -5,8 +5,20 @@ Slider arrows:
 
 Home, CLP:
 - Reorganize folders, images and paths
+- Fix no images
+- Fix Logo svgs in github pages
 
 SVG:
 - Unificate. Choose between native SVG code and Font icons
 
+Home, CLP:
+- Provide all the links
+
+All:
+- Make sass modules out of the sections to import
+
+
 ================ Done: ================
+
+CLP, PDP:
+- Background colors = #F1EDEA

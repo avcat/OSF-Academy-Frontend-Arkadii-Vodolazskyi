@@ -137,13 +137,13 @@ header
 /* Main -------------------------------------------------- */
 main
 
-	/* Popular Items ----------------------------------------- */
-	section.pop-items
+	/* Breadcrumbs ----------------------------------------- */
+	section.breadcrumbs
 		background-color: #F1EDEA
 		.wrapper
-			padding-top: to-rem(42px)
-			padding-bottom: to-rem(77px)
-			ul.breadcrumbs
+			padding-top: to-rem(50px)
+			padding-bottom: to-rem(50px)
+			> ul
 				li
 					display: inline-block
 					margin: 0 0.4rem
@@ -161,65 +161,115 @@ main
 					bottom: 50%
 					right: 0
 					content: ""
-					width: 35%
+					width: 20%
 					background-color: transparent
-					border-bottom: 2px solid #fff
-					opacity: 0.5
+					border-bottom: 0.15rem solid #e5e2df
 				&:after
 					position: absolute
 					top: 50%
 					left: 0
 					content: ""
-					width: 35%
+					width: 20%
 					background-color: transparent
-					border-bottom: 2px solid #fff
-					opacity: 0.5
-			// Search form
-			form
-				border-radius: $radius
-				padding: to-rem(20px) to-rem(30px)
+					border-bottom: 0.15rem solid #e5e2df
+
+	/* Product ----------------------------------------- */
+	section.product
+		.wrapper
+			background-color: #F1EDEA
+			.sub-wrapper
 				background-color: #fff
-				display: flex
-				flex-wrap: wrap
-				flex-direction: row
-				justify-content: space-between
-				> *
-					width: 26%
-					margin: to-rem(15px) 0
-					display: flex
-					justify-content: space-between
-					align-items: center
-					*
-						font-size: 1rem
-					select, ul
-						width: 80%
-				select
-					border: 2px solid rgba(#45413e, 0.5)
-					border-radius: $radius + 25px
-					padding: to-rem(8px) to-rem(20px)
-				.color ul
-					display: flex
-					justify-content: space-between
-					li
-						padding: 0.4rem
-						border-radius: 50%
-						border: 5px solid transparent
-						cursor: pointer
-						transition: all 0.3s ease
-			span.results
-				display: block
+				border-radius: $radius
+				.overview
+				.info
+					> ul
+						text-align: center
+						li
+							display: inline-block
+							margin: 0 1rem
+							padding: 1.5rem 3rem
+							font-size: to-rem(24px)
+							border-radius: 2rem 2rem 0 0
+							// Interaction
+							color: #bdc3c7
+							background-color: inherit
+							transition: all 0.2s ease
+							cursor: pointer
+							&:hover
+								color: #fff
+								background-color: #262a32
+							&.active
+								color: #fff
+								background-color: #262a32
+					.tab-box
+						background-color: #262a32
+						// Interaction
+						position: relative
+						.tab
+							height: to-rem(350px)
+							display: flex
+							flex-direction: column
+							flex-wrap: wrap
+							align-items: flex-start
+							padding: to-rem(70px)
+							overflow: hidden
+							// Interaction
+							position: absolute
+							left: 0
+							top: 0
+							right: 0
+							bottom: 0
+							opacity: 0
+							visibility: hidden
+							transition: all 0.6s ease
+							p
+								width: 48%
+								color: #fff
+								margin-bottom: 2rem
+								text-align: left
+								font-size: to-rem(16px)
+								line-height: 1.5
+							&.active
+								position: relative
+								visibility: visible
+								opacity: 1
+
+	/* Popular Items ----------------------------------------- */
+	section.pop-items
+		background-color: #F1EDEA
+		.wrapper
+			padding-top: to-rem(20px)
+			padding-bottom: to-rem(50px)
+			h2
+				font-size: to-rem(24px)
+				padding: (to-rem(25px)) 0
+				@include text-gradient (#08d2bd, #1b9bb2)
 				text-align: center
-				margin: to-rem(35px) 0 to-rem(25px)
-				color: #45413e
-				line-height: 1.37
+				text-transform: uppercase
+				position: relative
+				&:before
+					position: absolute
+					bottom: 50%
+					right: 0
+					content: ""
+					width: 40%
+					height: 100%
+					background-color: inherit
+					border-bottom: 0.15rem solid #e5e2df
+				&:after
+					position: absolute
+					top: 50%
+					left: 0
+					content: ""
+					width: 40%
+					background-color: inherit
+					border-bottom: 0.15rem solid #e5e2df
 			div.items
 				display: flex
 				flex-wrap: wrap
 				justify-content: space-between
-				margin: 0 -1%
 				.item
-					width: 25% - 2 * 1%
-					margin: 1%
+					width: 23%
 					padding-bottom: 1.5rem
 					background-color: #fff
 					border-radius: $radius + 2px
@@ -273,91 +323,31 @@ main
 								background-color: transparent
 								width: 2rem
 								height: 2rem
-			button.btn
-				@extend %btn
-				margin-top: to-rem(120px)
-				padding: to-rem(10px) to-rem(42px)
-				color: #fff
-				font-size: 1rem
-				border: none
-				background-color: #84bc22
-				&:hover
-					background-color: #fff
-					color: #84bc22
 
-	/* Featured Products ------------------------------------- */
-	section.feat-prod
-		background-color: #262a32
+	/* Benefits ---------------------------------------------- */
+	section.benefits
+		background-color: #45413e
 		.wrapper
-			padding-top: to-rem(35px)
-			padding-bottom: to-rem(64px)
-			h2
-				font-size: to-rem(40px)
-				color: #fff
-			p
-				font-size: to-rem(18px)
-				color: #fff
-			div.slider-arrows
-				div.arrows
-					display: flex
-					justify-content: center
-					align-items: center
-					width: 50%
-					margin: 0 auto
-					padding: to-rem(35px)
-					*
-						margin: 0 0.3rem
-						color: #fff
-					button
-						background-color: lighten(#262a32, 8%)
-						font-size: 1rem
-						border: none
-						padding: to-rem(6px)
-						cursor: pointer
-						&:hover
-							background-color: lighten(#262a32, 15%)
-					div
-						width: 45%
-						height: 2px
-						background-color: #fff
-					p
-						font-size: 1.4rem
-						font-weight: bold
-						font-style: italic
-						letter-spacing: 2.5px
-				div.items
-					position: relative
-					.screen
-						width: 100%
-						display: flex
-						flex-wrap: nowrap
-						justify-content: space-between
-						// Slider interactivity
-						position: absolute
-						top: 0
-						left: 50%
-						transform: translateX(-50%)
-						opacity: 0
-						visibility: hidden
-						transition: all 0.8s ease
-						&.active
-							position: relative
-							opacity: 1
-							visibility: visible
-						.item
-							width: 23%
-							padding-bottom: 1.5rem
-							background-color: #fff
-							border-radius: $radius + 2px
-							text-align: center
-							.img
-								height: to-rem(260px)
-								border-radius: $radius $radius 0 0
-							h4.name
-								width: 70%
-								margin: 1rem auto
-							a
-								color: #84bc22
+			padding-top: to-rem(45px)
+			padding-bottom: to-rem(45px)
+			display: flex
+			justify-content: space-between
+			div.card
+				width: 30%
+				display: flex
+				align-items: flex-start
+				justify-content: space-between
+				img
+					width: to-rem(150px)
+					margin-right: to-rem(35px)
+				h4
+					margin-bottom: to-rem(23px)
+					text-transform: uppercase
+					color: #fff
+					text-align: left
+				p
+					color: lighten(#45413e, 25%)
+					text-align: left
 
 /* Footer ------------------------------------------------ */
 footer
