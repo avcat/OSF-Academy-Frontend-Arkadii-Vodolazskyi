@@ -4,6 +4,10 @@
 // Import mixins
 @import ./helpers/mixins
 
+/* Overlay ------------------------------------------------ */
+#overlay
+	@extend %overlay
+
 /* Header ------------------------------------------------ */
 header
 	background-color: #fff
@@ -142,7 +146,7 @@ main
 		background-color: #F1EDEA
 		.wrapper
 			padding-top: to-rem(50px)
-			padding-bottom: to-rem(50px)
+			padding-bottom: to-rem(30px)
 			> ul
 				li
 					display: inline-block
@@ -152,7 +156,7 @@ main
 						&:hover
 							color: lighten(#84bc22, 15%)
 			h2
-				padding: to-rem(15px) 0 to-rem(30px)
+				padding: to-rem(15px) 0 to-rem(20px)
 				text-align: center
 				position: relative
 				font-size: to-rem(48px)
@@ -181,7 +185,132 @@ main
 				background-color: #fff
 				border-radius: $radius
 				.overview
+					display: flex
+					flex-direction: row
+					flex-wrap: nowrap
+					position: relative
+					> svg
+						font-size: to-rem(22px)
+						position: absolute
+						top: to-rem(34px)
+						left: to-rem(28px)
+						z-index: 10
+						path
+							fill: #84bc22
+					.large
+						width: 50%
+						padding: 1rem
+						img
+							width: 100%
+							cursor: pointer
+							transition: opacity 0.7s ease
+							// Interaction
+							opacity: 0
+							visibility: hidden
+							position: absolute
+							&.active
+								position: relative
+								opacity: 1
+								visibility: visible
+								&:hover
+									opacity: 0.7
+							&.full
+								position: absolute
+								opacity: 1
+								visibility: visible
+								z-index: 110
+								width: 50%
+								top: 50%
+								left: 50%
+								transform: translate(-50%, -50%)
+								&:hover
+									// * How to make unset?
+					.small
+						width: 10%
+						padding: 1rem
+						display: flex
+						flex-direction: column
+						justify-content: flex-start
+						img
+							width: to-rem(70px)
+							height: to-rem(70px)
+							border: solid 1px #45413e
+							margin: 1rem 0
+							cursor: pointer
+							transition: all 0.3s ease
+							&:hover
+								opacity: 0.5
+								border: solid 1px #84bc22
+							&.active
+								opacity: 0.5
+								border: solid 1px #84bc22
+					.about
+						width: 40%
+						padding: to-rem(42px) 2rem 2rem
+						display: flex
+						flex-direction: column
+						justify-content: flex-start
+						align-items: flex-start
+						span.price
+							font-size: to-rem(48px)
+							margin-bottom: to-rem(40px)
+						.add
+							width: 100%
+							margin-bottom: to-rem(48px)
+							text-align: left
+							button
+								border: 2px solid rgba(#45413e, 0.5)
+								border-radius: $radius + 25px
+								padding: to-rem(8px) to-rem(20px)
+								font-size: to-rem(16px)
+								width: 42%
+								background-color: #84bc22
+								color: #fff
+								text-transform: uppercase
+								cursor: pointer
+								transition: all 0.3s ease
+								&:hover
+									background-color: transparent
+									color: #84bc22
+						p
+							text-align: left
+							color: #45413e
+							line-height: 1.5
+							transition: all 0.5s ease
+							overflow: hidden
+						button.more
+							display: block
+							background-color: transparent
+							border: none
+							color: #84bc22
+							font-size: to-rem(16px)
+							text-align: center
+							cursor: pointer
+							margin: to-rem(24px) 0 to-rem(30px)
+							transition: all 0.5s ease
+							&:hover
+								text-decoration: underline
+						.share
+							span
+								color: #45413e
+								opacity: 0.5
+								margin-right: to-rem(31px)
+							ul
+								display: inline-block
+								li
+									display: inline-block
+									margin-right: to-rem(15px)
+									> a svg
+										color: #45413e
+										opacity: 0.5
+										font-size: 1.2rem
+										path
+											transition: all 0.3s ease
+										&:hover
+											path
+												color: #84bc22
 				.info
+					margin-top: to-rem(70px)
 					> ul
 						text-align: center
 						li

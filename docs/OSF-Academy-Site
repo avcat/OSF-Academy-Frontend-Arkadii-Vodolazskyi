@@ -14,6 +14,9 @@ SVG:
 Home, CLP:
 - Provide all the links
 
+PDP:
+- Make some sense to reviews
+
 All:
 - Make interactions with header: sign in
 - 404
@@ -23,5 +26,15 @@ All:
 
 ================ Done: ================
 
-CLP, PDP:
-- Background colors = #F1EDEA
+PDP:
+- Added basic layuot for Product overview
+- Added interaction small-big images
+- Added interaction big-full size image
+- Added "Read more" interaction
+
+Next:
+PDP
+- Make custom select element
+- Make custom input element
+- Small fixings of animation
+404 Page

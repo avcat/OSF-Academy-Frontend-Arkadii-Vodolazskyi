@@ -20,9 +20,28 @@ body {
   padding-right: 4.3%;
   text-align: center; }
 
+section {
+  overflow: hidden; }
+
 a, button {
   display: inline-block;
   transition: all 0.5s ease; }
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer; }
+  .active#overlay {
+    opacity: 0.6;
+    visibility: visible; }
 
 .img {
   display: inline-block;
@@ -33,6 +52,7 @@ a, button {
   background-repeat: no-repeat;
   background-color: transparent; }
 
+/* Overlay ------------------------------------------------ */
 /* Header ------------------------------------------------ */
 header {
   background-color: #fff;
@@ -164,7 +184,7 @@ main {
     background-color: #F1EDEA; }
     main section.breadcrumbs .wrapper {
       padding-top: 3.5714285714rem;
-      padding-bottom: 3.5714285714rem; }
+      padding-bottom: 2.1428571429rem; }
       main section.breadcrumbs .wrapper > ul li {
         display: inline-block;
         margin: 0 0.4rem; }
@@ -173,7 +193,7 @@ main {
           main section.breadcrumbs .wrapper > ul li a:hover {
             color: #a9df4c; }
       main section.breadcrumbs .wrapper h2 {
-        padding: 1.0714285714rem 0 2.1428571429rem;
+        padding: 1.0714285714rem 0 1.4285714286rem;
         text-align: center;
         position: relative;
         font-size: 3.4285714286rem; }
@@ -198,54 +218,176 @@ main {
     main section.product .wrapper .sub-wrapper {
       background-color: #fff;
       border-radius: 10px; }
-      main section.product .wrapper .sub-wrapper .info > ul {
-        text-align: center; }
-        main section.product .wrapper .sub-wrapper .info > ul li {
-          display: inline-block;
-          margin: 0 1rem;
-          padding: 1.5rem 3rem;
-          font-size: 1.7142857143rem;
-          border-radius: 2rem 2rem 0 0;
-          color: #bdc3c7;
-          background-color: inherit;
-          transition: all 0.2s ease;
-          cursor: pointer; }
-          main section.product .wrapper .sub-wrapper .info > ul li:hover {
-            color: #fff;
-            background-color: #262a32; }
-          main section.product .wrapper .sub-wrapper .info > ul li.active {
-            color: #fff;
-            background-color: #262a32; }
-      main section.product .wrapper .sub-wrapper .info .tab-box {
-        background-color: #262a32;
+      main section.product .wrapper .sub-wrapper .overview {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         position: relative; }
-        main section.product .wrapper .sub-wrapper .info .tab-box .tab {
-          height: 25rem;
+        main section.product .wrapper .sub-wrapper .overview > svg {
+          font-size: 1.5714285714rem;
+          position: absolute;
+          top: 2.4285714286rem;
+          left: 2rem;
+          z-index: 10; }
+          main section.product .wrapper .sub-wrapper .overview > svg path {
+            fill: #84bc22; }
+        main section.product .wrapper .sub-wrapper .overview .large {
+          width: 50%;
+          padding: 1rem; }
+          main section.product .wrapper .sub-wrapper .overview .large img {
+            width: 100%;
+            cursor: pointer;
+            transition: opacity 0.7s ease;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute; }
+            main section.product .wrapper .sub-wrapper .overview .large img.active {
+              position: relative;
+              opacity: 1;
+              visibility: visible; }
+              main section.product .wrapper .sub-wrapper .overview .large img.active:hover {
+                opacity: 0.7; }
+            main section.product .wrapper .sub-wrapper .overview .large img.full {
+              position: absolute;
+              opacity: 1;
+              visibility: visible;
+              z-index: 110;
+              width: 50%;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%); }
+        main section.product .wrapper .sub-wrapper .overview .small {
+          width: 10%;
+          padding: 1rem;
           display: flex;
           flex-direction: column;
-          flex-wrap: wrap;
-          align-items: flex-start;
-          padding: 5rem;
-          overflow: hidden;
-          position: absolute;
-          left: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.6s ease; }
-          main section.product .wrapper .sub-wrapper .info .tab-box .tab p {
-            width: 48%;
-            color: #fff;
-            margin-bottom: 2rem;
+          justify-content: flex-start; }
+          main section.product .wrapper .sub-wrapper .overview .small img {
+            width: 5rem;
+            height: 5rem;
+            border: solid 1px #45413e;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease; }
+            main section.product .wrapper .sub-wrapper .overview .small img:hover {
+              opacity: 0.5;
+              border: solid 1px #84bc22; }
+            main section.product .wrapper .sub-wrapper .overview .small img.active {
+              opacity: 0.5;
+              border: solid 1px #84bc22; }
+        main section.product .wrapper .sub-wrapper .overview .about {
+          width: 40%;
+          padding: 3rem 2rem 2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start; }
+          main section.product .wrapper .sub-wrapper .overview .about span.price {
+            font-size: 3.4285714286rem;
+            margin-bottom: 2.8571428571rem; }
+          main section.product .wrapper .sub-wrapper .overview .about .add {
+            width: 100%;
+            margin-bottom: 3.4285714286rem;
+            text-align: left; }
+            main section.product .wrapper .sub-wrapper .overview .about .add button {
+              border: 2px solid rgba(69, 65, 62, 0.5);
+              border-radius: 35px;
+              padding: 0.5714285714rem 1.4285714286rem;
+              font-size: 1.1428571429rem;
+              width: 42%;
+              background-color: #84bc22;
+              color: #fff;
+              text-transform: uppercase;
+              cursor: pointer;
+              transition: all 0.3s ease; }
+              main section.product .wrapper .sub-wrapper .overview .about .add button:hover {
+                background-color: transparent;
+                color: #84bc22; }
+          main section.product .wrapper .sub-wrapper .overview .about p {
             text-align: left;
+            color: #45413e;
+            line-height: 1.5;
+            transition: all 0.5s ease;
+            overflow: hidden; }
+          main section.product .wrapper .sub-wrapper .overview .about button.more {
+            display: block;
+            background-color: transparent;
+            border: none;
+            color: #84bc22;
             font-size: 1.1428571429rem;
-            line-height: 1.5; }
-          main section.product .wrapper .sub-wrapper .info .tab-box .tab.active {
-            position: relative;
-            visibility: visible;
-            opacity: 1; }
+            text-align: center;
+            cursor: pointer;
+            margin: 1.7142857143rem 0 2.1428571429rem;
+            transition: all 0.5s ease; }
+            main section.product .wrapper .sub-wrapper .overview .about button.more:hover {
+              text-decoration: underline; }
+          main section.product .wrapper .sub-wrapper .overview .about .share span {
+            color: #45413e;
+            opacity: 0.5;
+            margin-right: 2.2142857143rem; }
+          main section.product .wrapper .sub-wrapper .overview .about .share ul {
+            display: inline-block; }
+            main section.product .wrapper .sub-wrapper .overview .about .share ul li {
+              display: inline-block;
+              margin-right: 1.0714285714rem; }
+              main section.product .wrapper .sub-wrapper .overview .about .share ul li > a svg {
+                color: #45413e;
+                opacity: 0.5;
+                font-size: 1.2rem; }
+                main section.product .wrapper .sub-wrapper .overview .about .share ul li > a svg path {
+                  transition: all 0.3s ease; }
+                main section.product .wrapper .sub-wrapper .overview .about .share ul li > a svg:hover path {
+                  color: #84bc22; }
+      main section.product .wrapper .sub-wrapper .info {
+        margin-top: 5rem; }
+        main section.product .wrapper .sub-wrapper .info > ul {
+          text-align: center; }
+          main section.product .wrapper .sub-wrapper .info > ul li {
+            display: inline-block;
+            margin: 0 1rem;
+            padding: 1.5rem 3rem;
+            font-size: 1.7142857143rem;
+            border-radius: 2rem 2rem 0 0;
+            color: #bdc3c7;
+            background-color: inherit;
+            transition: all 0.2s ease;
+            cursor: pointer; }
+            main section.product .wrapper .sub-wrapper .info > ul li:hover {
+              color: #fff;
+              background-color: #262a32; }
+            main section.product .wrapper .sub-wrapper .info > ul li.active {
+              color: #fff;
+              background-color: #262a32; }
+        main section.product .wrapper .sub-wrapper .info .tab-box {
+          background-color: #262a32;
+          position: relative; }
+          main section.product .wrapper .sub-wrapper .info .tab-box .tab {
+            height: 25rem;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 5rem;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s ease; }
+            main section.product .wrapper .sub-wrapper .info .tab-box .tab p {
+              width: 48%;
+              color: #fff;
+              margin-bottom: 2rem;
+              text-align: left;
+              font-size: 1.1428571429rem;
+              line-height: 1.5; }
+            main section.product .wrapper .sub-wrapper .info .tab-box .tab.active {
+              position: relative;
+              visibility: visible;
+              opacity: 1; }
   main section.pop-items {
     background-color: #F1EDEA; }
     main section.pop-items .wrapper {

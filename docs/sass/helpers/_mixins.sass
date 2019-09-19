@@ -18,9 +18,28 @@ body
 	padding-right: $hor-padd
 	text-align: center
 
+section
+	overflow: hidden
+
 a, button
 	display: inline-block
 	transition: all 0.5s ease
+
+%overlay
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 100
+	overflow: hidden
+	background-color: #000
+	opacity: 0
+	visibility: hidden
+	cursor: pointer
+	&.active
+		opacity: 0.6
+		visibility: visible
 
 // for background images
 %img
