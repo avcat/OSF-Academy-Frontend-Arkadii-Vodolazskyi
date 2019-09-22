@@ -1,0 +1,128 @@
+/* Header ------------------------------------------------ */
+header
+	background-color: $white-color
+	border-bottom: 1px solid #ccc
+	> .wrapper
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+		a.logo
+			display: flex
+			align-self: center
+			img
+				width: to-rem(64px)
+				height: to-rem(64px)
+				margin-right: 5px
+			div
+				h1
+					font-size: to-rem(32px)
+					letter-spacing: 6.33px
+					color: #011847
+				h2
+					font-size: to-rem(18px)
+					color: $green-color
+		nav > ul
+			display: flex
+			align-items: flex-end
+			> li
+				display: inline-block
+				padding: to-rem(15px) to-rem(20px) to-rem(30px) to-rem(20px)
+				transition: all 0.3s ease
+				user-select: none
+				&:hover
+					color: $white-color
+				> span.arrow-down
+					font-size: 0.7em
+					margin-left: to-rem(8px)
+					color: $grey-color
+					opacity: 0.7
+		nav
+			display: flex
+			justify-self: flex-end
+			padding-top: 1rem
+			ul.nav-main
+				> li
+					text-transform: uppercase
+					border-bottom: 5px solid transparent
+					&:hover
+						*
+							color: $white-color
+						background-color: $darkblue-color
+						border-bottom: 5px solid $green-color
+					&.menu-open
+						z-index: 20
+						&:hover
+							.menu
+								opacity: 1
+								visibility: visible
+						.menu
+							background-color: $darkblue-color
+							// Hover effects
+							position: absolute
+							opacity: 0
+							visibility: hidden
+							left: 0
+							right: 0
+							top: to-rem(83px)
+							z-index: 10
+							transition: all 0.4s ease
+							> .wrapper
+								display: flex
+								flex-direction: row
+								flex-wrap: nowrap
+								justify-content: space-between
+								padding-top: to-rem(30px)
+								padding-bottom: to-rem(30px)
+							*
+								font-size: 1rem
+								color: $white-color
+								text-align: left
+							h3
+								padding-bottom: to-rem(10px)
+							li
+								padding: to-rem(6px) 0
+								text-transform: capitalize
+								transition: all 0.2s ease
+								&:hover
+									opacity: 0.6
+							div.prod-cat
+								width: 40%
+								display: flex
+								flex-direction: column
+								> div
+									display: flex
+									flex-direction: row
+									flex-wrap: nowrap
+									justify-content: space-between
+							div.sale
+								width: 10%
+								display: flex
+								flex-direction: column
+							img
+								width: 30%
+								height: 100%
+								border-radius: $radius
+
+			ul.nav-lang
+				margin-right: to-rem(50px)
+				*
+					color: $grey-color
+				> li
+					border-bottom: 5px solid transparent
+					&:hover
+						*
+							color: $white-color
+						background-color: $darkblue-color
+						border-bottom: 5px solid $green-color
+
+			ul.nav-manage
+				> li
+					a svg
+						color: $grey-color
+						opacity: 0.5
+						font-size: 1.7rem
+						path
+							transition: all 0.3s ease
+						&:hover
+							path
+								color: $green-color

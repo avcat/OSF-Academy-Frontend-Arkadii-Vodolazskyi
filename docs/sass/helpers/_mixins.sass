@@ -2,6 +2,10 @@
 $hor-padd: 4.3%
 $radius: 10px
 
+// Functions -----------------------------------------------
+@function to-rem ($original)
+	@return $original / 14px * 1rem
+
 // General styles -------------------------------------------
 html
 	@if (calc(100vw <= 1280px))
@@ -13,18 +17,18 @@ body
 	position: relative
 
 .wrapper
-	width: 100%
-	padding-left: $hor-padd
-	padding-right: $hor-padd
+	width: 91.4%
+	margin: 0 auto
 	text-align: center
 
 section
 	overflow: hidden
 
-a, button
+a, button, input[type="submit"]
 	display: inline-block
 	transition: all 0.5s ease
 
+// Reusable class styles ------------------------------------------
 %overlay
 	position: absolute
 	top: 0
@@ -41,7 +45,7 @@ a, button
 		opacity: 0.6
 		visibility: visible
 
-// for background images
+// ** for background images
 %img
 	display: inline-block
 	width: 100%
@@ -55,17 +59,135 @@ a, button
 	@extend %img
 
 %btn
-	display: inline-block
 	text-transform: uppercase
-	border: 3px solid rgba(#fff, 0.5)
-	background-color: transparent
-	border-radius: $radius + 25px
+	font-size: to-rem(16px)
+	padding: to-rem(8px) to-rem(20px)
+	border: 0.15rem solid #000
+	background-color: $green-color
+	color: #000
+	border-radius: $radius + 2.5*$radius
 	cursor: pointer
+
+%print-section
+	@media print
+		&, *
+			overflow: visible
+			visibility: visible
 
 @mixin text-gradient ($color1, $color2)
 	background: linear-gradient(to top, $color1, $color2)
 	-webkit-background-clip: text
 	-webkit-text-fill-color: transparent
 
-@function to-rem ($original)
-	@return $original / 14px * 1rem
+// Custom elements .....................................
+
+// HTML: select => option
+%custom-select
+	// Reset
+	appearance: none
+	-moz-appearance: none
+	-webkit-appearance: none
+	// Style
+	display: inline-block
+	border: 0.15rem solid $sourcream-color
+	border-radius: $radius + 2.5*$radius
+	padding: to-rem(8px) to-rem(20px)
+	font-size: to-rem(16px)
+	background-color: $white-color
+	color: $grey-color
+	text-transform: capitalize
+	cursor: pointer
+	transition: all 0.4s ease
+	// Style arrow
+	background: url("../img/icons/select-arrow.svg")
+	background-repeat: no-repeat
+	background-position: 85% 50%
+	background-size: 0.6rem
+	&:hover
+		border-color: $green-color
+
+// HTML: div => button.minus + input:number + button.plus
+%custom-number-input
+	display: inline-block
+	margin-right: to-rem(24px)
+	position: relative
+	> input[type="number"]
+		// Reset
+		-webkit-appearance: textfield
+		-moz-appearance: textfield
+		appearance: textfield
+		// Styling field
+		width: 100%
+		border: 0.15rem solid $sourcream-color
+		border-radius: $radius + 2.5*$radius
+		padding: to-rem(8px) to-rem(20px)
+		font-size: to-rem(16px)
+		background-color: $white-color
+		@include text-gradient ($gradient1-color, $gradient2-color)
+		text-align: center
+		// Reset buttons
+		&::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+			-webkit-appearance: none
+		@media print
+			&
+				visibility: visible
+				// Disable text gradient
+				background: transparent
+				-webkit-background-clip: initial
+				-webkit-text-fill-color: initial
+	> button
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		border: none
+		background-color: transparent
+		cursor: pointer
+		color: #999999
+		font-size: to-rem(18px)
+		width: to-rem(20px)
+		height: to-rem(20px)
+		border-radius: 50%
+		transition: all 0.5s ease
+		&:hover
+			background-color: lighten($sourcream-color, 5%)
+		&.minus
+			left: 15%
+		&.plus
+			right: 15%
+
+// HTML: box => input[type="radio"] + label
+%custom-radio-input
+	> input[type="radio"]
+		opacity: 0
+		visibility: hidden
+		&:checked + label:after
+			opacity: 1
+	> label
+		position: relative
+		cursor: pointer
+		&:hover
+			&:before
+				box-shadow: 0 0 to-rem(5px) #ddd
+		&:before
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			left: -2rem
+			background-color: transparent
+			padding: to-rem(6px)
+			border: 0.15rem solid $sourcream-color
+			border-radius: 50%
+			content: ""
+			transition: all 0.2s ease
+		&:after
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			left: -1.72rem
+			background-color: $green-color
+			padding: to-rem(4px)
+			border: none
+			border-radius: 50%
+			content: ""
+			transition: all 0.5s ease
+			opacity: 0

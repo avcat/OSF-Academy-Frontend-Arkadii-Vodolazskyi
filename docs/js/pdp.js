@@ -89,3 +89,50 @@ if (originalHeight > 100) {
 		text.style.height = originalHeight + "px";
 	}, true);
 }
+
+
+// Color select ..............................
+
+const colors = document.querySelectorAll("section.product div.overview div.about div.colorpick > ul > li");
+
+const colorSelect = document.querySelector("section.product div.overview div.about div.colorpick > select");
+
+colorSelect.addEventListener("change", () => {
+
+	colors.forEach(color => {
+		color.classList.remove("active");
+	});
+
+	colors[colorSelect.selectedIndex].classList.add("active");
+});
+
+
+// Amount select ..............................
+const amount = document.querySelector("section.product div.overview div.about div.add div.amountpick > input");
+const minus = document.querySelector("section.product div.overview div.about div.add div.amountpick > button.minus");
+const plus = document.querySelector("section.product div.overview div.about div.add div.amountpick > button.plus");
+
+// Initial value
+amount.value = 1;
+
+// Interaction and amount validate
+minus.addEventListener("click", () => {
+	amount.focus();
+	amount.value <= 1 ? amount.value = 1 : amount.value--;
+}, true);
+plus.addEventListener("click", () => {
+	amount.focus();
+	amount.value >= 99 ? amount.value = 9 : amount.value++;
+}, true);
+
+// Numbers validate - no need since it's input "number"
+
+
+// Print Page ..............................
+const print = document.getElementById("print");
+
+print.addEventListener("click", () => {
+	text.style.height = originalHeight + "px";
+	window.print();
+	text.style.height = "7.5rem";
+}, true);

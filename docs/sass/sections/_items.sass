@@ -1,0 +1,115 @@
+// Items
+div.items
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	margin: 0 -1%
+	.item
+		width: 25% - 2 * 1%
+		margin: 1%
+		padding-bottom: 1rem
+		background-color: $white-color
+		border-radius: $radius + 2px
+		text-align: center
+		// Flex
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		// Card overlay styles
+		position: relative
+		&:hover
+			.overlay
+				opacity: 0.9
+				visibility: visible
+		.img
+			height: to-rem(260px)
+			border-radius: $radius $radius 0 0
+		h4.name
+			font-size: to-rem(16px)
+			width: 90%
+			margin: 1rem auto
+		span
+			font-size: 1rem
+		.paired
+			display: flex
+			justify-content: center
+			align-content: center
+			*
+				padding: to-rem(10px) to-rem(17px)
+				border: 3px groove rgba(#000, 10%)
+			span
+				border-radius: ($radius + 20px) 0 0 ($radius + 20px)
+				color: $item-green-color
+				border-right: none
+			button
+				border-radius: 0 ($radius + 20px) ($radius + 20px) 0
+				color: #000
+				font-size: 1rem
+				background-color: transparent
+				cursor: pointer
+				text-transform: uppercase
+				&:hover
+					background: linear-gradient(to top, $item-gradient1-color, $item-gradient2-color)
+					color: $white-color
+		// Card overlay styles
+		.overlay
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			background: linear-gradient(to top, $item-gradient1-color, $item-gradient2-color)
+			border-radius: inherit
+			opacity: 0
+			visibility: hidden
+			transition: all 0.4s ease
+			button
+				display: inline-block
+				background-color: $white-color
+				padding: to-rem(31px)
+				border-radius: 100%
+				border: 1px solid $white-color
+				cursor: pointer
+				margin-top: 50%
+				&:hover
+					background-color: darken($white-color, 5%)
+					box-shadow: 0 0 20px darken($item-gradient1-color, 20%)
+				&:nth-child(1)
+					margin-right: to-rem(22px)
+				img
+					background-color: transparent
+					width: 2rem
+					height: 2rem
+		&.com
+			padding-bottom: 0
+			.img
+				height: 100%
+				border-radius: 10px
+			.com-overlay
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				left: 0
+				background: linear-gradient(to top, #675b99, #dc5987)
+				border-radius: inherit
+				opacity: 0.8
+
+				display: flex
+				flex-direction: column
+				justify-content: flex-end
+				padding: to-rem(35px) to-rem(30px)
+				text-align: left
+				*
+					color: $white-color
+				blockquote
+					width: 70%
+					font-size: to-rem(16px)
+					line-height: 1.5
+					p
+						margin-top: to-rem(30px)
+						font-size: 1rem
+						text-transform: uppercase
+						img
+							margin: 0 0.7rem
+							transform: scale(1.8)

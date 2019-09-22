@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Shopping Cart</title>
+
+	<!-- Link Fontawesome icons -->
+	<script src="https://kit.fontawesome.com/793c03e560.js"></script>
+
+	<!-- Link user styles -->
+	<link rel="stylesheet" href="./css/cart.css">
+</head>
+<body>
+	<!-- Overlay -->
+	<div id="overlay"></div>
+
+	<!-- Header -->
+	<header>
+		<div class="wrapper">
+			<a href="#" class="logo">
+				<img src="img/home/logo.svg" alt="logo">
+				<div>
+					<h1>OSF</h1>
+					<h2>Academy</h2>
+				</div>
+			</a>
+
+			<nav>
+				<ul class="nav-main">
+					<li class="menu-open">Services
+						<span class="arrow-down">&#9660;</span>
+						<!-- Menu -->
+						<div class="menu">
+							<div class="wrapper">
+								<div class="prod-cat">
+									<h3>Product categories</h3>
+									<div>
+										<ul>
+											<li><a href="#">Accessories</a></li>
+											<li><a href="#">Alcohol</a></li>
+											<li><a href="#">Art</a></li>
+											<li><a href="#">Books</a></li>
+											<li><a href="#">Drink</a></li>
+											<li><a href="#">Electronics</a></li>
+											<li><a href="#">Flowers & Plants</a></li>
+											<li><a href="#">Food</a></li>
+										</ul>
+										<ul>
+											<li><a href="#">Gadgets</a></li>
+											<li><a href="#">Garden</a></li>
+											<li><a href="#">Grocery</a></li>
+											<li><a href="#">Home</a></li>
+											<li><a href="#">Jewerly</a></li>
+											<li><a href="#">Kids & Baby</a></li>
+											<li><a href="#">Men's Fashion</a></li>
+											<li><a href="#">Mobile</a></li>
+										</ul>
+										<ul>
+											<li><a href="#">Motorcycles</a></li>
+											<li><a href="#">Movies</a></li>
+											<li><a href="#">Music</a></li>
+											<li><a href="#">Office</a></li>
+											<li><a href="#">Pets</a></li>
+											<li><a href="#">Romantic</a></li>
+											<li><a href="#">Sport</a></li>
+											<li><a href="#">Toys</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="sale">
+									<h3>Sale</h3>
+									<ul>
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Alcohol</a></li>
+										<li><a href="#">Art</a></li>
+										<li><a href="#">Books</a></li>
+										<li><a href="#">Drink</a></li>
+										<li><a href="#">Electronics</a></li>
+										<li><a href="#">Flowers & Plants</a></li>
+										<li><a href="#">Food</a></li>
+									</ul>
+								</div>
+								<img src="img/home/navbanner.png" alt="navbanner">
+							</div>
+						</div>
+					</li>
+					<li>Company</li>
+					<li>Library</li>
+					<li>Contact Us</li>
+				</ul>
+
+				<ul class="nav-lang">
+					<li>EN<span class="arrow-down">&#9660;</span></li>
+					<li>$ US<span class="arrow-down">&#9660;</span></li>
+				</ul>
+
+				<ul class="nav-manage">
+					<li><a href="#">
+						<i class="fas fa-search"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="far fa-user"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="far fa-heart"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="fas fa-shopping-bag"></i>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<main>
+
+		<!-- Breadcrumbs -->
+		<section class="breadcrumbs">
+			<div class="wrapper">
+				<ul>
+					<li><a href="home.html">Home</a></li>
+					<li>/</li>
+					<li>Shopping Cart</li>
+				</ul>
+				<h2>Shopping Cart</h2>
+			</div>
+		</section>
+
+		<!-- Cart -->
+		<section class="cart">
+			<div class="wrapper">
+				<div class="items">
+					<div class="item">
+						<img src="img/pdp/product/black-front.jpg" alt="black-front">
+						<div class="info">
+							<h4>Kristina Dam Oak Table With White Marble Top</h4>
+							<span>$2,195.00</span>
+						</div>
+						<div class="amountpick">
+							<button class="minus">-</button>
+							<input type="number" name="amountpick">
+							<button class="plus">+</button>
+						</div>
+						<h3 class="price">$2,195.00</h3>
+						<div class="delete">
+							<button>
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+					</div>
+					<div class="item">
+						<img src="img/pdp/product/aqua-front.jpg" alt="black-front">
+						<div class="info">
+							<h4>Activate Facial Mask and Charcoal Soap</h4>
+							<span>$1,249.00</span>
+						</div>
+						<div class="amountpick">
+							<button class="minus">-</button>
+							<input type="number" name="amountpick">
+							<button class="plus">+</button>
+						</div>
+						<h3 class="price">$1,249.00</h3>
+						<div class="delete">
+							<button>
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<form class="manage">
+					<div class="coupon">
+						<input type="text" placeholder="Enter Coupon Code">
+						<input type="submit" value="Apply" class="apply-coupon">
+					</div>
+					<div class="checkout">
+						<div class="btns">
+							<button class="update">Update Cart</button>
+							<input type="submit" value="Proceed to Checkout" class="proceed">
+						</div>
+						<div class="subtotal">
+							<h5>Cart subtotal:</h5>
+							<span class="price">$3,489</span>
+						</div>
+						<div class="shipping">
+							<h5>Shipping and handling:</h5>
+							<ul class="radios">
+								<li>
+									<input type="radio" id="rate" name="shipping" value="10"><label for="rate">Flat Rate: $10.00</label>
+								</li>
+								<li>
+									<input type="radio" id="free" name="shipping" value="0"><label for="free">Free Shipping</label>
+								</li>
+								<li>
+									<input type="radio" id="international" name="shipping" value="60"><label for="international">International: $60.00</label>
+								</li>
+								<li>
+									<input type="radio" id="local" name="shipping" value="5"><label for="local">Local Delivery: $5.00</label>
+								</li>
+								<li>
+									<input type="radio" id="pickup" name="shipping" value="0"><label for="pickup">Local Pickup (Free)</label>
+								</li>
+							</ul>
+						</div>
+						<div class="total">
+							<h5>Order total:</h5>
+							<span class="price">$3,489</span>
+						</div>
+					</div>
+				</from>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Footer -->
+	<footer>
+		<div class="wrapper">
+			<div class="contact">
+				<span>© Copyright 2019.<br>
+					All Rights Reserved.</span>
+				<h3>Contact</h3>
+				<ul>
+					<li>Headquarters:<br>
+						5600, Blvd. des Galeries, Bur 530 Québec, Québec G2K 2H6</li>
+					<li>contact@osf-global.com</li>
+					<li>+1 (888) 548-4344</li>
+				</ul>
+			</div>
+			<div class="categories">
+				<h3>Categories</h3>
+				<div>
+					<ul>
+						<li><a href="#">Alcohol</a></li>
+						<li><a href="#">Art</a></li>
+						<li><a href="#">Books</a></li>
+						<li><a href="#">Drink</a></li>
+						<li><a href="#">Electronics</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Jewerly</a></li>
+						<li><a href="#">Kids & Baby</a></li>
+						<li><a href="#">Men's Fashion</a></li>
+						<li><a href="#">Mobile</a></li>
+						<li><a href="#">Motorcycles</a></li>
+						<li><a href="#">Movies</a></li>
+						<li><a href="#">Music</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Sport</a></li>
+						<li><a href="#">Toys</a></li>
+						<li><a href="#">Travel</a></li>
+						<li><a href="#">Women's Fashion</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="about">
+				<h3>About</h3>
+				<ul>
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Delivery</a></li>
+					<li><a href="#">Testimonials</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="social">
+				<ul>
+					<li><a href="#">
+						<i class="fab fa-facebook-f"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="fab fa-google-plus-g"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="fab fa-twitter"></i>
+					</a></li>
+					<li><a href="#">
+						<i class="fab fa-pinterest-p"></i>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/cart.js"></script>
+</body>
+</html>

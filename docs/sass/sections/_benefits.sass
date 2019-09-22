@@ -1,0 +1,24 @@
+/* Benefits ---------------------------------------------- */
+section.benefits
+	background-color: $grey-color
+	.wrapper
+		padding-top: to-rem(45px)
+		padding-bottom: to-rem(45px)
+		display: flex
+		justify-content: space-between
+		div.card
+			width: 27%
+			display: flex
+			align-items: flex-start
+			justify-content: space-between
+			img
+				width: 12rem
+				margin-right: to-rem(35px)
+			h4
+				margin-bottom: to-rem(23px)
+				text-transform: uppercase
+				@include text-gradient($gradient1-color, $gradient2-color)
+				text-align: left
+			p
+				@include text-gradient($gradient1-color, $gradient2-color)
+				text-align: left

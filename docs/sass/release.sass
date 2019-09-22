@@ -1,0 +1,89 @@
+// Import colors
+@import ./helpers/colors
+
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+/* Overlay ------------------------------------------------ */
+#overlay
+	@extend %overlay
+
+/* Header ------------------------------------------------ */
+@import ./sections/header
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Info ----------------------------------------- */
+	section.countdown
+		background-color: #F5F5F5
+		padding: to-rem(80px) 0
+		.wrapper
+			background-color: $white-color
+			padding: to-rem(50px) 0 to-rem(60px)
+			border-radius: $radius
+			text-align: center
+			h3
+				width: 40%
+				margin: 0 auto
+				margin-bottom: 0.5rem
+				font-size: to-rem(30px)
+			p
+				width: 38%
+				margin: 0 auto
+				margin-bottom: 1.5rem
+				font-size: 1rem
+				line-height: 1.5
+				color: #555555
+			div.release
+				width: 55%
+				margin: to-rem(75px) auto to-rem(100px)
+				display: flex
+				justify-content: space-between
+				align-items: center
+				> div
+					width: 18.4%
+					span
+						display: block
+						font-size: to-rem(48px)
+						color: $grey-color
+						background-color: $white-color
+						border: 0.2rem solid $green-color
+						border-radius: 50%
+						padding: to-rem(28px)
+						user-select: none
+					h5
+						display: block
+						text-align: center
+						font-size: to-rem(18px)
+						line-height: 1.67
+						color: $grey-color
+						margin-top: 1rem
+			div.mailing
+				width: 42%
+				margin: 0 auto
+				position: relative
+				> input
+					border-radius: $radius + 25px
+					border: 0.15rem solid #e5e2df
+					padding: to-rem(10px) to-rem(20px)
+					width: 100%
+					color: $grey-color
+					font-size: 1rem
+					transition: all 0.5s ease
+					&:focus
+						border-color: $green-color
+				> svg
+					position: absolute
+					top: 50%
+					transform: translateY(-50%)
+					right: 1rem
+					color: $green-color
+					width: to-rem(23px)
+					height: to-rem(23px)
+
+/* Footer ------------------------------------------------ */
+@import ./sections/footer

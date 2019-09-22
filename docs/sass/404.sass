@@ -1,0 +1,83 @@
+// Import colors
+@import ./helpers/colors
+
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+/* Overlay ------------------------------------------------ */
+#overlay
+	@extend %overlay
+
+/* Header ------------------------------------------------ */
+@import ./sections/header
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Breadcrumbs ----------------------------------------- */
+	$length: 20%
+	$length-color: #e5e2df
+	@import ./sections/breadcrumbs
+
+	/* Info ----------------------------------------- */
+	section.not-found
+		background-color: $cream-color
+		padding-bottom: to-rem(40px)
+		.wrapper
+			background-color: $white-color
+			padding: to-rem(64px) 0
+			border-radius: $radius
+			display: flex
+			align-items: center
+			div.warning
+				width: 40%
+				padding: 11% 0
+				font-size: to-rem(113px)
+				color: $green-color
+				user-select: none
+				background-size: 75%
+				background-repeat: no-repeat
+				background-position: -55% 50%
+			div.info
+				width: 60%
+				text-align: left
+				padding-right: to-rem(120px)
+				h3, h4
+					margin-bottom: 1.5rem
+					font-size: to-rem(24px)
+				p
+					margin-bottom: 1.5rem
+					font-size: to-rem(16px)
+					line-height: 1.5
+					color: #555555
+				a
+					margin-bottom: 1.5rem
+					color: $green-color
+					&:hover
+						color: lighten($green-color, 10%)
+				div.search
+					position: relative
+					> input
+						border-radius: $radius + 25px
+						border: 0.15rem solid $sourcream-color
+						padding: to-rem(10px) to-rem(20px)
+						width: 100%
+						color: $grey-color
+						font-size: 1rem
+						transition: all 0.5s ease
+						&:focus
+							border-color: $green-color
+					> svg
+						position: absolute
+						top: 50%
+						transform: translateY(-50%)
+						right: 1rem
+						color: #4f4e4c
+						width: to-rem(18px)
+						height: to-rem(18px)
+
+/* Footer ------------------------------------------------ */
+@import ./sections/footer

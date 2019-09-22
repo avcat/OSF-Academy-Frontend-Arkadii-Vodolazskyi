@@ -1,0 +1,176 @@
+// Import colors
+@import ./helpers/colors
+
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+/* Overlay ------------------------------------------------ */
+#overlay
+	@extend %overlay
+
+/* Header ------------------------------------------------ */
+@import ./sections/header
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Breadcrumbs ----------------------------------------- */
+	$length: 35%
+	$length-color: #e5e2df
+	@import ./sections/breadcrumbs
+
+	/* Info ----------------------------------------- */
+	section.cart
+		padding-bottom: to-rem(40px)
+		background-color: $cream-color
+		.wrapper
+			background-color: $white-color
+			border-radius: $radius
+			div.items
+				padding: to-rem(100px)
+				position: relative
+				&:after
+					position: absolute
+					bottom: 0
+					width: 90%
+					left: 5%
+					border-bottom: 0.15rem solid $sourcream-color
+					content: ""
+				div.item
+					display: flex
+					flex-direction: row
+					flex-wrap: nowrap
+					justify-content: space-between
+					align-items: center
+					&:not(:last-child)
+						margin-bottom: to-rem(30px)
+					img
+						width: 10%
+					div.info
+						width: 50%
+						padding-left: to-rem(22px)
+						text-align: left
+						h4
+							font-size: to-rem(16px)
+							color: $grey-color
+							margin-bottom: 1rem
+						span
+							font-size: 1rem
+							color: #bdc3c7
+					div.amountpick
+						@extend %custom-number-input
+						width: 10%
+					h3.price
+						width: 25%
+						text-align: center
+						font-size: to-rem(30px)
+						color: $grey-color
+					div.delete
+						width: 5%
+						svg
+							font-size: 1.5rem
+							color: $sourcream-color
+						button
+							display: inline-block
+							border: 0.15rem solid $sourcream-color
+							font-weight: bold
+							background-color: transparent
+							padding: to-rem(5px) to-rem(8px)
+							border-radius: 50%
+							cursor: pointer
+							&:hover
+								background-color: $sourcream-color
+							svg
+								color: $grey-color
+								font-size: 1rem
+								opacity: 0.5
+			form.manage
+				padding: to-rem(75px) to-rem(100px)
+				display: flex
+				justify-content: space-between
+				*
+					font-size: 1rem
+				div.coupon
+					width: 40%
+					input[type="text"]
+						width: 60%
+						margin-right: 5%
+						border-radius: $radius + 25px
+						border: 0.15rem solid $sourcream-color
+						padding: to-rem(10px) to-rem(20px)
+						color: $grey-color
+						font-size: 1rem
+						transition: all 0.5s ease
+						&:focus
+							border-color: $green-color
+					input[type="submit"]
+						width: 30%
+						@extend %btn
+						border-color: $green-color
+						color: $green-color
+						background-color: transparent
+						&:hover
+							color: $white-color
+							background-color: $green-color
+				div.checkout
+					width: 50%
+					display: flex
+					flex-direction: column
+					justify-content: space-between
+					align-content: flex-start
+					*
+						color: $grey-color
+					button
+						@extend %btn
+					> div
+						display: flex
+						justify-content: flex-start
+						align-content: flex-start
+					h5, span, ul.radios
+						text-align: left
+					h5
+						width: 55%
+						text-transform: uppercase
+					div.btns
+						button.update
+							width: 35%
+							@extend %btn
+							border-color: $green-color
+							color: $green-color
+							background-color: $white-color
+							margin-right: 5%
+							&:hover
+								color: $white-color
+								background-color: $green-color
+						input[type="submit"]
+							width: 55%
+							@extend %btn
+							color: $white-color
+							border-color: transparent
+							&:hover
+								border-color: $green-color
+								color: $green-color
+								background-color: $white-color
+					div.subtotal
+						margin-top: to-rem(42px)
+					div.shipping
+						margin-top: to-rem(30px)
+						ul.radios
+							width: 45%
+							li
+								padding-left: 8%
+								@extend %custom-radio-input
+								&:not(:last-child)
+									margin-bottom: 1rem
+					div.total
+						display: flex
+						align-items: center
+						margin-top: to-rem(54px)
+						span.price
+							font-size: to-rem(48px)
+
+/* Footer ------------------------------------------------ */
+@import ./sections/footer

@@ -1,40 +1,30 @@
 ================ Todo: ================
 
-Slider arrows:
-- Items must be almost square
+Cart Page (interaction):
+- Interactivity. Remove items (show as objects: Get info from JSON => make objects => show items) * Interaction with JSON needed: needed additional js file for each page + one general JSON file for buys
 
-Home, CLP:
+All:
+- Pages and windows
+	Sign In window
+	Cookies window
+
+- Make interactions with header: sign in
+- Adaptive
+	Own media queries for each module/section
+- Provide all the links
 - Reorganize folders, images and paths
+	Sass modules for repeated elements
+	? Remove other colors from palette
+	@mixin => to % @extends
+	Repeated styles => to % @extends
 - Fix no images
 - Fix Logo svgs in github pages
 
-SVG:
-- Unificate. Choose between native SVG code and Font icons
-
-Home, CLP:
-- Provide all the links
-
-PDP:
-- Make some sense to reviews
-
-All:
-- Make interactions with header: sign in
-- 404
-- Make sass modules out of the sections to import
-
-- Adaptive
-
 ================ Done: ================
 
-PDP:
-- Added basic layuot for Product overview
-- Added interaction small-big images
-- Added interaction big-full size image
-- Added "Read more" interaction
-
-Next:
-PDP
-- Make custom select element
-- Make custom input element
-- Small fixings of animation
-404 Page
+Done:
+- Cart Page
+	- Custom radio button
+	- Finished page layout 1280+
+- Print Page Interaction
+- Small Sass modules' fixings

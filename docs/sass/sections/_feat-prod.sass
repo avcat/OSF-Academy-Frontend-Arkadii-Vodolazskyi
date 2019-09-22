@@ -1,0 +1,73 @@
+/* Featured Products ------------------------------------- */
+section.feat-prod
+	background-color: $darkblue-color
+	.wrapper
+		padding-top: to-rem(35px)
+		padding-bottom: to-rem(64px)
+		h2
+			font-size: to-rem(40px)
+			color: $white-color
+		p
+			font-size: to-rem(18px)
+			color: $white-color
+		div.slider-arrows
+			div.arrows
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 50%
+				margin: 0 auto
+				padding: to-rem(35px)
+				*
+					margin: 0 0.3rem
+					color: $white-color
+				button
+					background-color: lighten($darkblue-color, 8%)
+					font-size: 1rem
+					border: none
+					padding: to-rem(6px)
+					cursor: pointer
+					&:hover
+						background-color: lighten($darkblue-color, 15%)
+				div
+					width: 45%
+					height: 2px
+					background-color: $white-color
+				p
+					font-size: 1.4rem
+					font-weight: bold
+					font-style: italic
+					letter-spacing: 2.5px
+			div.items
+				position: relative
+				.screen
+					width: 100%
+					display: flex
+					flex-wrap: nowrap
+					justify-content: space-between
+					// Slider interactivity
+					position: absolute
+					top: 0
+					left: 50%
+					transform: translateX(-50%)
+					opacity: 0
+					visibility: hidden
+					transition: all 0.8s ease
+					&.active
+						position: relative
+						opacity: 1
+						visibility: visible
+					.item
+						width: 23%
+						padding-bottom: 1.5rem
+						background-color: $white-color
+						border-radius: $radius + 2px
+						text-align: center
+						.img
+							height: to-rem(260px)
+							border-radius: $radius $radius 0 0
+						h4.name
+							width: 70%
+							margin: 1rem auto
+						a
+							color: $green-color

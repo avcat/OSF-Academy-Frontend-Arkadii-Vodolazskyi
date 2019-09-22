@@ -1,0 +1,44 @@
+/* Breadcrumbs ----------------------------------------- */
+/* Sass: $length [%], $length-color [#...] */
+section.breadcrumbs
+	background-color: $cream-color
+	.wrapper
+		padding-top: to-rem(50px)
+		padding-bottom: to-rem(30px)
+		> ul
+			@media print
+				&, *
+					visibility: visible
+			li
+				display: inline-block
+				margin: 0 0.4rem
+				a
+					color: $green-color
+					&:hover
+						color: lighten($green-color, 15%)
+		h2
+			padding: to-rem(15px) 0 to-rem(20px)
+			text-align: center
+			position: relative
+			font-size: to-rem(48px)
+			@media print
+				&
+					visibility: visible
+				&:after, &:before
+					visibility: hidden
+			&:before
+				position: absolute
+				bottom: 50%
+				right: 0
+				content: ""
+				width: $length
+				background-color: transparent
+				border-bottom: 0.1rem solid $length-color
+			&:after
+				position: absolute
+				top: 50%
+				left: 0
+				content: ""
+				width: $length
+				background-color: transparent
+				border-bottom: 0.1rem solid $length-color
