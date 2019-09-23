@@ -1,8 +1,6 @@
 {
-	"amounts": [
-		{
-			"wishlistAmount": 1,
-			"cartAmount": 2
-		}
-	]
+	"amounts": {
+		"wishlistAmount": 1,
+		"cartAmount": 2
+	}
 }
