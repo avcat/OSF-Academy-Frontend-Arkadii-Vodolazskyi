@@ -43,7 +43,7 @@ a, button, input[type="submit"] {
   background-repeat: no-repeat;
   background-color: transparent; }
 
-#signinForm input[type="submit"]#login, div#cookies div.subwrapper button#accept-cookies, main section.pop-items .wrapper button.btn {
+#signinForm input[type="submit"]#login, div#cookies div.subwrapper button#accept-cookies, main section.slider .wrapper .slider-dots div.img a, main section.slider .wrapper div.advert div.follow a, main section.pop-items .wrapper button.btn {
   text-transform: uppercase;
   font-size: 1.1428571429rem;
   padding: 0.5714285714rem 1.4285714286rem;
@@ -51,27 +51,6 @@ a, button, input[type="submit"] {
   border-style: solid;
   border-radius: 35px;
   cursor: pointer; }
-
-main section.pop-items .wrapper form select {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  display: inline-block;
-  border: 0.15rem solid #e8e2d6;
-  border-radius: 35px;
-  padding: 0.5714285714rem 1.4285714286rem;
-  font-size: 1.1428571429rem;
-  background-color: #ffffff;
-  color: #45413e;
-  text-transform: capitalize;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  background: url("../img/icons/select-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: 85% 50%;
-  background-size: 0.6rem; }
-  main section.pop-items .wrapper form select:hover {
-    border-color: #84bc22; }
 
 #overlay {
   position: fixed;
@@ -406,122 +385,161 @@ header {
 
 /* Main -------------------------------------------------- */
 main {
-  /* Breadcrumbs ----------------------------------------- */
-  /* Breadcrumbs ----------------------------------------- */
-  /* Sass: $length [%], $length-color [#...] */
+  /* Slider ------------------------------------------------ */
   /* Popular Items ----------------------------------------- */
+  /* Banner ------------------------------------------------ */
   /* Featured Products ------------------------------------- */
-  /* Featured Products ------------------------------------- */ }
-  main section.breadcrumbs {
-    background-color: #F1EDEA; }
-    main section.breadcrumbs .wrapper {
-      padding-top: 3.5714285714rem;
-      padding-bottom: 2.1428571429rem; }
-      @media print {
-        main section.breadcrumbs .wrapper > ul, main section.breadcrumbs .wrapper > ul * {
-          visibility: visible; } }
-      main section.breadcrumbs .wrapper > ul li {
-        display: inline-block;
-        margin: 0 0.4rem; }
-        main section.breadcrumbs .wrapper > ul li a {
-          color: #84bc22; }
-          main section.breadcrumbs .wrapper > ul li a:hover {
-            color: #a9df4c; }
-      main section.breadcrumbs .wrapper h2 {
-        padding: 1.0714285714rem 0 1.4285714286rem;
-        text-align: center;
-        position: relative;
-        font-size: 3.4285714286rem; }
-        @media print {
-          main section.breadcrumbs .wrapper h2 {
-            visibility: visible; }
-          main section.breadcrumbs .wrapper h2:after, main section.breadcrumbs .wrapper h2:before {
-            visibility: hidden; } }
-        main section.breadcrumbs .wrapper h2:before {
-          position: absolute;
-          bottom: 50%;
-          right: 0;
-          content: "";
+  /* Featured Products ------------------------------------- */
+  /* Benefits ---------------------------------------------- */
+  /* Benefits ---------------------------------------------- */ }
+  main section.slider .wrapper {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 36.0714285714rem; }
+    main section.slider .wrapper .slider-dots {
+      width: 75%;
+      margin-right: 2.5%;
+      position: relative; }
+      main section.slider .wrapper .slider-dots div.img {
+        padding: 5rem 4.2857142857rem 7.4285714286rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.8s ease; }
+        main section.slider .wrapper .slider-dots div.img * {
+          color: #ffffff; }
+        main section.slider .wrapper .slider-dots div.img:nth-child(n) {
+          align-items: flex-start;
+          text-align: left; }
+        main section.slider .wrapper .slider-dots div.img:nth-child(2n) {
+          align-items: center;
+          text-align: center; }
+        main section.slider .wrapper .slider-dots div.img:nth-child(3n) {
+          align-items: flex-end;
+          text-align: right; }
+        main section.slider .wrapper .slider-dots div.img.active {
+          opacity: 1;
+          visibility: visible; }
+        main section.slider .wrapper .slider-dots div.img h3 {
+          width: 50%;
+          font-size: 2.1428571429rem;
+          margin-bottom: 110px; }
+        main section.slider .wrapper .slider-dots div.img p {
           width: 40%;
+          margin-bottom: 2.1428571429rem; }
+        main section.slider .wrapper .slider-dots div.img a {
           background-color: transparent;
-          border-bottom: 0.1rem solid #ffffff; }
-        main section.breadcrumbs .wrapper h2:after {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          content: "";
-          width: 40%;
-          background-color: transparent;
-          border-bottom: 0.1rem solid #ffffff; }
+          border-color: #ffffff;
+          color: #ffffff;
+          font-size: 1rem;
+          padding: 0.5714285714rem 2.5rem;
+          opacity: 0.7; }
+          main section.slider .wrapper .slider-dots div.img a:hover {
+            opacity: 1; }
+      main section.slider .wrapper .slider-dots ul.dots {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 2.1428571429rem; }
+        main section.slider .wrapper .slider-dots ul.dots li {
+          display: inline-block;
+          margin: 0 0.7142857143rem; }
+          main section.slider .wrapper .slider-dots ul.dots li button {
+            display: inline-block;
+            padding: 0.15rem;
+            border-radius: 50%;
+            opacity: 0.5;
+            background-color: #ffffff;
+            border: solid 0.25rem transparent;
+            cursor: pointer; }
+            main section.slider .wrapper .slider-dots ul.dots li button:hover {
+              opacity: 1; }
+            main section.slider .wrapper .slider-dots ul.dots li button.active {
+              opacity: 1;
+              background-color: transparent;
+              border: solid 0.25rem #ffffff; }
+    main section.slider .wrapper div.advert {
+      width: 22.5%; }
+      main section.slider .wrapper div.advert div.img {
+        height: 21.7857142857rem;
+        margin-bottom: 1.7857142857rem;
+        padding: 2.1428571429rem;
+        border-radius: 10px;
+        text-align: center; }
+        main section.slider .wrapper div.advert div.img * {
+          color: #ffffff; }
+        main section.slider .wrapper div.advert div.img span {
+          font-size: 7.1428571429rem; }
+        main section.slider .wrapper div.advert div.img p {
+          margin-top: 2.8571428571rem;
+          font-size: 2.1428571429rem;
+          text-transform: uppercase; }
+      main section.slider .wrapper div.advert div.follow {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center; }
+        main section.slider .wrapper div.advert div.follow * {
+          background: linear-gradient(to top, #08d2bd, #1b9bb2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent; }
+        main section.slider .wrapper div.advert div.follow h4 {
+          margin-bottom: 1rem;
+          font-size: 1.2857142857rem; }
+        main section.slider .wrapper div.advert div.follow p {
+          margin-bottom: 1.4285714286rem;
+          font-size: 0.9285714286rem; }
+        main section.slider .wrapper div.advert div.follow a {
+          border-color: #3a5b96;
+          background-color: #ffffff; }
+          main section.slider .wrapper div.advert div.follow a svg {
+            transition: all 0.5s ease;
+            margin-right: 10px;
+            color: #3a5b96; }
+          main section.slider .wrapper div.advert div.follow a:hover {
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background: #3a5b96;
+            color: #ffffff; }
+            main section.slider .wrapper div.advert div.follow a:hover svg {
+              color: #ffffff; }
   main section.pop-items {
-    background-color: #F1EDEA; }
+    background-color: #262a32; }
     main section.pop-items .wrapper {
-      padding-bottom: 5.5rem; }
-      main section.pop-items .wrapper ul.breadcrumbs li {
-        display: inline-block;
-        margin: 0 0.4rem; }
-        main section.pop-items .wrapper ul.breadcrumbs li a {
-          color: #84bc22; }
-          main section.pop-items .wrapper ul.breadcrumbs li a:hover {
-            color: #a9df4c; }
+      padding-top: 2.1428571429rem;
+      padding-bottom: 4.2857142857rem; }
       main section.pop-items .wrapper h2 {
-        padding: 1.0714285714rem 0 2.1428571429rem;
+        padding: 1.0714285714rem 0;
+        background-color: #262a32;
+        background: linear-gradient(to top, #08d2bd, #08d2bd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
-        position: relative;
-        font-size: 3.4285714286rem; }
+        position: relative; }
         main section.pop-items .wrapper h2:before {
           position: absolute;
           bottom: 50%;
           right: 0;
           content: "";
-          width: 35%;
-          background-color: transparent;
+          width: 40%;
+          height: 100%;
+          background-color: inherit;
           border-bottom: 2px solid #ffffff;
-          opacity: 0.5; }
+          opacity: 0.1; }
         main section.pop-items .wrapper h2:after {
           position: absolute;
           top: 50%;
           left: 0;
           content: "";
-          width: 35%;
-          background-color: transparent;
+          width: 40%;
+          background-color: inherit;
           border-bottom: 2px solid #ffffff;
-          opacity: 0.5; }
-      main section.pop-items .wrapper form {
-        border-radius: 10px;
-        padding: 1.4285714286rem 2.1428571429rem;
-        background-color: #ffffff;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between; }
-        main section.pop-items .wrapper form > * {
-          width: 26%;
-          margin: 1.0714285714rem 0;
-          display: flex;
-          justify-content: space-between;
-          align-items: center; }
-          main section.pop-items .wrapper form > * * {
-            font-size: 1rem; }
-          main section.pop-items .wrapper form > * select, main section.pop-items .wrapper form > * ul {
-            width: 80%; }
-        main section.pop-items .wrapper form select {
-          border-color: rgba(69, 65, 62, 0.5); }
-        main section.pop-items .wrapper form .color ul {
-          display: flex;
-          justify-content: space-between; }
-          main section.pop-items .wrapper form .color ul li {
-            padding: 0.4rem;
-            border-radius: 50%;
-            border: 5px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease; }
-      main section.pop-items .wrapper span.results {
-        display: block;
-        text-align: center;
-        margin: 2.5rem 0 1.7857142857rem;
-        color: #45413e;
-        line-height: 1.37; }
+          opacity: 0.1; }
       main section.pop-items .wrapper div.items {
         display: flex;
         flex-wrap: wrap;
@@ -637,13 +655,33 @@ main {
                     margin: 0 0.7rem;
                     transform: scale(1.8); }
       main section.pop-items .wrapper button.btn {
-        margin-top: 8.5714285714rem;
-        padding: 0.7142857143rem 3rem;
+        margin-top: 3.6428571429rem;
+        padding: 0.7142857143rem 6.4285714286rem;
         color: #ffffff;
-        border: none; }
+        background-color: transparent;
+        border-color: #ffffff;
+        font-size: 0.8rem; }
         main section.pop-items .wrapper button.btn:hover {
           background-color: #ffffff;
-          color: #84bc22; }
+          border-color: inherit;
+          color: inherit; }
+  main section.banner {
+    padding: 12.16796875% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    main section.banner * {
+      color: #ffffff; }
+    main section.banner div.content {
+      text-align: center; }
+      main section.banner div.content h2 {
+        margin-bottom: 2rem;
+        font-size: 3.3571428571rem; }
+      main section.banner div.content p {
+        width: 26%;
+        margin: 0 auto; }
+        main section.banner div.content p span {
+          color: #ff974e; }
   main section.feat-prod {
     background-color: #262a32; }
     main section.feat-prod .wrapper {
@@ -714,6 +752,33 @@ main {
               margin: 1rem auto; }
             main section.feat-prod .wrapper div.slider-arrows div.items .screen .item a {
               color: #84bc22; }
+  main section.benefits {
+    background-color: #45413e; }
+    main section.benefits .wrapper {
+      padding-top: 3.2142857143rem;
+      padding-bottom: 3.2142857143rem;
+      display: flex;
+      justify-content: space-between; }
+      main section.benefits .wrapper div.card {
+        width: 27%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between; }
+        main section.benefits .wrapper div.card img {
+          width: 12rem;
+          margin-right: 2.5rem; }
+        main section.benefits .wrapper div.card h4 {
+          margin-bottom: 1.6428571429rem;
+          text-transform: uppercase;
+          background: linear-gradient(to top, #08d2bd, #1b9bb2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-align: left; }
+        main section.benefits .wrapper div.card p {
+          background: linear-gradient(to top, #08d2bd, #1b9bb2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-align: left; }
 
 /* Footer ------------------------------------------------ */
 /* Footer ------------------------------------------------ */
@@ -767,3 +832,9 @@ footer .wrapper {
         transition: all 0.3s ease; }
       footer .wrapper .social ul li a svg:hover path {
         color: #84bc22; }
+
+footer .wrapper h3 {
+  background: linear-gradient(to top, #08d2bd, #1b9bb2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: normal; }

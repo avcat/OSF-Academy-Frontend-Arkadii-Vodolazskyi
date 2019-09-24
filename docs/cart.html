@@ -13,13 +13,50 @@
 	<link rel="stylesheet" href="./css/cart.css">
 </head>
 <body>
+
 	<!-- Overlay -->
 	<div id="overlay"></div>
+
+	<!-- Cookies Modal -->
+	<div id="cookies">
+		<div class="subwrapper">
+			<h6>This website uses cookies</h6>
+			<p>
+				OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for website performance and interaction with social media offering publicity tailored to your interests. If you continue browsing, we consider that you accept its use.<br>
+				You can expand this information consulting our <a href="#">Cookies Policy Page</a>.
+				<button id="accept-cookies" class="btn">Accept</button>
+				<span id="close-cookies"><i class="fas fa-times"></i></span>
+			</p>
+		</div>
+	</div>
+
+	<!-- Sign In modal -->
+	<form id="signinForm">
+		<h3>Sign in</h3>
+
+		<label for="email">Email</label>
+		<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+		<div class="forgot">
+			<label for="password">Password</label>
+			<a href="#">forgot password</a>
+		</div>
+		<div class="password">
+			<span class="showPassword">
+				<i class="far fa-eye"></i>
+			</span>
+			<!-- At least 6 characters length, contain 1 numeric, 1 uppercase letter, 1 special character -->
+			<input type="password" name="password" pattern="(?=.*\d)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.*[A-Z]).{6,}" required>
+		</div>
+
+		<input type="submit" value="Login" id="login">
+		<a href="#" class="register">I don't have an account</a>
+	</form>
 
 	<!-- Header -->
 	<header>
 		<div class="wrapper">
-			<a href="#" class="logo">
+			<a href="./index.html" class="logo">
 				<img src="img/home/logo.svg" alt="logo">
 				<div>
 					<h1>OSF</h1>
@@ -38,48 +75,48 @@
 									<h3>Product categories</h3>
 									<div>
 										<ul>
-											<li><a href="#">Accessories</a></li>
-											<li><a href="#">Alcohol</a></li>
-											<li><a href="#">Art</a></li>
-											<li><a href="#">Books</a></li>
-											<li><a href="#">Drink</a></li>
-											<li><a href="#">Electronics</a></li>
-											<li><a href="#">Flowers & Plants</a></li>
-											<li><a href="#">Food</a></li>
+											<li><a href="./404.html">Accessories</a></li>
+											<li><a href="./404.html">Alcohol</a></li>
+											<li><a href="./404.html">Art</a></li>
+											<li><a href="./404.html">Books</a></li>
+											<li><a href="./404.html">Drink</a></li>
+											<li><a href="./404.html">Electronics</a></li>
+											<li><a href="./404.html">Flowers & Plants</a></li>
+											<li><a href="./404.html">Food</a></li>
 										</ul>
 										<ul>
-											<li><a href="#">Gadgets</a></li>
-											<li><a href="#">Garden</a></li>
-											<li><a href="#">Grocery</a></li>
-											<li><a href="#">Home</a></li>
-											<li><a href="#">Jewerly</a></li>
-											<li><a href="#">Kids & Baby</a></li>
-											<li><a href="#">Men's Fashion</a></li>
-											<li><a href="#">Mobile</a></li>
+											<li><a href="./404.html">Gadgets</a></li>
+											<li><a href="./404.html">Garden</a></li>
+											<li><a href="./404.html">Grocery</a></li>
+											<li><a href="./404.html">Home</a></li>
+											<li><a href="./404.html">Jewerly</a></li>
+											<li><a href="./404.html">Kids & Baby</a></li>
+											<li><a href="./404.html">Men's Fashion</a></li>
+											<li><a href="./404.html">Mobile</a></li>
 										</ul>
 										<ul>
-											<li><a href="#">Motorcycles</a></li>
-											<li><a href="#">Movies</a></li>
-											<li><a href="#">Music</a></li>
-											<li><a href="#">Office</a></li>
-											<li><a href="#">Pets</a></li>
-											<li><a href="#">Romantic</a></li>
-											<li><a href="#">Sport</a></li>
-											<li><a href="#">Toys</a></li>
+											<li><a href="./404.html">Motorcycles</a></li>
+											<li><a href="./404.html">Movies</a></li>
+											<li><a href="./404.html">Music</a></li>
+											<li><a href="./404.html">Office</a></li>
+											<li><a href="./404.html">Pets</a></li>
+											<li><a href="./404.html">Romantic</a></li>
+											<li><a href="./404.html">Sport</a></li>
+											<li><a href="./404.html">Toys</a></li>
 										</ul>
 									</div>
 								</div>
 								<div class="sale">
 									<h3>Sale</h3>
 									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Alcohol</a></li>
-										<li><a href="#">Art</a></li>
-										<li><a href="#">Books</a></li>
-										<li><a href="#">Drink</a></li>
-										<li><a href="#">Electronics</a></li>
-										<li><a href="#">Flowers & Plants</a></li>
-										<li><a href="#">Food</a></li>
+										<li><a href="./404.html">Accessories</a></li>
+										<li><a href="./404.html">Alcohol</a></li>
+										<li><a href="./404.html">Art</a></li>
+										<li><a href="./404.html">Books</a></li>
+										<li><a href="./404.html">Drink</a></li>
+										<li><a href="./404.html">Electronics</a></li>
+										<li><a href="./404.html">Flowers & Plants</a></li>
+										<li><a href="./404.html">Food</a></li>
 									</ul>
 								</div>
 								<img src="img/home/navbanner.png" alt="navbanner">
@@ -92,21 +129,39 @@
 				</ul>
 
 				<ul class="nav-lang">
-					<li>EN<span class="arrow-down">&#9660;</span></li>
-					<li>$ US<span class="arrow-down">&#9660;</span></li>
+					<li class="lang-open">EN<span class="arrow-down">&#9660;</span>
+						<div class="lang-menu">
+							<ul>
+								<li>FR</li>
+								<li>UA</li>
+								<li>RU</li>
+								<li>DE</li>
+							</ul>
+						</div>
+					</li>
+					<li class="currency-open">$ US<span class="arrow-down">&#9660;</span>
+						<div class="currency-menu">
+							<ul>
+								<li>€ Euro</li>
+								<li>₴ Ukrainian hryvna</li>
+								<li>₽ Russian ruble</li>
+								<li>£ Pounds sterling</li>
+							</ul>
+						</div>
+					</li>
 				</ul>
 
 				<ul class="nav-manage">
 					<li><a href="#">
 						<i class="fas fa-search"></i>
 					</a></li>
-					<li><a href="#">
+					<li><a href="#" id="openSignin">
 						<i class="far fa-user"></i>
 					</a></li>
-					<li><a href="#">
+					<li><a href="#" id="wishlist">
 						<i class="far fa-heart"></i>
 					</a></li>
-					<li><a href="#">
+					<li><a href="./cart.html" id="cart">
 						<i class="fas fa-shopping-bag"></i>
 					</a></li>
 				</ul>
@@ -217,74 +272,84 @@
 
 	<!-- Footer -->
 	<footer>
-		<div class="wrapper">
-			<div class="contact">
-				<span>© Copyright 2019.<br>
-					All Rights Reserved.</span>
-				<h3>Contact</h3>
-				<ul>
-					<li>Headquarters:<br>
-						5600, Blvd. des Galeries, Bur 530 Québec, Québec G2K 2H6</li>
-					<li>contact@osf-global.com</li>
-					<li>+1 (888) 548-4344</li>
-				</ul>
-			</div>
-			<div class="categories">
-				<h3>Categories</h3>
-				<div>
+			<div class="wrapper">
+				<div class="contact">
+					<span>© Copyright <span id="year"></span>.<br>
+						All Rights Reserved.</span>
+					<h3>Contact</h3>
 					<ul>
-						<li><a href="#">Alcohol</a></li>
-						<li><a href="#">Art</a></li>
-						<li><a href="#">Books</a></li>
-						<li><a href="#">Drink</a></li>
-						<li><a href="#">Electronics</a></li>
+						<li>Headquarters:<br>
+							5600, Blvd. des Galeries, Bur 530 Québec, Québec G2K 2H6</li>
+						<li><a href="mailto:contact@osf-global.com">contact@osf-global.com</a></li>
+						<li><a href="tel:+1-888-548-4344">+1 (888) 548-4344</a></li>
 					</ul>
+				</div>
+				<div class="categories">
+					<h3>Categories</h3>
+					<div>
+						<ul>
+							<li><a href="./404.html">Alcohol</a></li>
+							<li><a href="./404.html">Art</a></li>
+							<li><a href="./404.html">Books</a></li>
+							<li><a href="./404.html">Drink</a></li>
+							<li><a href="./404.html">Electronics</a></li>
+						</ul>
+						<ul>
+							<li><a href="./404.html">Home</a></li>
+							<li><a href="./404.html">Jewerly</a></li>
+							<li><a href="./404.html">Kids & Baby</a></li>
+							<li><a href="./404.html">Men's Fashion</a></li>
+							<li><a href="./404.html">Mobile</a></li>
+							<li><a href="./404.html">Motorcycles</a></li>
+							<li><a href="./404.html">Movies</a></li>
+							<li><a href="./404.html">Music</a></li>
+						</ul>
+						<ul>
+							<li><a href="./404.html">Sport</a></li>
+							<li><a href="./404.html">Toys</a></li>
+							<li><a href="./404.html">Travel</a></li>
+							<li><a href="./404.html">Women's Fashion</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="about">
+					<h3>About</h3>
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Jewerly</a></li>
-						<li><a href="#">Kids & Baby</a></li>
-						<li><a href="#">Men's Fashion</a></li>
-						<li><a href="#">Mobile</a></li>
-						<li><a href="#">Motorcycles</a></li>
-						<li><a href="#">Movies</a></li>
-						<li><a href="#">Music</a></li>
+						<li><a href="./404.html">About Us</a></li>
+						<li><a href="./404.html">Delivery</a></li>
+						<li><a href="./404.html">Testimonials</a></li>
+						<li><a href="./404.html">Contact</a></li>
 					</ul>
+				</div>
+				<div class="social">
 					<ul>
-						<li><a href="#">Sport</a></li>
-						<li><a href="#">Toys</a></li>
-						<li><a href="#">Travel</a></li>
-						<li><a href="#">Women's Fashion</a></li>
+						<li><a href="https://www.facebook.com/OSFGlobalServices/">
+							<i class="fab fa-facebook-f"></i>
+						</a></li>
+						<li><a href="https://www.google.com">
+							<i class="fab fa-google-plus-g"></i>
+						</a></li>
+						<li><a href="https://twitter.com/osfglobal">
+							<i class="fab fa-twitter"></i>
+						</a></li>
+						<li><a href="https://www.pinterest.ca/osfglobal/">
+							<i class="fab fa-pinterest-p"></i>
+						</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="about">
-				<h3>About</h3>
-				<ul>
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Delivery</a></li>
-					<li><a href="#">Testimonials</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="social">
-				<ul>
-					<li><a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a></li>
-					<li><a href="#">
-						<i class="fab fa-google-plus-g"></i>
-					</a></li>
-					<li><a href="#">
-						<i class="fab fa-twitter"></i>
-					</a></li>
-					<li><a href="#">
-						<i class="fab fa-pinterest-p"></i>
-					</a></li>
-				</ul>
-			</div>
-		</div>
 	</footer>
 
+	<!-- Import data -->
+
+
+	<!-- Link Cookies interaction -->
+	<script src="js/_cookies.js"></script>
+
+	<!-- Link Sign In interaction -->
+	<script src="js/_signin.js"></script>
+
+	<!-- Link special page scripts -->
 	<script src="js/cart.js"></script>
 </body>
 </html>

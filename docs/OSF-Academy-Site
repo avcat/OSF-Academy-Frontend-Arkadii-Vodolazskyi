@@ -1,17 +1,22 @@
 ================ Todo: ================
 
+- Need to replace some rem widths with %
+
+! Add share JSON js
+
+
 Cart Page (interaction):
 - Interactivity. Remove items (show as objects: Get info from JSON => make objects => show items) * Interaction with JSON needed: needed additional js file for each page + one general JSON file for buys
 
-All:
-- Pages and windows
-	Sign In window
-	Cookies window
+- Sass: combine header styles with overlay + sign in modal + cookies modal (?)
+- HTML: Sign in modal + cookies modal will be before Header, in "Modals" part
++ JS file with general interactivity: Sign In, Cookies, etc. (?)
 
-- Make interactions with header: sign in
+- Add noscroll interaction to body with overlays
+
 - Adaptive
+	! Adapt plus/heart items buttons
 	Own media queries for each module/section
-- Provide all the links
 - Reorganize folders, images and paths
 	Sass modules for repeated elements
 	? Remove other colors from palette
@@ -20,11 +25,30 @@ All:
 - Fix no images
 - Fix Logo svgs in github pages
 
+? Release HTML + center-round - is there need?
+
 ================ Done: ================
 
-Done:
-- Cart Page
-	- Custom radio button
-	- Finished page layout 1280+
-- Print Page Interaction
-- Small Sass modules' fixings
+Cookies
+- Updated pages
+- Some header fixings
+
+
+
+HTML
+<!-- Overlay -->
+<!-- Sign In modal -->
+<!-- Header -->
+...
+<!-- Footer -->
+
+
+JS
+<!-- Import data -->
+<script src="./js/data/cart-wishlist.js"></script>
+
+<!-- Link Cookies interaction -->
+<script src="js/_cookies.js"></script>
+
+<!-- Link Sign In interaction -->
+<script src="js/_signin.js"></script>

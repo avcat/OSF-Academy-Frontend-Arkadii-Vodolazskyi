@@ -29,19 +29,24 @@ div.items
 			width: 90%
 			margin: 1rem auto
 		span
+			display: inline-block
 			font-size: 1rem
+			margin-bottom: 1rem
 		.paired
 			display: flex
 			justify-content: center
 			align-content: center
-			*
+			span
+				margin: 0
 				padding: to-rem(10px) to-rem(17px)
 				border: 3px groove rgba(#000, 10%)
-			span
 				border-radius: ($radius + 20px) 0 0 ($radius + 20px)
-				color: $item-green-color
 				border-right: none
+				a
+					color: $item-green-color
 			button
+				padding: to-rem(10px) to-rem(17px)
+				border: 3px groove rgba(#000, 10%)
 				border-radius: 0 ($radius + 20px) ($radius + 20px) 0
 				color: #000
 				font-size: 1rem

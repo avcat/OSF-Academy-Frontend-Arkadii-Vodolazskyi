@@ -1,5 +1,10 @@
 /* Header ------------------------------------------------ */
 header
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	z-index: 40
 	background-color: $white-color
 	border-bottom: 1px solid #ccc
 	> .wrapper
@@ -8,6 +13,7 @@ header
 		align-items: flex-end
 		a.logo
 			display: flex
+			width: 12%
 			align-self: center
 			img
 				width: to-rem(64px)
@@ -38,17 +44,19 @@ header
 					opacity: 0.7
 		nav
 			display: flex
+			width: 85%
 			justify-self: flex-end
+			justify-content: space-around
 			padding-top: 1rem
 			ul.nav-main
 				> li
 					text-transform: uppercase
 					border-bottom: 5px solid transparent
 					&:hover
-						*
-							color: $white-color
 						background-color: $darkblue-color
 						border-bottom: 5px solid $green-color
+						*
+							color: $white-color
 					&.menu-open
 						z-index: 20
 						&:hover
@@ -109,20 +117,75 @@ header
 					color: $grey-color
 				> li
 					border-bottom: 5px solid transparent
+					color: rgba($grey-color, 0.5)
 					&:hover
-						*
-							color: $white-color
 						background-color: $darkblue-color
 						border-bottom: 5px solid $green-color
+						color: $white-color
+						*
+							color: $white-color
+
+					&.lang-open, &.currency-open
+						z-index: 20
+						.lang-menu, .currency-menu
+							background-color: $darkblue-color
+							// Hover effects
+							position: absolute
+							opacity: 0
+							visibility: hidden
+							top: to-rem(83px)
+							z-index: 10
+							transition: all 0.4s ease
+							li
+								padding: to-rem(6px) 0
+								text-transform: capitalize
+								transition: all 0.2s ease
+								cursor: pointer
+								&:hover
+									opacity: 0.6
+						.lang-menu
+							width: to-rem(78px)
+							transform: translateX(-(to-rem(20px)))
+						.currency-menu
+							width: to-rem(130px)
+							transform: translateX(-30%)
+
+					&.lang-open:hover
+						.lang-menu
+							opacity: 1
+							visibility: visible
+
+					&.currency-open:hover
+						.currency-menu
+							opacity: 1
+							visibility: visible
 
 			ul.nav-manage
 				> li
-					a svg
-						color: $grey-color
-						opacity: 0.5
-						font-size: 1.7rem
-						path
-							transition: all 0.3s ease
-						&:hover
+					button, a
+						background-color: transparent
+						border: none
+						position: relative
+						cursor: pointer
+						svg
+							color: $grey-color
+							opacity: 0.5
+							font-size: 1.7rem
 							path
+								transition: all 0.3s ease
+							&:hover
+								path
+									color: $green-color
+						&#wishlist, &#cart
+							> span
+								position: absolute
+								display: inline-block
+								top: -30%
+								right: -40%
+								font-size: 0.6rem
 								color: $green-color
+								background-color: $white-color
+								border: 0.15rem solid $green-color
+								padding: to-rem(2px) to-rem(5px)
+								border-radius: 50%
+								z-index: 15

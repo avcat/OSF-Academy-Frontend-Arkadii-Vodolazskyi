@@ -8,13 +8,17 @@ $radius: 10px
 
 // General styles -------------------------------------------
 html
-	@if (calc(100vw <= 1280px))
+	font-size: 14px
+	@media (min-width: 1280px)
 		font-size: (14 / 1280) * 100vw
-	@else if (calc(100vw > 1280px))
-		font-size: 14px
 
 body
 	position: relative
+	&.noscroll
+		overflow: hidden
+
+main
+	padding-top: to-rem(83px)
 
 .wrapper
 	width: 91.4%
@@ -28,24 +32,7 @@ a, button, input[type="submit"]
 	display: inline-block
 	transition: all 0.5s ease
 
-// Reusable class styles ------------------------------------------
-%overlay
-	position: absolute
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	z-index: 100
-	overflow: hidden
-	background-color: #000
-	opacity: 0
-	visibility: hidden
-	cursor: pointer
-	&.active
-		opacity: 0.6
-		visibility: visible
-
-// ** for background images
+// ? for background images
 %img
 	display: inline-block
 	width: 100%
@@ -62,10 +49,9 @@ a, button, input[type="submit"]
 	text-transform: uppercase
 	font-size: to-rem(16px)
 	padding: to-rem(8px) to-rem(20px)
-	border: 0.15rem solid #000
-	background-color: $green-color
-	color: #000
-	border-radius: $radius + 2.5*$radius
+	border-width: 0.15rem
+	border-style: solid
+	border-radius: 3.5*$radius
 	cursor: pointer
 
 %print-section
@@ -78,6 +64,20 @@ a, button, input[type="submit"]
 	background: linear-gradient(to top, $color1, $color2)
 	-webkit-background-clip: text
 	-webkit-text-fill-color: transparent
+
+// HTNL => any tag + single span inside
+@mixin center-round
+	width: 100%
+	position: relative
+	width: 1rem
+	height: 1rem
+	border-radius: 50%
+	> *
+		position: absolute
+		top: 50%
+		left: 50%
+		border-radius: 50%
+		transform: translate(-50%, -50%)
 
 // Custom elements .....................................
 
@@ -191,3 +191,165 @@ a, button, input[type="submit"]
 			content: ""
 			transition: all 0.5s ease
 			opacity: 0
+
+
+
+// Reusable class styles ------------------------------------------
+#overlay
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	z-index: 50
+	overflow: hidden
+	background-color: #000
+	opacity: 0
+	visibility: hidden
+	cursor: pointer
+	&.active
+		opacity: 1
+		background-color: rgba(#000, 0.74)
+		visibility: visible
+
+#signinForm
+	position: absolute
+	width: 40%
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	z-index: 200
+	background-color: $white-color
+	padding: to-rem(50px)
+	opacity: 0
+	visibility: hidden
+	transition: all 0.4s ease
+	cursor: initial
+	&.active
+		opacity: 1
+		visibility: visible
+	text-align: center
+	border-radius: $radius
+	&:after
+		content: ""
+		display: table
+		clear: both
+	*
+		user-select: none
+	h3
+		color: $grey-color
+		font-size: to-rem(30px)
+		margin-bottom: 3rem
+	label
+		color: $grey-color
+		font-size: 1rem
+		margin-bottom: 1rem
+		float: left
+		display: inline-block
+	a
+		display: inline-block
+		color: $green-color
+		font-size: to-rem(12px)
+		&:hover
+			color: lighten($green-color, 10%)
+	div.forgot
+		&:after
+			content: ""
+			display: table
+			clear: both
+		> a
+			float: right
+	input[type="email"], input[type="password"], input[type="text"]
+		width: 100%
+		border: 0.15rem solid #d7d7d7
+		background-color: $white-color
+		padding: to-rem(12px) to-rem(20px)
+		border-radius: 3.5*$radius
+		transition: all 0.5s ease
+		&:focus
+			&:invalid, &:empty
+				border-color: red
+			&:valid
+				border-color: $green-color
+	input[type="email"]
+		margin-bottom: to-rem(30px)
+	div.password
+		position: relative
+		span.showPassword
+			cursor: pointer
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			right: 1rem
+			svg
+				color: #4f4e4c
+				width: to-rem(18px)
+				height: to-rem(18px)
+	input[type="submit"]#login
+		display: block
+		margin: to-rem(60px) auto to-rem(22px)
+		@extend %btn
+		padding: to-rem(8px) to-rem(70px)
+		border-color: transparent
+		color: $white-color
+		background-color: $green-color
+		&:hover
+			color: $green-color
+			border-color: $green-color
+			background-color: transparent
+
+div#cookies
+	position: absolute
+	width: 80%
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	z-index: 200
+	background-color: $white-color
+	padding: to-rem(25px)
+	opacity: 0
+	visibility: hidden
+	transition: all 0.4s ease
+	cursor: initial
+	&.active
+		opacity: 1
+		visibility: visible
+	border-radius: $radius
+	div.subwrapper
+		text-align: left
+		position: relative
+		h6, a
+			color: $green-color
+		h6
+			margin-bottom: to-rem(16px)
+			font-size: to-rem(16px)
+			line-height: 1.5
+		p
+			width: 80%
+			color: $grey-color
+			font-size: 1rem
+			line-height: 1.71
+		button#accept-cookies
+			position: absolute
+			bottom: 0
+			right: 0
+			@extend %btn
+			padding: to-rem(9px) to-rem(46px)
+			border-color: transparent
+			color: $white-color
+			background-color: $green-color
+			&:hover
+				color: $green-color
+				border-color: $green-color
+				background-color: transparent
+		span#close-cookies
+			position: absolute
+			top: -10%
+			right: 0
+			cursor: pointer
+			transition: all 0.3s ease
+			svg
+				font-size: 1.5rem
+			&:hover
+				svg path
+					fill: $green-color

@@ -1,0 +1,223 @@
+// sass --watch --sourcemap=none --no-cache sass:css
+
+// Import colors
+@import ./helpers/colors
+
+// Reset styles
+@import ./helpers/reset
+
+// Import mixins
+@import ./helpers/mixins
+
+/* Header ------------------------------------------------ */
+@import ./sections/header
+
+/* Main -------------------------------------------------- */
+main
+
+	/* Slider ------------------------------------------------ */
+	section.slider
+		.wrapper
+			display: flex
+			padding-top: 2rem
+			padding-bottom: 2rem
+			height: to-rem(505px)
+
+			.slider-dots
+				width: 75%
+				margin-right: 2.5%
+				position: relative
+
+				div.img
+					*
+						color: $white-color
+					padding: to-rem(70px) to-rem(60px) to-rem(104px)
+					border-radius: $radius
+					display: flex
+					flex-direction: column
+					// Aligning slider contents
+					&:nth-child(n)
+						align-items: flex-start
+						text-align: left
+					&:nth-child(2n)
+						align-items: center
+						text-align: center
+					&:nth-child(3n)
+						align-items: flex-end
+						text-align: right
+					// Slider interaction
+					position: absolute
+					top: 0
+					left: 0
+					opacity: 0
+					visibility: hidden
+					transition: all 0.8s ease
+					&.active
+						opacity: 1
+						visibility: visible
+					h3
+						width: 50%
+						font-size: to-rem(30px)
+						margin-bottom: 110px
+					p
+						width: 40%
+						margin-bottom: to-rem(30px)
+					a
+						@extend %btn
+						background-color: transparent
+						border-color: $white-color
+						color: $white-color
+						font-size: 1rem
+						padding: to-rem(8px) to-rem(35px)
+						opacity: 0.7
+						&:hover
+							opacity: 1
+
+				ul.dots
+					position: absolute
+					left: 50%
+					transform: translateX(-50%)
+					bottom: to-rem(30px)
+					li
+						display: inline-block
+						margin: 0 to-rem(10px)
+						button
+							display: inline-block
+							padding: 0.15rem
+							border-radius: 50%
+
+							opacity: 0.5
+							background-color: $white-color
+							border: solid 0.25rem transparent
+							cursor: pointer
+
+							&:hover
+								opacity: 1
+
+							&.active
+								opacity: 1
+								background-color: transparent
+								border: solid 0.25rem $white-color
+			div.advert
+				width: 25% - 2.5%
+				div.img
+					height: to-rem(305px)
+					margin-bottom: to-rem(25px)
+					padding: to-rem(30px)
+					border-radius: $radius
+					text-align: center
+					*
+						color: $white-color
+					span
+						font-size: to-rem(100px)
+					p
+						margin-top: to-rem(40px)
+						font-size: to-rem(30px)
+						text-transform: uppercase
+
+				div.follow
+					width: 90%
+					margin: 0 auto
+					text-align: center
+					*
+						@include text-gradient ($gradient1-color, $gradient2-color)
+					h4
+						margin-bottom: to-rem(14px)
+						font-size: to-rem(18px)
+					p
+						margin-bottom: to-rem(20px)
+						font-size: to-rem(13px)
+					a
+						@extend %btn
+						border-color: #3a5b96
+						background-color: $white-color
+						svg
+							transition: all 0.5s ease
+							margin-right: 10px
+							color: #3a5b96
+						&:hover
+							-webkit-background-clip: unset
+							-webkit-text-fill-color: unset
+							background: #3a5b96
+							color: $white-color
+							svg
+								color: $white-color
+
+	/* Popular Items ----------------------------------------- */
+	section.pop-items
+		background-color: $darkblue-color
+		.wrapper
+			padding-top: to-rem(30px)
+			padding-bottom: to-rem(60px)
+			h2
+				padding: (to-rem(15px)) 0
+				background-color: $darkblue-color
+				@include text-gradient ($gradient1-color, $gradient1-color)
+				text-align: center
+				position: relative
+				&:before
+					position: absolute
+					bottom: 50%
+					right: 0
+					content: ""
+					width: 40%
+					height: 100%
+					background-color: inherit
+					border-bottom: 2px solid $white-color
+					opacity: 0.1
+				&:after
+					position: absolute
+					top: 50%
+					left: 0
+					content: ""
+					width: 40%
+					background-color: inherit
+					border-bottom: 2px solid $white-color
+					opacity: 0.1
+
+			// Items
+			@import ./sections/items
+
+			button.btn
+				@extend %btn
+				margin-top: to-rem(51px)
+				padding: to-rem(10px) to-rem(90px)
+				color: $white-color
+				background-color: transparent
+				border-color: $white-color
+				font-size: 0.8rem
+				&:hover
+					background-color: $white-color
+					border-color: inherit
+					color: inherit
+
+	/* Banner ------------------------------------------------ */
+	section.banner
+		padding: (445 / 1280 * 35%) 0
+		display: flex
+		flex-direction: column
+		justify-content: center
+		*
+			color: $white-color
+		div.content
+			text-align: center
+			h2
+				margin-bottom: 2rem
+				font-size: to-rem(47px)
+			p
+				width: 26%
+				margin: 0 auto
+				span
+					color: #ff974e
+
+	/* Featured Products ------------------------------------- */
+	@import ./sections/feat-prod
+
+	/* Benefits ---------------------------------------------- */
+	@import ./sections/benefits
+
+/* Footer ------------------------------------------------ */
+@import ./sections/footer
+footer .wrapper h3
+	@include text-gradient($gradient1-color, $gradient2-color)
+	font-weight: normal

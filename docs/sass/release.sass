@@ -7,10 +7,6 @@
 // Import mixins
 @import ./helpers/mixins
 
-/* Overlay ------------------------------------------------ */
-#overlay
-	@extend %overlay
-
 /* Header ------------------------------------------------ */
 @import ./sections/header
 
@@ -46,27 +42,31 @@ main
 				align-items: center
 				> div
 					width: 18.4%
+					text-align: center
+					> div
+						@include center-round
+						width: 100%
+						height: to-rem(120px)
 					span
-						display: block
 						font-size: to-rem(48px)
 						color: $grey-color
 						background-color: $white-color
 						border: 0.2rem solid $green-color
-						border-radius: 50%
 						padding: to-rem(28px)
 						user-select: none
 					h5
+						width: 100%
 						display: block
 						text-align: center
 						font-size: to-rem(18px)
 						line-height: 1.67
 						color: $grey-color
 						margin-top: 1rem
-			div.mailing
+			form.mailing
 				width: 42%
 				margin: 0 auto
 				position: relative
-				> input
+				> input[type="email"]
 					border-radius: $radius + 25px
 					border: 0.15rem solid #e5e2df
 					padding: to-rem(10px) to-rem(20px)
@@ -76,14 +76,22 @@ main
 					transition: all 0.5s ease
 					&:focus
 						border-color: $green-color
-				> svg
+						&:invalid, &:empty
+							border-color: red
+				> input[type="submit"]
 					position: absolute
-					top: 50%
-					transform: translateY(-50%)
-					right: 1rem
-					color: $green-color
-					width: to-rem(23px)
-					height: to-rem(23px)
+					opacity: 0
+					visibility: hidden
+				label
+					cursor: pointer
+					svg
+						position: absolute
+						top: 50%
+						transform: translateY(-50%)
+						right: 1rem
+						color: $green-color
+						width: to-rem(23px)
+						height: to-rem(23px)
 
 /* Footer ------------------------------------------------ */
 @import ./sections/footer
