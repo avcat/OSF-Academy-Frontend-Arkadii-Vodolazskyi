@@ -96,15 +96,22 @@ main
 			// Items
 			@import ./sections/items
 
-			button.btn
+			button#loadMore
 				@extend %btn
-				margin-top: to-rem(120px)
-				padding: to-rem(10px) to-rem(42px)
-				color: $white-color
-				border: none
-				&:hover
-					background-color: $white-color
-					color: $green-color
+				margin-top: to-rem(51px)
+				padding: to-rem(10px) to-rem(90px)
+				color: $green-color
+				background-color: $white-color
+				border-color: transparent
+				font-size: 0.8rem
+				&.enabled
+					color: $white-color
+					background-color: $green-color
+					border-color: transparent
+					&:hover
+						color: $green-color
+						background-color: $white-color
+						border-color: $green-color
 
 	/* Featured Products ------------------------------------- */
 	@import ./sections/feat-prod

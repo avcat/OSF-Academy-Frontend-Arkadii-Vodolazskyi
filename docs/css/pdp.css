@@ -17,6 +17,11 @@ html {
 body {
   position: relative; }
   body.noscroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow: hidden; }
 
 main {
@@ -751,7 +756,7 @@ main {
       main section.pop-items .wrapper div.items {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         margin: 0 -1%; }
         main section.pop-items .wrapper div.items .item {
           width: 23%;

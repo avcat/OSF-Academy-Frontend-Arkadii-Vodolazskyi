@@ -37,7 +37,8 @@ let x = setInterval(() => {
 
 
 // Subscribe ==========================================
-const emailField = document.getElementById("email");
+
+const emailSubscribe = document.getElementById("email");
 const subscribeButton = document.getElementById("subscribe");
 
 subscribeButton.addEventListener("click", (e) => {
@@ -45,35 +46,26 @@ subscribeButton.addEventListener("click", (e) => {
 	e.preventDefault();
 
 	// Checking email validity
-	if (emailField.validity.valid === true) {
+	if (emailSubscribe.validity.valid === true) {
 
-		alert("Subscribed. Thank you!");
+		// Get emails count to form new id
+		firebase.database().ref("/emails")
+		.once('value', snap => {
 
-		// Create object for storing email
-		let emailBox = {
-			emails: []
-		};
+			let newID = snap.val().length;
 
-		// Put new email into it
-		emailBox.emails.push({
-			id: 1,
-			email: emailField.value
+			firebase.database().ref(`/emails/${newID}`)
+			.update({
+				email: emailSubscribe.value
+			});
+
 		});
 
-		console.log("emailBox now contains: " + emailBox);
+		alert(`Subscribed with email ${emailSubscribe.value}. Thank you!`);
 
-		// Convert into JSON
-		let json = JSON.stringify(emailBox);
-
-		// ??? HOW TO USE FS
-
-		// Write into file
-		let fs = require("fs");
-		fs.writeFile("emailBox.json", json, "utf8");
-
-	} else {
+	}
+	else {
 		alert("Email is not valid.");
 	}
 
 }, true);
-

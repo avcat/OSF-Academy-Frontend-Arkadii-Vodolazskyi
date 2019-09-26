@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	if (localStorage.getItem("Cookies accepted") !== "true") {
 
-		console.log(localStorage.getItem("Cookies accepted"));
-		console.log(localStorage.getItem("Cookies accepted") !== "true");
-
 		// Get pointers
 		let overlay = document.getElementById("overlay");
 		const cookiesWindow = document.getElementById("cookies");

@@ -17,6 +17,11 @@ html {
 body {
   position: relative; }
   body.noscroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow: hidden; }
 
 main {
@@ -444,11 +449,11 @@ main {
             line-height: 1.67;
             color: #45413e;
             margin-top: 1rem; }
-      main section.countdown .wrapper form.mailing {
+      main section.countdown .wrapper form#mailing {
         width: 42%;
         margin: 0 auto;
         position: relative; }
-        main section.countdown .wrapper form.mailing > input[type="email"] {
+        main section.countdown .wrapper form#mailing > input[type="email"] {
           border-radius: 35px;
           border: 0.15rem solid #e5e2df;
           padding: 0.7142857143rem 1.4285714286rem;
@@ -456,17 +461,17 @@ main {
           color: #45413e;
           font-size: 1rem;
           transition: all 0.5s ease; }
-          main section.countdown .wrapper form.mailing > input[type="email"]:focus {
+          main section.countdown .wrapper form#mailing > input[type="email"]:focus:valid {
             border-color: #84bc22; }
-            main section.countdown .wrapper form.mailing > input[type="email"]:focus:invalid, main section.countdown .wrapper form.mailing > input[type="email"]:focus:empty {
-              border-color: red; }
-        main section.countdown .wrapper form.mailing > input[type="submit"] {
+          main section.countdown .wrapper form#mailing > input[type="email"]:focus:invalid, main section.countdown .wrapper form#mailing > input[type="email"]:focus:empty {
+            border-color: red; }
+        main section.countdown .wrapper form#mailing > input[type="submit"] {
           position: absolute;
           opacity: 0;
           visibility: hidden; }
-        main section.countdown .wrapper form.mailing label {
+        main section.countdown .wrapper form#mailing label {
           cursor: pointer; }
-          main section.countdown .wrapper form.mailing label svg {
+          main section.countdown .wrapper form#mailing label svg {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);

@@ -152,17 +152,19 @@
 				</ul>
 
 				<ul class="nav-manage">
-					<li><a href="#">
+					<li><button>
 						<i class="fas fa-search"></i>
-					</a></li>
-					<li><a href="#" id="openSignin">
+					</button></li>
+					<li><button id="openSignin">
 						<i class="far fa-user"></i>
-					</a></li>
-					<li><a href="#" id="wishlist">
+					</button></li>
+					<li><button id="wishlist">
 						<i class="far fa-heart"></i>
-					</a></li>
+						<span id="wishlistAmount">0</span>
+					</button></li>
 					<li><a href="./cart.html" id="cart">
 						<i class="fas fa-shopping-bag"></i>
+						<span id="cartAmount">0</span>
 					</a></li>
 				</ul>
 			</nav>
@@ -241,10 +243,10 @@
 						<h4 class="name">Kristina Dam Oak Table With White Marble Top</h4>
 						<span>$ 799.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -254,10 +256,10 @@
 						<h4 class="name">EAMES x Cast + Crew - Custom Powder Coated</h4>
 						<span>$ 799.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -267,10 +269,10 @@
 						<h4 class="name">Activate Facial Mask and Charcoal Soap </h4>
 						<span>$ 129.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -280,10 +282,10 @@
 						<h4 class="name">Vitra Cork Stool B, Cork - Design Within Reach</h4>
 						<span>$ 299.99</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -294,10 +296,10 @@
 						<h4 class="name">Hay - About A Lounge Chair AAL 93</h4>
 						<span>$ 659.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -307,10 +309,10 @@
 						<h4 class="name">TORY DESK CALENDAR</h4>
 						<span>$ 410.99</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -321,10 +323,10 @@
 								SUITE NY</h4>
 						<span>$ 330.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -335,10 +337,10 @@
 								SUITE NY</h4>
 						<span>$ 330.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -349,10 +351,10 @@
 						<h4 class="name">Kristina Dam Oak Table With White Marble Top</h4>
 						<span>$ 2195.00</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -362,10 +364,10 @@
 						<h4 class="name">MONOQI | Ø55 Crossit Table - Wht/Grn</h4>
 						<span>$ 299.99</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -375,10 +377,10 @@
 						<h4 class="name">Vitra Cork Stool B, Cork - Design Within Reach</h4>
 						<span>$ 870.95</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -388,10 +390,10 @@
 						<h4 class="name">Activate Facial Mask and Charcoal Soap </h4>
 						<span>$ 129.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -402,10 +404,10 @@
 						<h4 class="name">Hay - About A Lounge Chair AAL 93</h4>
 						<span>$ 659.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -415,10 +417,10 @@
 						<h4 class="name">TORY DESK CALENDAR</h4>
 						<span>$ 410.99</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -428,10 +430,10 @@
 						<h4 class="name">EAMES x Cast + Crew - Custom Powder Coated </h4>
 						<span>$ 330.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -442,16 +444,16 @@
 								SUITE NY</h4>
 						<span>$ 330.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
 					</div>
 				</div>
-				<button class="btn">Load more</button>
+				<button class="btn enabled" id="loadMore">Load more</button>
 			</div>
 		</section>
 
@@ -615,14 +617,11 @@
 			</div>
 	</footer>
 
-	<!-- Import data -->
+	<!-- Link Firebase -->
+	<script src="js/firebase/firebase-app.js"></script>
 
-
-	<!-- Link Cookies interaction -->
-	<script src="js/_cookies.js"></script>
-
-	<!-- Link Sign In interaction -->
-	<script src="js/_signin.js"></script>
+	<!-- Import basic functionality -->
+	<script src="js/_basicF.js"></script>
 
 	<!-- Link special page scripts -->
 	<script src="js/clp.js"></script>

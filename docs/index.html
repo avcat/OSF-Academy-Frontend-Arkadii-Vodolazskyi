@@ -160,9 +160,11 @@
 					</button></li>
 					<li><button id="wishlist">
 						<i class="far fa-heart"></i>
+						<span id="wishlistAmount">0</span>
 					</button></li>
 					<li><a href="./cart.html" id="cart">
 						<i class="fas fa-shopping-bag"></i>
+						<span id="cartAmount">0</span>
 					</a></li>
 				</ul>
 			</nav>
@@ -344,7 +346,7 @@
 						</div>
 					</div>
 				</div>
-				<button class="btn">Load more</button>
+				<button class="btn enabled" id="loadMore">Load more</button>
 			</div>
 		</section>
 
@@ -545,14 +547,11 @@
 		</div>
 	</footer>
 
-	<!-- Import data -->
+	<!-- Link Firebase -->
+	<script src="js/firebase/firebase-app.js"></script>
 
-
-	<!-- Link Cookies interaction -->
-	<script src="js/_cookies.js"></script>
-
-	<!-- Link Sign In interaction -->
-	<script src="js/_signin.js"></script>
+	<!-- Import basic functionality -->
+	<script src="js/_basicF.js"></script>
 
 	<!-- Link special page scripts -->
 	<script src="js/index.js"></script>

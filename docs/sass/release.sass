@@ -62,7 +62,7 @@ main
 						line-height: 1.67
 						color: $grey-color
 						margin-top: 1rem
-			form.mailing
+			form#mailing
 				width: 42%
 				margin: 0 auto
 				position: relative
@@ -75,7 +75,8 @@ main
 					font-size: 1rem
 					transition: all 0.5s ease
 					&:focus
-						border-color: $green-color
+						&:valid
+							border-color: $green-color
 						&:invalid, &:empty
 							border-color: red
 				> input[type="submit"]

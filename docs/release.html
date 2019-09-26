@@ -152,17 +152,19 @@
 				</ul>
 
 				<ul class="nav-manage">
-					<li><a href="#">
+					<li><button>
 						<i class="fas fa-search"></i>
-					</a></li>
-					<li><a href="#" id="openSignin">
+					</button></li>
+					<li><button id="openSignin">
 						<i class="far fa-user"></i>
-					</a></li>
-					<li><a href="#" id="wishlist">
+					</button></li>
+					<li><button id="wishlist">
 						<i class="far fa-heart"></i>
-					</a></li>
+						<span id="wishlistAmount">0</span>
+					</button></li>
 					<li><a href="./cart.html" id="cart">
 						<i class="fas fa-shopping-bag"></i>
+						<span id="cartAmount">0</span>
 					</a></li>
 				</ul>
 			</nav>
@@ -209,9 +211,9 @@
 						<h5>Seconds</h5>
 					</div>
 				</div>
-				<form class="mailing">
-					<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email to receive the latest announcements" id="email" required>
-					<input type="submit" value="" id="subscribe">
+				<form id="mailing">
+					<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email to receive the latest announcements" id="email" required>
+					<input type="submit" value="Email" id="subscribe">
 					<label for="subscribe" id="forSubscribe">
 						<i class="fas fa-chevron-circle-right"></i>
 					</label>
@@ -291,31 +293,13 @@
 			</div>
 	</footer>
 
-	<!-- Import data -->
+	<!-- Link Firebase -->
+	<script src="js/firebase/firebase-app.js"></script>
 
-
-	<!-- Link Cookies interaction -->
-	<script src="js/_cookies.js"></script>
-
-	<!-- Link Sign In interaction -->
-	<script src="js/_signin.js"></script>
+	<!-- Import basic functionality -->
+	<script src="js/_basicF.js"></script>
 
 	<!-- Link special page scripts -->
 	<script src="js/release.js"></script>
-
-
-
-	<!-- Firebase test -->
-
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-	https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
-
-
-	<!-- Script test -->
-	<script src="./js/tests/firebase.js"></script>
 </body>
 </html>

@@ -152,17 +152,19 @@
 				</ul>
 
 				<ul class="nav-manage">
-					<li><a href="#">
+					<li><button>
 						<i class="fas fa-search"></i>
-					</a></li>
-					<li><a href="#" id="openSignin">
+					</button></li>
+					<li><button id="openSignin">
 						<i class="far fa-user"></i>
-					</a></li>
-					<li><a href="#" id="wishlist">
+					</button></li>
+					<li><button id="wishlist">
 						<i class="far fa-heart"></i>
-					</a></li>
+						<span id="wishlistAmount">0</span>
+					</button></li>
 					<li><a href="./cart.html" id="cart">
 						<i class="fas fa-shopping-bag"></i>
+						<span id="cartAmount">0</span>
 					</a></li>
 				</ul>
 			</nav>
@@ -277,13 +279,10 @@
 			</div>
 	</footer>
 
-	<!-- Import data -->
+	<!-- Link Firebase -->
+	<script src="js/firebase/firebase-app.js"></script>
 
-
-	<!-- Link Cookies interaction -->
-	<script src="js/_cookies.js"></script>
-
-	<!-- Link Sign In interaction -->
-	<script src="js/_signin.js"></script>
+	<!-- Import basic functionality -->
+	<script src="js/_basicF.js"></script>
 </body>
 </html>

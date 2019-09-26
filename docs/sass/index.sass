@@ -178,18 +178,22 @@ main
 			// Items
 			@import ./sections/items
 
-			button.btn
+			button#loadMore
 				@extend %btn
 				margin-top: to-rem(51px)
 				padding: to-rem(10px) to-rem(90px)
-				color: $white-color
-				background-color: transparent
-				border-color: $white-color
+				background-color: $white-color
+				border-color: inherit
+				color: inherit
 				font-size: 0.8rem
-				&:hover
-					background-color: $white-color
-					border-color: inherit
-					color: inherit
+				&.enabled
+					color: $white-color
+					background-color: transparent
+					border-color: $white-color
+					&:hover
+						background-color: $white-color
+						border-color: inherit
+						color: inherit
 
 	/* Banner ------------------------------------------------ */
 	section.banner

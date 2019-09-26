@@ -1,38 +1,48 @@
 ================ Todo: ================
 
+! Adaptive (Own media queries for each module/section)
+
+! Fix no images
+
+! Fix Logo svgs in github pages
+
+JSON:
+Home Page:
+- featured prodcuts slider - take from popularItems.
+
+Cart Page:
+- amounts.cart
+
 - Need to replace some rem widths with %
-
-! Add share JSON js
-
 
 Cart Page (interaction):
 - Interactivity. Remove items (show as objects: Get info from JSON => make objects => show items) * Interaction with JSON needed: needed additional js file for each page + one general JSON file for buys
 
-- Sass: combine header styles with overlay + sign in modal + cookies modal (?)
-- HTML: Sign in modal + cookies modal will be before Header, in "Modals" part
-+ JS file with general interactivity: Sign In, Cookies, etc. (?)
-
-- Add noscroll interaction to body with overlays
-
-- Adaptive
-	! Adapt plus/heart items buttons
-	Own media queries for each module/section
 - Reorganize folders, images and paths
 	Sass modules for repeated elements
 	? Remove other colors from palette
 	@mixin => to % @extends
 	Repeated styles => to % @extends
-- Fix no images
-- Fix Logo svgs in github pages
 
+
+Minor bugs:
 ? Release HTML + center-round - is there need?
+
+! Fix subscribe form on release.html
+
+! Firebase JSON contains empty items
+
+! Crazy body/overlay
+
+Bonuses:
+Home/popular items:
+- different types of items (w/w0 comments)
 
 ================ Done: ================
 
-Cookies
-- Updated pages
-- Some header fixings
-
+- Items count in header
+- Subscribe with email
+- Load more items
 
 
 HTML
@@ -44,11 +54,15 @@ HTML
 
 
 JS
-<!-- Import data -->
-<script src="./js/data/cart-wishlist.js"></script>
+
+<!-- Link Firebase -->
+<script src="js/firebase/firebase-app.js"></script>
 
 <!-- Link Cookies interaction -->
 <script src="js/_cookies.js"></script>
 
 <!-- Link Sign In interaction -->
 <script src="js/_signin.js"></script>
+
+<!-- Special page scripts -->
+...
