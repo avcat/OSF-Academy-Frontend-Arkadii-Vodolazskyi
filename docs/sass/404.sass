@@ -28,6 +28,9 @@ main
 			border-radius: $radius
 			display: flex
 			align-items: center
+			justify-content: space-between
+			@media (max-width: 960px)
+				flex-direction: column
 			div.warning
 				width: 40%
 				padding: 11% 0
@@ -37,10 +40,24 @@ main
 				background-size: 75%
 				background-repeat: no-repeat
 				background-position: -55% 50%
+				@media (max-width: 1280px)
+					padding: 5% 0
+				@media (max-width: 960px)
+					width: 90%
+					background-size: 30%
+					background-repeat: no-repeat
+					background-position: center
+				@media (max-width: 640px)
+					padding-top: 0
+					font-size: to-rem(70px)
 			div.info
 				width: 60%
 				text-align: left
-				padding-right: to-rem(120px)
+				padding-right: 10%
+				@media (max-width: 1280px)
+					padding: 0 5%
+				@media (max-width: 960px)
+					width: 90%
 				h3, h4
 					margin-bottom: 1.5rem
 					font-size: to-rem(24px)

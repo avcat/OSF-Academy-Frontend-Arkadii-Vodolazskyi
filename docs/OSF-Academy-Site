@@ -1,6 +1,8 @@
 ================ Todo: ================
 
-! Adaptive (Own media queries for each module/section)
+! Adaptive
+- Header (replace headers)
+- Footer
 
 ! Fix no images
 
@@ -37,6 +39,7 @@ Minor bugs:
 Bonuses:
 Home/popular items:
 - different types of items (w/w0 comments)
+- collect all medias together if there's a need
 
 ================ Done: ================
 
@@ -44,6 +47,12 @@ Home/popular items:
 - Subscribe with email
 - Load more items
 
+Adaptive pages:
+404
+
+Adaptive modules:
+breadcrumbs
+header 70%
 
 HTML
 <!-- Overlay -->

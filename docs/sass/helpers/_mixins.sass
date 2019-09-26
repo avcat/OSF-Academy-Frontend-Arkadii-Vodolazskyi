@@ -1,5 +1,4 @@
 // Variables ------------------------------------------------
-$hor-padd: 4.3%
 $radius: 10px
 
 // Functions -----------------------------------------------
@@ -21,14 +20,24 @@ body
 		right: 0
 		bottom: 0
 		overflow: hidden
+	@media (max-width: 1010px)
+		padding-top: 78px
+	@media (max-width: 850px)
+		padding-bottom: 53px
 
 main
 	padding-top: to-rem(83px)
+	@media (max-width: 850px)
+		padding: 0
 
 .wrapper
 	width: 91.4%
 	margin: 0 auto
 	text-align: center
+	@media (max-width: 1280px)
+		width: 95%
+	@media (max-width: 640px)
+		width: 98%
 
 section
 	overflow: hidden

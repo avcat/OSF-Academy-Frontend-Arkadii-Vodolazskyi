@@ -136,6 +136,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// ========================== hamburger.js ==========================
+
+// Find hamburger menu
+const hambBtn = document.getElementById("hamburger");
+
+// Find nav-main
+const navMain = document.querySelector("header nav ul.nav-main");
+
+// Event listener: click on hamburger - show/hide nav-main
+hambBtn.addEventListener("click", () => {
+
+	navMain.classList.toggle("active");
+	hambBtn.children[0].classList.toggle("active");
+	hambBtn.children[1].classList.toggle("active");
+
+}, true);
+
+// ========================== services-expand.js ==========================
+
+// Find Services tab
+const servicesTab = document.querySelector("header nav ul.nav-main li.menu-open");
+
+// Find Services menu
+const servicesMenu = document.querySelector("header nav ul.nav-main li.menu-open div.menu");
+
+// Event listener: click on Services tab - show/hide Services menu
+servicesTab.addEventListener("click", () => {
+
+	servicesMenu.classList.toggle("active");
+
+}, true);
+
 // ========================== year.js ==========================
 
 // Inject current year to the footer ...............................
