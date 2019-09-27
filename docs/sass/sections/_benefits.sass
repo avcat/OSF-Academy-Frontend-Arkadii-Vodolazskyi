@@ -2,23 +2,48 @@
 section.benefits
 	background-color: $grey-color
 	.wrapper
-		padding-top: to-rem(45px)
-		padding-bottom: to-rem(45px)
+		padding: to-rem(45px) 0 to-rem(45px)
 		display: flex
 		justify-content: space-between
+		@media (max-width: 710px)
+			flex-direction: column
+			padding: to-rem(20px) 0 to-rem(20px)
 		div.card
 			width: 27%
 			display: flex
 			align-items: flex-start
 			justify-content: space-between
+			@media (max-width: 960px)
+				width: 32%
+			@media (max-width: 710px)
+				width: 100%
+				padding: 1.5rem 0
+				align-items: center
+				&:nth-child(2)
+					> img
+						order: 2
+						margin: 0 0 0 1rem
+						@media (max-width: 450px)
+							margin-left: 0 1rem 0 2rem
+					> div.info
+						order: 1
 			img
 				width: 12rem
 				margin-right: to-rem(35px)
+				@media (max-width: 960px)
+					width: 8rem
+					margin-right: 1rem
+				@media (max-width: 710px)
+					width: 5rem
+				@media (max-width: 450px)
+					margin: 0 2rem 0 1rem
 			h4
 				margin-bottom: to-rem(23px)
 				text-transform: uppercase
 				@include text-gradient($gradient1-color, $gradient2-color)
 				text-align: left
+				@media (max-width: 710px)
+					margin-bottom: 0.8rem
 			p
 				@include text-gradient($gradient1-color, $gradient2-color)
 				text-align: left

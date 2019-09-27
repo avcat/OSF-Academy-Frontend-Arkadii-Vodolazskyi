@@ -5,6 +5,26 @@ footer
 		padding-bottom: to-rem(38px)
 		display: flex
 		justify-content: space-between
+		@media (max-width: 850px)
+			flex-direction: column
+			> div.contact, div.categories, div.about
+				width: 100%
+				position: relative
+				margin-bottom: 1rem
+				&.contact
+					margin-bottom: 2rem
+				ul.contact-menu, div.categories-menu, ul.about-menu
+					transition: all 0.4s ease
+					position: absolute
+					top: 1rem
+					transform: translateY(-10%)
+					opacity: 0
+					visibility: hidden
+					&.active
+						transform: translateY(0)
+						position: relative
+						opacity: 1
+						visibility: visible
 		*
 			text-align: left
 			font-size: to-rem(13px)
@@ -14,6 +34,24 @@ footer
 			text-transform: uppercase
 			color: $grey-color
 			font-weight: 600
+			span.arrow-down
+				color: $darkblue-color
+				font-size: 0.9rem
+				float: right
+				transition: all 0.4s ease
+				opacity: 0
+			@media (max-width: 850px)
+				cursor: pointer
+				transition: all 0.3s ease
+				&:hover
+					color: $green-color
+					span.arrow-down
+						color: $green-color
+				span.arrow-down
+					opacity: 0.7
+					&.active
+						color: $green-color
+						transform: rotate(180deg)
 		li
 			margin: to-rem(10px) 0
 		.contact
@@ -40,15 +78,19 @@ footer
 				&:hover
 					color: $green-color
 		.social
-			ul li
-				display: inline-block
-				margin: 0 to-rem(12px)
-				a svg
-					color: $grey-color
-					opacity: 0.5
-					font-size: 1.2rem
-					path
-						transition: all 0.3s ease
-					&:hover
+			ul
+				@media (max-width: 850px)
+					text-align: center
+					padding-top: 1rem
+				li
+					display: inline-block
+					margin: 0 to-rem(12px)
+					a svg
+						color: $grey-color
+						opacity: 0.5
+						font-size: 1.2rem
 						path
-							color: $green-color
+							transition: all 0.3s ease
+						&:hover
+							path
+								color: $green-color

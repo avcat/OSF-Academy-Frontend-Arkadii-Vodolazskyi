@@ -36,8 +36,6 @@ main
 	text-align: center
 	@media (max-width: 1280px)
 		width: 95%
-	@media (max-width: 640px)
-		width: 98%
 
 section
 	overflow: hidden
@@ -244,6 +242,13 @@ a, button, input[type="submit"]
 		visibility: visible
 	text-align: center
 	border-radius: $radius
+	@media (max-width: 1280px)
+		width: 50%
+	@media (max-width: 960px)
+		width: 60%
+	@media (max-width: 640px)
+		width: 80%
+		padding: to-rem(20px)
 	&:after
 		content: ""
 		display: table

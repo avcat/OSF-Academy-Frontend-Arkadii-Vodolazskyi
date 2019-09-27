@@ -1,21 +1,18 @@
 ================ Todo: ================
 
-! Adaptive
-- Header (replace headers)
-- Footer
+1. Find items
+2. slice into first 5 items
+3. for each of them create dot
+4. add event listener
+
+5. continue adaptive
 
 ! Fix no images
-
-! Fix Logo svgs in github pages
 
 JSON:
 Home Page:
 - featured prodcuts slider - take from popularItems.
 
-Cart Page:
-- amounts.cart
-
-- Need to replace some rem widths with %
 
 Cart Page (interaction):
 - Interactivity. Remove items (show as objects: Get info from JSON => make objects => show items) * Interaction with JSON needed: needed additional js file for each page + one general JSON file for buys
@@ -36,6 +33,8 @@ Minor bugs:
 
 ! Crazy body/overlay
 
+! remove on styles of menu on closing header menu
+
 Bonuses:
 Home/popular items:
 - different types of items (w/w0 comments)
@@ -43,27 +42,21 @@ Home/popular items:
 
 ================ Done: ================
 
+Adaptive sections:
+- Header
+- Footer
+- Benefits
+- Featured products
+
+Adaptive pages:
+- 404
+- Home
+
+
+
 Fixed:
 - GitHub Pages doesn't see files, that named with _
 
-HTML
-<!-- Overlay -->
-<!-- Sign In modal -->
-<!-- Header -->
-...
-<!-- Footer -->
+! Corrupted logo SVG - so I had to replace all logo.svg with logo.png
 
-
-JS
-
-<!-- Link Firebase -->
-<script src="js/firebase/firebase-app.js"></script>
-
-<!-- Link Cookies interaction -->
-<script src="js/_cookies.js"></script>
-
-<!-- Link Sign In interaction -->
-<script src="js/_signin.js"></script>
-
-<!-- Special page scripts -->
-...
+Replaced big sized images with lightweight ones

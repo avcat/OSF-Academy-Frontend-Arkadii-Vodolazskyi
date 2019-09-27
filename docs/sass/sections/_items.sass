@@ -69,18 +69,22 @@ div.items
 			visibility: hidden
 			transition: all 0.4s ease
 			button
-				display: inline-block
+				position: absolute
+				top: 50%
 				background-color: $white-color
 				padding: to-rem(31px)
 				border-radius: 100%
 				border: 1px solid $white-color
 				cursor: pointer
-				margin-top: 50%
 				&:hover
 					background-color: darken($white-color, 5%)
 					box-shadow: 0 0 20px darken($item-gradient1-color, 20%)
-				&:nth-child(1)
-					margin-right: to-rem(22px)
+				&.addToCart
+					left: 15%
+					transform: translate(-15%, -50%)
+				&.addToWishlist
+					right: 15%
+					transform: translate(15%, -50%)
 				img
 					background-color: transparent
 					width: 2rem

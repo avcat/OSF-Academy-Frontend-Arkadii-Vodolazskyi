@@ -22,12 +22,14 @@ main
 			padding-top: 2rem
 			padding-bottom: 2rem
 			height: to-rem(505px)
-
 			.slider-dots
 				width: 75%
 				margin-right: 2.5%
 				position: relative
-
+				@media (max-width: 990px)
+					width: 70%
+				@media (max-width: 600px)
+					width: 100%
 				div.img
 					*
 						color: $white-color
@@ -35,6 +37,10 @@ main
 					border-radius: $radius
 					display: flex
 					flex-direction: column
+					@media (max-width: 990px)
+						justify-content: space-between
+						padding: to-rem(30px) to-rem(30px) to-rem(60px)
+						background-position-x: 100%
 					// Aligning slider contents
 					&:nth-child(n)
 						align-items: flex-start
@@ -42,9 +48,15 @@ main
 					&:nth-child(2n)
 						align-items: center
 						text-align: center
+						@media (max-width: 990px)
+							align-items: flex-start
+							text-align: left
 					&:nth-child(3n)
 						align-items: flex-end
 						text-align: right
+						@media (max-width: 990px)
+							align-items: flex-start
+							text-align: left
 					// Slider interaction
 					position: absolute
 					top: 0
@@ -58,10 +70,25 @@ main
 					h3
 						width: 50%
 						font-size: to-rem(30px)
-						margin-bottom: 110px
+						margin-bottom: to-rem(110px)
+						@media (max-width: 1280px)
+							width: 70%
+						@media (max-width: 990px)
+							margin-bottom: to-rem(50px)
+						@media (max-width: 600px)
+							width: 80%
+							margin-bottom: to-rem(30px)
+						@media (max-width: 400px)
+							width: 100%
 					p
 						width: 40%
 						margin-bottom: to-rem(30px)
+						@media (max-width: 1280px)
+							width: 60%
+						@media (max-width: 600px)
+							width: 80%
+						@media (max-width: 400px)
+							width: 100%
 					a
 						@extend %btn
 						background-color: transparent
@@ -70,14 +97,17 @@ main
 						font-size: 1rem
 						padding: to-rem(8px) to-rem(35px)
 						opacity: 0.7
+						@media (max-width: 990px)
+							align-self: center
 						&:hover
 							opacity: 1
-
 				ul.dots
 					position: absolute
 					left: 50%
 					transform: translateX(-50%)
 					bottom: to-rem(30px)
+					@media (max-width: 990px)
+						width: 100%
 					li
 						display: inline-block
 						margin: 0 to-rem(10px)
@@ -85,21 +115,22 @@ main
 							display: inline-block
 							padding: 0.15rem
 							border-radius: 50%
-
 							opacity: 0.5
 							background-color: $white-color
 							border: solid 0.25rem transparent
 							cursor: pointer
-
 							&:hover
 								opacity: 1
-
 							&.active
 								opacity: 1
 								background-color: transparent
 								border: solid 0.25rem $white-color
 			div.advert
 				width: 25% - 2.5%
+				@media (max-width: 990px)
+					width: 30%
+				@media (max-width: 600px)
+					display: none
 				div.img
 					height: to-rem(305px)
 					margin-bottom: to-rem(25px)
@@ -110,6 +141,8 @@ main
 						color: $white-color
 					span
 						font-size: to-rem(100px)
+						@media (max-width: 1280px)
+							font-size: to-rem(70px)
 					p
 						margin-top: to-rem(40px)
 						font-size: to-rem(30px)
@@ -165,6 +198,8 @@ main
 					background-color: inherit
 					border-bottom: 2px solid $white-color
 					opacity: 0.1
+					@media (max-width: 740px)
+						width: 33%
 				&:after
 					position: absolute
 					top: 50%
@@ -174,9 +209,63 @@ main
 					background-color: inherit
 					border-bottom: 2px solid $white-color
 					opacity: 0.1
+					@media (max-width: 740px)
+						width: 33%
 
 			// Items
 			@import ./sections/items
+
+			// Home page has different Items styling
+			@media (max-width: 1030px)
+				div.items .item
+					width: 31%
+			@media (max-width: 820px)
+				div.items .item
+					width: 46%
+					margin: 2%
+			@media (max-width: 600px)
+				div.items
+					justify-content: center
+					.item
+						width: 80%
+			@media (max-width: 440px)
+				div.items
+					justify-content: center
+					.item
+						display: none
+						position: absolute
+						opacity: 0
+						visibility: hidden
+						// Only first five
+						&:nth-child(-n+5)
+							display: block
+						&.active
+							// * With js: make the first one active
+							position: relative
+							opacity: 1
+							visibility: visible
+
+			ul.future-dots
+				display: none
+				margin-top: to-rem(20px)
+				padding: 1rem
+				> li
+					display: inline-block
+					margin: 0 0.5rem
+					padding: 0.15rem
+					background-color: $white-color
+					border-radius: 50%
+					border: 0.25rem solid transparent
+					cursor: pointer
+					opacity: 0.5
+					&:hover
+						opacity: 1
+					&.active
+						opacity: 1
+						background-color: transparent
+						border: solid 0.25rem $white-color
+				@media (max-width: 440px)
+					display: block
 
 			button#loadMore
 				@extend %btn
@@ -208,11 +297,15 @@ main
 			h2
 				margin-bottom: 2rem
 				font-size: to-rem(47px)
+				@media (max-width: 960px)
+					font-size: 2rem
 			p
 				width: 26%
 				margin: 0 auto
 				span
 					color: #ff974e
+				@media (max-width: 960px)
+					width: 80%
 
 	/* Featured Products ------------------------------------- */
 	@import ./sections/feat-prod

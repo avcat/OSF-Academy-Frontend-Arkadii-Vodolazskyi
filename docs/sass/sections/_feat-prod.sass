@@ -1,6 +1,8 @@
 /* Featured Products ------------------------------------- */
 section.feat-prod
 	background-color: $darkblue-color
+	@media (max-width: 580px)
+		display: none
 	.wrapper
 		padding-top: to-rem(35px)
 		padding-bottom: to-rem(64px)
@@ -21,6 +23,8 @@ section.feat-prod
 				*
 					margin: 0 0.3rem
 					color: $white-color
+				@media (max-width: 960px)
+					width: 75%
 				button
 					background-color: lighten($darkblue-color, 8%)
 					font-size: 1rem
@@ -57,12 +61,18 @@ section.feat-prod
 						position: relative
 						opacity: 1
 						visibility: visible
+					@media (max-width: 960px)
+						flex-wrap: wrap
+						justify-content: space-evenly
 					.item
 						width: 23%
 						padding-bottom: 1.5rem
 						background-color: $white-color
 						border-radius: $radius + 2px
 						text-align: center
+						@media (max-width: 960px)
+							width: 43%
+							margin: 1rem
 						.img
 							height: to-rem(260px)
 							border-radius: $radius $radius 0 0

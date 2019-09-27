@@ -4,7 +4,7 @@ header
 	top: 0
 	left: 0
 	right: 0
-	z-index: 40
+	z-index: 60
 	background-color: $white-color
 	border-bottom: 1px solid #ccc
 	> .wrapper
@@ -79,15 +79,31 @@ header
 				user-select: none
 				@media (max-width: 1280px)
 					padding: to-rem(15px) to-rem(15px) to-rem(30px) to-rem(15px)
+				@media (max-width: 480px)
+					padding: to-rem(10px)
 				&:hover
 					color: $white-color
-				> span.arrow-down
-					font-size: 0.7em
-					margin-left: to-rem(8px)
-					color: $grey-color
-					opacity: 0.7
+				> h2
+					width: 100%
+					font-size: 1rem
 					@media (max-width: 850px)
-						color: $white-color
+						&:hover
+							color: $green-color
+							> span.arrow-down
+								color: $green-color
+					> span.arrow-down
+						font-size: 0.7rem
+						margin-left: to-rem(8px)
+						color: $grey-color
+						opacity: 0.7
+						@media (max-width: 850px)
+							margin-left: 0
+							float: right
+							color: $white-color
+							transition: all 0.4s ease
+							&.active
+								transform: rotate(180deg)
+								color: $green-color
 		nav
 			display: flex
 			justify-self: flex-end
@@ -97,12 +113,12 @@ header
 				justify-self: center
 				justify-content: space-between
 			ul.nav-main
-				transition: all 0.5s ease
+				transition: all 0.3s ease
 				@media (max-width: 850px)
 					position: absolute
 					top: 86px
 					left: 0
-					transform: translate(-50%, -50%)
+					transform: translate(-50%, 0)
 					right: 0
 					padding-top: 1rem
 					flex-direction: column
@@ -116,14 +132,17 @@ header
 						transform: translate(0, 0)
 						opacity: 1
 						visibility: visible
+					@media (max-width: 480px)
+						padding-bottom: 1rem
 				> li
 					text-transform: uppercase
-					border-bottom: 5px solid transparent
-					&:hover
-						background-color: $darkblue-color
-						border-bottom: 5px solid $green-color
-						*
-							color: $white-color
+					border-bottom: to-rem(5px) solid transparent
+					@media (min-width: 851px)
+						&:hover
+							background-color: $darkblue-color
+							border-bottom: to-rem(5px) solid $green-color
+							*
+								color: $white-color
 					@media (max-width: 850px)
 						width: 100%
 						padding-left: 2%
@@ -133,6 +152,13 @@ header
 						justify-content: space-between
 						align-items: flex-start
 						flex-wrap: wrap
+						cursor: pointer
+						> h2
+							cursor: pointer
+							&:hover
+								color: $green-color
+							> span:hover
+								color: $green-color
 					&.menu-open
 						z-index: 20
 						@media (min-width: 851px)
@@ -154,7 +180,7 @@ header
 							@media (max-width: 1010px)
 								top: 83px + 78px
 							@media (max-width: 850px)
-								top: 83px
+								top: 0
 								z-index: 100
 								width: 100%
 								&.active
@@ -170,12 +196,33 @@ header
 								padding-bottom: to-rem(30px)
 								@media (max-width: 850px)
 									flex-direction: column
+									padding: 1rem 0 1rem
+								@media (max-width: 480px)
+									width: 100%
 							*
 								font-size: 1rem
 								color: $white-color
 								text-align: left
 							h3
 								padding-bottom: to-rem(10px)
+								> span.arrow-down
+									color: $white-color
+									font-size: 0.7rem
+									float: right
+									transition: all 0.4s ease
+									opacity: 0
+								@media (max-width: 850px)
+									cursor: pointer
+									transition: all 0.3s ease
+									&:hover
+										color: $green-color
+										> span
+											color: $green-color
+									span.arrow-down
+										opacity: 0.7
+										&.active
+											color: $green-color
+											transform: rotate(180deg)
 							li
 								padding: to-rem(6px) 0
 								text-transform: capitalize
@@ -189,7 +236,7 @@ header
 								flex-direction: column
 								@media (max-width: 850px)
 									width: 100%
-									padding: 1rem
+									padding: 0.5rem
 								> div
 									display: flex
 									flex-direction: row
@@ -197,22 +244,58 @@ header
 									justify-content: space-between
 									@media (max-width: 850px)
 										padding: 0 1rem
+										visibility: hidden
+										opacity: 0
+										position: absolute
+										left: 0
+										transform: translateX(-10%)
+										right: 0
+										top: 0
+										z-index: 70
+										transition: all 0.4s ease
+										&.active
+											position: relative
+											transform: translateX(0)
+											opacity: 1
+											visibility: visible
+									@media (max-width: 480px)
+										padding: 0
 							div.sale
 								width: 10%
 								display: flex
 								flex-direction: column
 								@media (max-width: 850px)
 									width: 100%
-									padding: 1rem
+									padding: 0.5rem
 								> ul
 									@media (max-width: 850px)
 										padding: 0 1rem
+										visibility: hidden
+										opacity: 0
+										position: absolute
+										left: 0
+										transform: translateX(-10%)
+										right: 0
+										top: 0
+										z-index: 70
+										transition: all 0.4s ease
+										&.active
+											position: relative
+											transform: translateX(0)
+											opacity: 1
+											visibility: visible
+									@media (max-width: 480px)
+										padding: 0
 							img
 								width: 30%
 								height: 100%
 								border-radius: $radius
 								@media (max-width: 850px)
 									align-self: center
+									width: 60%
+								@media (max-width: 480px)
+									align-self: center
+									width: 80%
 
 			ul.nav-lang
 				margin-right: to-rem(50px)
@@ -231,7 +314,6 @@ header
 						color: $white-color
 						*
 							color: $white-color
-
 					&.lang-open, &.currency-open
 						z-index: 20
 						.lang-menu, .currency-menu
@@ -254,7 +336,7 @@ header
 									opacity: 0.6
 						.lang-menu
 							width: to-rem(78px)
-							transform: translateX(-(to-rem(20px)))
+							transform: translateX(-(to-rem(18px)))
 						.currency-menu
 							width: to-rem(130px)
 							transform: translateX(-30%)

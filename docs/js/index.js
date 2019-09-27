@@ -213,3 +213,73 @@ function createItem (imageURL, name, price) {
 
 	return item;
 }
+
+
+// ======================= Future dots =======================
+// (on small screen we'll make slider out of popar items section)
+
+let futureDots = null;
+
+window.addEventListener("resize", () => {
+
+	makeFutureSlider();
+
+}, true);
+
+window.addEventListener("load", () => {
+
+	makeFutureSlider();
+
+}, true);
+
+function makeFutureSlider () {
+
+	// If screen width became small and we don't have items for slider yet
+	if (window.innerWidth <= 440 && futureDots === null) {
+
+		// Find Future slider box
+		const futureDotsBox = document.querySelector("section.pop-items ul.future-dots");
+
+		// Find first 5 items
+		let futureItems = document.querySelectorAll("section.pop-items div.items div.item:nth-child(-n+5)");
+
+		// Initial state - first item is active
+		futureItems[0].classList.add("active");
+
+		// For each...
+		for (let i = 0; i < futureItems.length; i++) {
+
+			// create a dot
+			let dot = document.createElement("li");
+
+			// append it to the futureDotsBox
+			futureDotsBox.append(dot);
+		}
+
+		// Get pointers to the dots
+		futureDots = document.querySelectorAll("section.pop-items ul.future-dots > li");
+
+		// Initial state - first dot is active
+		futureDots[0].classList.add("active");
+
+		// Add event listeners to the dots
+		for (let i = 0; i < futureItems.length; i++) {
+
+			futureDots[i].addEventListener("click", () => {
+
+				futureDots.forEach(dot => {
+					dot.classList.remove("active");
+				});
+				futureItems.forEach(item => {
+					item.classList.remove("active");
+				});
+
+				futureDots[i].classList.add("active");
+				futureItems[i].classList.add("active");
+
+			}, true);
+		}
+
+	}
+
+}
