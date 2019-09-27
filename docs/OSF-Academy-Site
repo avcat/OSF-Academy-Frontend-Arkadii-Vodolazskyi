@@ -43,16 +43,8 @@ Home/popular items:
 
 ================ Done: ================
 
-- Items count in header
-- Subscribe with email
-- Load more items
-
-Adaptive pages:
-404
-
-Adaptive modules:
-breadcrumbs
-header 70%
+Fixed:
+- GitHub Pages doesn't see files, that named with _
 
 HTML
 <!-- Overlay -->
