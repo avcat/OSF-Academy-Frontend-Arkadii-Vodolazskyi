@@ -36,6 +36,9 @@ main
 					flex-direction: row
 					flex-wrap: nowrap
 					position: relative
+					@media (max-width: 850px)
+						flex-direction: column
+						align-items: center
 					> svg
 						font-size: to-rem(22px)
 						position: absolute
@@ -44,6 +47,8 @@ main
 						z-index: 10
 						path
 							fill: $green-color
+						@media (max-width: 850px)
+							left: 30%
 					.large
 						width: 50%
 						padding: 1rem
@@ -72,7 +77,7 @@ main
 								left: 50%
 								transform: translate(-50%, -50%)
 								&:hover
-									// * How to make unset?
+									opacity: 1
 					.small
 						width: 10%
 						padding: 1rem
@@ -93,6 +98,12 @@ main
 							&.active
 								opacity: 0.5
 								border: solid 1px $green-color
+						@media (max-width: 850px)
+							flex-direction: row
+							width: 100%
+							justify-content: center
+							> img
+								margin: 0 1rem
 					.about
 						width: 40%
 						padding: to-rem(42px) 2rem 2rem
@@ -104,6 +115,13 @@ main
 							font-size: to-rem(48px)
 							margin-bottom: to-rem(40px)
 							@extend %print-section
+						@media (max-width: 850px)
+							width: 90%
+							padding: 2rem
+							> span.price
+								margin-bottom: 1rem
+							@media (max-width: 500px)
+								width: 100%
 						// Custom select input
 						div.colorpick
 							display: inline-block
@@ -114,7 +132,7 @@ main
 							> select
 								@extend %custom-select
 								padding: to-rem(8px) to-rem(20px) to-rem(8px) to-rem(45px)
-								width: 42%
+								min-width: 42%
 								@extend %print-section
 							> ul
 								display: inline-block
@@ -143,12 +161,14 @@ main
 								width: 30%
 							> button
 								@extend %btn
-								width: 42%
+								min-width: 42%
 								border-color: $sourcream-color
 								color: $white-color
+								background-color: $green-color
 								&:hover
 									background-color: transparent
 									color: $green-color
+									border-color: $green-color
 						p
 							text-align: left
 							color: $grey-color
@@ -174,12 +194,14 @@ main
 							button
 								@extend %btn
 								display: block
-								width: 42%
+								min-width: 42%
 								border-color: $sourcream-color
 								color: $white-color
+								background-color: $green-color
 								&:hover
 									background-color: transparent
 									color: $green-color
+									border-color: $green-color
 								margin-bottom: to-rem(24px)
 							span
 								color: $grey-color
@@ -201,6 +223,10 @@ main
 												color: $green-color
 				.info
 					margin-top: to-rem(70px)
+					@media (max-width: 960px)
+						margin-top: to-rem(30px)
+					@media (max-width: 680px)
+						display: none
 					> ul
 						text-align: center
 						li
@@ -220,6 +246,9 @@ main
 							&.active
 								color: $white-color
 								background-color: $darkblue-color
+							@media (max-width: 960px)
+								padding: 1rem 2rem
+								font-size: to-rem(18px)
 					.tab-box
 						background-color: $darkblue-color
 						// Interaction
@@ -241,6 +270,10 @@ main
 							opacity: 0
 							visibility: hidden
 							transition: all 0.6s ease
+							@media (max-width: 960px)
+								align-items: center
+								justify-content: center
+								padding: to-rem(30px)
 							p
 								width: 48%
 								color: $white-color
@@ -248,6 +281,8 @@ main
 								text-align: left
 								font-size: to-rem(16px)
 								line-height: 1.5
+								@media (max-width: 960px)
+									width: 40%
 							&.active
 								position: relative
 								visibility: visible
@@ -283,27 +318,78 @@ main
 					width: 40%
 					background-color: inherit
 					border-bottom: 0.15rem solid #e5e2df
+				@media (max-width: 1050px)
+					&:before, &:after
+						width: 30%
+				@media (max-width: 600px)
+					&:before, &:after
+						width: 20%
 
 			// Items
 			@import ./sections/items
 
+			@media (max-width: 850px)
+				div.items
+					justify-content: center
+					div.item
+						width: 46%
+						margin: 1.5rem
+			@media (max-width: 850px)
+				div.items div.item
+					width: 80%
+			@media (max-width: 440px)
+				div.items
+					min-height: to-rem(420px)
+					.item
+						position: absolute
+						opacity: 0
+						visibility: hidden
+						transition: opacity 0.8s ease
+						&.active
+							position: relative
+							opacity: 1
+							visibility: visible
+
+			ul.future-dots
+				display: none
+				margin-top: to-rem(20px)
+				padding: 1rem
+				> li
+					display: inline-block
+					margin: 0 0.5rem
+					padding: 0.25rem
+					background-color: $darkblue-color
+					border-radius: 50%
+					border: 0.25rem solid transparent
+					cursor: pointer
+					opacity: 0.5
+					transition: all 0.5s ease
+					&:hover
+						opacity: 1
+					&.active
+						opacity: 1
+						background-color: $white-color
+						border: solid 0.25rem $darkblue-color
+				@media (max-width: 440px)
+					display: block
+
+			// Scroll to top
+			a.toTop
+				@extend %btn
+				margin-top: 3rem
+				border-color: $sourcream-color
+				color: $white-color
+				background-color: $green-color
+				&:hover
+					background-color: $white-color
+					color: $green-color
+					border-color: $green-color
+				display: none
+				@media (max-width: 500px)
+					display: inline-block
+
 	/* Benefits ---------------------------------------------- */
 	@import ./sections/benefits
-	section.benefits .wrapper div.card
-		width: 30%
-		img
-			width: 9rem
-		h4
-			// * Cancel gradient !
-			background: none
-			-webkit-background-clip: none
-			-webkit-text-fill-color: $white-color
-			color: $white-color
-		p
-			background: none
-			-webkit-background-clip: none
-			-webkit-text-fill-color: lighten($grey-color, 25%)
-			color: lighten($grey-color, 25%)
 
 /* Footer ------------------------------------------------ */
 @import ./sections/footer

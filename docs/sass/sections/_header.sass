@@ -362,12 +362,14 @@ header
 					background-color: $darkblue-color
 				> li
 					@media (max-width: 850px)
-						padding: to-rem(15px)
+						padding: 0
 					button, a
 						background-color: transparent
 						border: none
 						position: relative
 						cursor: pointer
+						@media (max-width: 850px)
+							padding: to-rem(20px)
 						svg
 							color: $grey-color
 							opacity: 0.5
@@ -393,4 +395,6 @@ header
 								border-radius: 50%
 								z-index: 15
 								@media (max-width: 850px)
+									top: 15%
+									right: 15%
 									background-color: transparent

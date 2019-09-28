@@ -14,7 +14,9 @@ footer
 				&.contact
 					margin-bottom: 2rem
 				ul.contact-menu, div.categories-menu, ul.about-menu
-					transition: all 0.4s ease
+					transition-property: transform, opacity
+					transition-duration: 0.3s
+					transition-timing-function: ease
 					position: absolute
 					top: 1rem
 					transform: translateY(-10%)
@@ -56,6 +58,13 @@ footer
 			margin: to-rem(10px) 0
 		.contact
 			width: 17%
+			> span a
+				margin-top: 1.2rem
+				color: $green-color
+				font-weight: bold
+				font-size: 1rem
+				&:hover
+					color: lighten($green-color, 15%)
 			h3
 				margin-top: to-rem(28px)
 				margin-bottom: 0
@@ -90,7 +99,7 @@ footer
 						opacity: 0.5
 						font-size: 1.2rem
 						path
-							transition: all 0.3s ease
+							transition: color 0.3s ease
 						&:hover
 							path
 								color: $green-color

@@ -27,6 +27,10 @@ main
 				margin: 0 auto
 				margin-bottom: 0.5rem
 				font-size: to-rem(30px)
+				@media (max-width: 1130px)
+					width: 70%
+				@media (max-width: 720px)
+					width: 90%
 			p
 				width: 38%
 				margin: 0 auto
@@ -34,26 +38,51 @@ main
 				font-size: 1rem
 				line-height: 1.5
 				color: #555555
+				@media (max-width: 1130px)
+					width: 70%
+				@media (max-width: 720px)
+					width: 90%
 			div.release
-				width: 55%
+				width: 90%
 				margin: to-rem(75px) auto to-rem(100px)
 				display: flex
-				justify-content: space-between
+				justify-content: center
 				align-items: center
+				@media (max-width: 900px)
+					margin: to-rem(40px) auto to-rem(40px)
+				@media (max-width: 720px)
+					justify-content: space-between
+				@media (max-width: 500px)
+					margin: to-rem(20px) auto to-rem(20px)
 				> div
-					width: 18.4%
+					width: 15%
+					margin: 0 1%
 					text-align: center
 					> div
-						@include center-round
 						width: 100%
+						position: relative
 						height: to-rem(120px)
+						@media (max-width: 500px)
+							height: to-rem(60px)
 					span
 						font-size: to-rem(48px)
 						color: $grey-color
 						background-color: $white-color
 						border: 0.2rem solid $green-color
+						border-radius: 50%
 						padding: to-rem(28px)
 						user-select: none
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%, -50%)
+						@media (max-width: 900px)
+							font-size: to-rem(36px)
+							padding: to-rem(20px)
+						@media (max-width: 500px)
+							font-size: to-rem(30px)
+							padding: to-rem(14px)
+							border: 0.2rem solid rgba($green-color, 0.3)
 					h5
 						width: 100%
 						display: block
@@ -62,10 +91,16 @@ main
 						line-height: 1.67
 						color: $grey-color
 						margin-top: 1rem
+						@media (max-width: 500px)
+							font-size: to-rem(14px)
 			form#mailing
 				width: 42%
 				margin: 0 auto
 				position: relative
+				@media (max-width: 1130px)
+					width: 60%
+				@media (max-width: 720px)
+					width: 80%
 				> input[type="email"]
 					border-radius: $radius + 25px
 					border: 0.15rem solid #e5e2df
@@ -79,6 +114,8 @@ main
 							border-color: $green-color
 						&:invalid, &:empty
 							border-color: red
+					@media (max-width: 500px)
+						font-size: to-rem(10px)
 				> input[type="submit"]
 					position: absolute
 					opacity: 0
@@ -93,6 +130,16 @@ main
 						color: $green-color
 						width: to-rem(23px)
 						height: to-rem(23px)
+						opacity: 0.7
+						transition: opacity 0.3s ease
+						&:hover
+							opacity: 1
+						@media (max-width: 500px)
+							width: to-rem(30px)
+							height: to-rem(30px)
+							left: 50%
+							transform: translateX(-50%)
+							top: 150%
 
 /* Footer ------------------------------------------------ */
 @import ./sections/footer

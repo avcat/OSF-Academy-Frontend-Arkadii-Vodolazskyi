@@ -10,6 +10,7 @@ html
 	font-size: 14px
 	@media (min-width: 1280px)
 		font-size: (14 / 1280) * 100vw
+	scroll-behavior: smooth
 
 body
 	position: relative
@@ -76,20 +77,6 @@ a, button, input[type="submit"]
 	background: linear-gradient(to top, $color1, $color2)
 	-webkit-background-clip: text
 	-webkit-text-fill-color: transparent
-
-// HTNL => any tag + single span inside
-@mixin center-round
-	width: 100%
-	position: relative
-	width: 1rem
-	height: 1rem
-	border-radius: 50%
-	> *
-		position: absolute
-		top: 50%
-		left: 50%
-		border-radius: 50%
-		transform: translate(-50%, -50%)
 
 // Custom elements .....................................
 
@@ -203,7 +190,6 @@ a, button, input[type="submit"]
 			content: ""
 			transition: all 0.5s ease
 			opacity: 0
-
 
 
 // Reusable class styles ------------------------------------------

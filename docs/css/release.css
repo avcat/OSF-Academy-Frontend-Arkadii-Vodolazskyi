@@ -9,7 +9,8 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 14px; }
+  font-size: 14px;
+  scroll-behavior: smooth; }
   @media (min-width: 1280px) {
     html {
       font-size: 1.09375vw; } }
@@ -614,12 +615,15 @@ header {
           background-color: #262a32; } }
       @media (max-width: 850px) {
         header > .wrapper nav ul.nav-manage > li {
-          padding: 1.0714285714rem; } }
+          padding: 0; } }
       header > .wrapper nav ul.nav-manage > li button, header > .wrapper nav ul.nav-manage > li a {
         background-color: transparent;
         border: none;
         position: relative;
         cursor: pointer; }
+        @media (max-width: 850px) {
+          header > .wrapper nav ul.nav-manage > li button, header > .wrapper nav ul.nav-manage > li a {
+            padding: 1.4285714286rem; } }
         header > .wrapper nav ul.nav-manage > li button svg, header > .wrapper nav ul.nav-manage > li a svg {
           color: #45413e;
           opacity: 0.5;
@@ -645,6 +649,8 @@ header {
           z-index: 15; }
           @media (max-width: 850px) {
             header > .wrapper nav ul.nav-manage > li button#wishlist > span, header > .wrapper nav ul.nav-manage > li button#cart > span, header > .wrapper nav ul.nav-manage > li a#wishlist > span, header > .wrapper nav ul.nav-manage > li a#cart > span {
+              top: 15%;
+              right: 15%;
               background-color: transparent; } }
 
 /* Main -------------------------------------------------- */
@@ -663,6 +669,12 @@ main {
         margin: 0 auto;
         margin-bottom: 0.5rem;
         font-size: 2.1428571429rem; }
+        @media (max-width: 1130px) {
+          main section.countdown .wrapper h3 {
+            width: 70%; } }
+        @media (max-width: 720px) {
+          main section.countdown .wrapper h3 {
+            width: 90%; } }
       main section.countdown .wrapper p {
         width: 38%;
         margin: 0 auto;
@@ -670,36 +682,59 @@ main {
         font-size: 1rem;
         line-height: 1.5;
         color: #555555; }
+        @media (max-width: 1130px) {
+          main section.countdown .wrapper p {
+            width: 70%; } }
+        @media (max-width: 720px) {
+          main section.countdown .wrapper p {
+            width: 90%; } }
       main section.countdown .wrapper div.release {
-        width: 55%;
+        width: 90%;
         margin: 5.3571428571rem auto 7.1428571429rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center; }
+        @media (max-width: 900px) {
+          main section.countdown .wrapper div.release {
+            margin: 2.8571428571rem auto 2.8571428571rem; } }
+        @media (max-width: 720px) {
+          main section.countdown .wrapper div.release {
+            justify-content: space-between; } }
+        @media (max-width: 500px) {
+          main section.countdown .wrapper div.release {
+            margin: 1.4285714286rem auto 1.4285714286rem; } }
         main section.countdown .wrapper div.release > div {
-          width: 18.4%;
+          width: 15%;
+          margin: 0 1%;
           text-align: center; }
           main section.countdown .wrapper div.release > div > div {
             width: 100%;
             position: relative;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            width: 100%;
             height: 8.5714285714rem; }
-            main section.countdown .wrapper div.release > div > div > * {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              border-radius: 50%;
-              transform: translate(-50%, -50%); }
+            @media (max-width: 500px) {
+              main section.countdown .wrapper div.release > div > div {
+                height: 4.2857142857rem; } }
           main section.countdown .wrapper div.release > div span {
             font-size: 3.4285714286rem;
             color: #45413e;
             background-color: #ffffff;
             border: 0.2rem solid #84bc22;
+            border-radius: 50%;
             padding: 2rem;
-            user-select: none; }
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); }
+            @media (max-width: 900px) {
+              main section.countdown .wrapper div.release > div span {
+                font-size: 2.5714285714rem;
+                padding: 1.4285714286rem; } }
+            @media (max-width: 500px) {
+              main section.countdown .wrapper div.release > div span {
+                font-size: 2.1428571429rem;
+                padding: 1rem;
+                border: 0.2rem solid rgba(132, 188, 34, 0.3); } }
           main section.countdown .wrapper div.release > div h5 {
             width: 100%;
             display: block;
@@ -708,10 +743,19 @@ main {
             line-height: 1.67;
             color: #45413e;
             margin-top: 1rem; }
+            @media (max-width: 500px) {
+              main section.countdown .wrapper div.release > div h5 {
+                font-size: 1rem; } }
       main section.countdown .wrapper form#mailing {
         width: 42%;
         margin: 0 auto;
         position: relative; }
+        @media (max-width: 1130px) {
+          main section.countdown .wrapper form#mailing {
+            width: 60%; } }
+        @media (max-width: 720px) {
+          main section.countdown .wrapper form#mailing {
+            width: 80%; } }
         main section.countdown .wrapper form#mailing > input[type="email"] {
           border-radius: 35px;
           border: 0.15rem solid #e5e2df;
@@ -724,6 +768,9 @@ main {
             border-color: #84bc22; }
           main section.countdown .wrapper form#mailing > input[type="email"]:focus:invalid, main section.countdown .wrapper form#mailing > input[type="email"]:focus:empty {
             border-color: red; }
+          @media (max-width: 500px) {
+            main section.countdown .wrapper form#mailing > input[type="email"] {
+              font-size: 0.7142857143rem; } }
         main section.countdown .wrapper form#mailing > input[type="submit"] {
           position: absolute;
           opacity: 0;
@@ -737,7 +784,18 @@ main {
             right: 1rem;
             color: #84bc22;
             width: 1.6428571429rem;
-            height: 1.6428571429rem; }
+            height: 1.6428571429rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease; }
+            main section.countdown .wrapper form#mailing label svg:hover {
+              opacity: 1; }
+            @media (max-width: 500px) {
+              main section.countdown .wrapper form#mailing label svg {
+                width: 2.1428571429rem;
+                height: 2.1428571429rem;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 150%; } }
 
 /* Footer ------------------------------------------------ */
 /* Footer ------------------------------------------------ */
@@ -756,7 +814,9 @@ footer .wrapper {
         footer .wrapper > div.contact.contact, footer .wrapper div.categories.contact, footer .wrapper div.about.contact {
           margin-bottom: 2rem; }
         footer .wrapper > div.contact ul.contact-menu, footer .wrapper > div.contact div.categories-menu, footer .wrapper > div.contact ul.about-menu, footer .wrapper div.categories ul.contact-menu, footer .wrapper div.categories div.categories-menu, footer .wrapper div.categories ul.about-menu, footer .wrapper div.about ul.contact-menu, footer .wrapper div.about div.categories-menu, footer .wrapper div.about ul.about-menu {
-          transition: all 0.4s ease;
+          transition-property: transform, opacity;
+          transition-duration: 0.3s;
+          transition-timing-function: ease;
           position: absolute;
           top: 1rem;
           transform: translateY(-10%);
@@ -799,6 +859,13 @@ footer .wrapper {
     margin: 0.7142857143rem 0; }
   footer .wrapper .contact {
     width: 17%; }
+    footer .wrapper .contact > span a {
+      margin-top: 1.2rem;
+      color: #84bc22;
+      font-weight: bold;
+      font-size: 1rem; }
+      footer .wrapper .contact > span a:hover {
+        color: #a9df4c; }
     footer .wrapper .contact h3 {
       margin-top: 2rem;
       margin-bottom: 0; }
@@ -832,6 +899,6 @@ footer .wrapper {
       opacity: 0.5;
       font-size: 1.2rem; }
       footer .wrapper .social ul li a svg path {
-        transition: all 0.3s ease; }
+        transition: color 0.3s ease; }
       footer .wrapper .social ul li a svg:hover path {
         color: #84bc22; }

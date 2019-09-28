@@ -1,72 +1,80 @@
 
 // ========================== amounts.js ==========================
-
 // Find elements, that will show the amounts
 const wishlistSpan = document.getElementById("wishlistAmount");
 const cartSpan = document.getElementById("cartAmount");
 
-// Get wishlistAmount from JSON, show it with span
-firebase.database().ref("/amounts/wishlist") // Link to the data
-.once('value', snap => {
+(function () {
 
-	wishlistSpan.innerText = snap.val().length; // Get data
+	// Get wishlistAmount from JSON, show it with span
+	firebase.database().ref("/amounts/wishlist") // Link to the data
+	.once('value', snap => {
 
-});
+		wishlistSpan.innerText = snap.val().length; // Get data
 
-// Get cartAmount from JSON, show it with span
-firebase.database().ref("/amounts/cart")
-.once('value', snap => {
+	});
 
-	cartSpan.innerText = snap.val().length;
+	// Get cartAmount from JSON, show it with span
+	firebase.database().ref("/amounts/cart")
+	.once('value', snap => {
 
-});
+		cartSpan.innerText = snap.val().length;
+
+	});
+
+})();
+
 
 // ========================== cookies.js ==========================
+(function () {
 
-// HTML needed: Overlay + Cookies Modal
+	// HTML needed: Overlay + Cookies Modal
 
-document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("DOMContentLoaded", () => {
 
-	if (localStorage.getItem("Cookies accepted") !== "true") {
+		if (localStorage.getItem("Cookies accepted") !== "true") {
 
-		// Get pointers
-		let overlay = document.getElementById("overlay");
-		const cookiesWindow = document.getElementById("cookies");
-		const closeCookies = document.getElementById("close-cookies");
-		const acceptCookies = document.getElementById("accept-cookies");
+			// Get pointers
+			let overlay = document.getElementById("overlay");
+			const cookiesWindow = document.getElementById("cookies");
+			const closeCookies = document.getElementById("close-cookies");
+			const acceptCookies = document.getElementById("accept-cookies");
 
-		// Show cookies modal window in some seconds
-		setTimeout(() => {
+			// Show cookies modal window in some seconds
+			setTimeout(() => {
 
-			overlay.classList.add("active");
-			document.body.classList.add("noscroll");
-			cookiesWindow.classList.add("active");
+				overlay.classList.add("active");
+				document.body.classList.add("noscroll");
+				cookiesWindow.classList.add("active");
 
-		}, 1000);
+			}, 1000);
 
-		// Close cookies button
-		closeCookies.addEventListener("click", () => {
+			// Close cookies button
+			closeCookies.addEventListener("click", () => {
 
-			cookiesWindow.classList.remove("active");
-			overlay.classList.remove("active");
-			document.body.classList.remove("noscroll");
+				cookiesWindow.classList.remove("active");
+				overlay.classList.remove("active");
+				document.body.classList.remove("noscroll");
 
-		}, true);
+			}, true);
 
-		// Accept cookies button
-		acceptCookies.addEventListener("click", () => {
+			// Accept cookies button
+			acceptCookies.addEventListener("click", () => {
 
-			localStorage.setItem("Cookies accepted", "true");
+				localStorage.setItem("Cookies accepted", "true");
 
-			cookiesWindow.classList.remove("active");
-			overlay.classList.remove("active");
-			document.body.classList.remove("noscroll");
+				cookiesWindow.classList.remove("active");
+				overlay.classList.remove("active");
+				document.body.classList.remove("noscroll");
 
-		}, true);
+			}, true);
 
-	}
+		}
 
-});
+	});
+
+})();
+
 
 // ========================== signin.js ==========================
 
@@ -107,13 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	login.addEventListener("click", () => {
 
 		if (emailField.validity.valid === true && passwordField.validity.valid === true) {
+
 			overlay.classList.remove("active");
 			document.body.classList.remove("noscroll");
 			signinForm.classList.remove("active");
+
 		}
 
 	}, true);
-
 
 	// Close signin modal with click on overlay
 	overlay.addEventListener("click", () => {
@@ -144,14 +153,7 @@ const hambBtn = document.getElementById("hamburger");
 // Find nav-main
 const navMain = document.querySelector("header nav ul.nav-main");
 
-// Event listener: click on hamburger - show/hide nav-main
-hambBtn.addEventListener("click", () => {
-
-	navMain.classList.toggle("active");
-	hambBtn.children[0].classList.toggle("active");
-	hambBtn.children[1].classList.toggle("active");
-
-}, true);
+// Event listener for Hamburger is added below
 
 // ========================== services-expand.js ==========================
 
@@ -229,50 +231,79 @@ servicesTab.addEventListener("click", () => {
 
 }, true);
 
+// Event listener: click on hamburger - show/hide nav-main
+hambBtn.addEventListener("click", () => {
+
+	if (navMain.classList.contains("active") === true) {
+
+		// Remove all states from inner menus
+		prodCatMenu.classList.remove("active");
+		prodCatSpan.classList.remove("active");
+		saleMenu.classList.remove("active");
+		saleSpan.classList.remove("active");
+		servicesMenu.classList.remove("active");
+		servicesSpan.classList.remove("active");
+
+		navMain.classList.remove("active");
+		hambBtn.children[0].classList.add("active");
+		hambBtn.children[1].classList.remove("active");
+
+	} else if (navMain.classList.contains("active") === false) {
+
+		navMain.classList.add("active");
+		hambBtn.children[0].classList.remove("active");
+		hambBtn.children[1].classList.add("active");
+
+	}
+
+}, true);
+
 // ====================== footer-expand.js ======================
 
-// Find all Footer tabs
-const footerTabs = document.querySelectorAll("footer div.wrapper > div > h3");
+document.addEventListener("DOMContentLoaded", () => {
+		// Find all Footer tabs
+	const footerTabs = document.querySelectorAll("footer div.wrapper > div > h3");
 
-// Find their spans
-const footerSpans = document.querySelectorAll("footer div.wrapper > div > h3 > span.arrow-down");
+	// Find their spans
+	const footerSpans = document.querySelectorAll("footer div.wrapper > div > h3 > span.arrow-down");
 
-// Find all Footer menus
-const footerMenus = [
-	document.querySelector("footer div.wrapper > div > ul.contact-menu"),
-	document.querySelector("footer div.wrapper > div > div.categories-menu"),
-	document.querySelector("footer div.wrapper > div > ul.about-menu"),
-];
+	// Find all Footer menus
+	const footerMenus = [
+		document.querySelector("footer div.wrapper > div > ul.contact-menu"),
+		document.querySelector("footer div.wrapper > div > div.categories-menu"),
+		document.querySelector("footer div.wrapper > div > ul.about-menu"),
+	];
 
-// Events listeners: click on tab i - open menu i
-for (let i = 0; i < footerTabs.length; i++) {
+	// Events listeners: click on tab i - open menu i
+	for (let i = 0; i < footerTabs.length; i++) {
 
-	footerTabs[i].addEventListener("click", () => {
+		footerTabs[i].addEventListener("click", () => {
 
-		if (footerMenus[i].classList.contains("active") === false) {
-			footerMenus.forEach(footerMenu => {
-				footerMenu.classList.remove("active");
-			});
-			footerSpans.forEach(footerSpan => {
-				footerSpan.classList.remove("active");
-			});
+			if (footerMenus[i].classList.contains("active") === false) {
+				footerMenus.forEach(footerMenu => {
+					footerMenu.classList.remove("active");
+				});
+				footerSpans.forEach(footerSpan => {
+					footerSpan.classList.remove("active");
+				});
 
-			footerMenus[i].classList.add("active");
-			footerSpans[i].classList.add("active");
-		} else {
-			footerMenus.forEach(footerMenu => {
-				footerMenu.classList.remove("active");
-			});
-			footerSpans.forEach(footerSpan => {
-				footerSpan.classList.remove("active");
-			});
-		}
+				footerMenus[i].classList.add("active");
+				footerSpans[i].classList.add("active");
+			} else {
+				footerMenus.forEach(footerMenu => {
+					footerMenu.classList.remove("active");
+				});
+				footerSpans.forEach(footerSpan => {
+					footerSpan.classList.remove("active");
+				});
+			}
 
-	}, true);
+		}, true);
 
-}
+	}
 
-// ========================== year.js ==========================
+	// ========================== year.js ==========================
 
-// Inject current year to the footer ...............................
-document.getElementById("year").innerText = new Date().getFullYear();
+	// Inject current year to the footer ...............................
+	document.getElementById("year").innerText = new Date().getFullYear();
+});

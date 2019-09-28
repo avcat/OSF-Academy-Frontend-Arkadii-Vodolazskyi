@@ -9,7 +9,8 @@
   box-sizing: border-box; }
 
 html {
-  font-size: 14px; }
+  font-size: 14px;
+  scroll-behavior: smooth; }
   @media (min-width: 1280px) {
     html {
       font-size: 1.09375vw; } }
@@ -635,12 +636,15 @@ header {
           background-color: #262a32; } }
       @media (max-width: 850px) {
         header > .wrapper nav ul.nav-manage > li {
-          padding: 1.0714285714rem; } }
+          padding: 0; } }
       header > .wrapper nav ul.nav-manage > li button, header > .wrapper nav ul.nav-manage > li a {
         background-color: transparent;
         border: none;
         position: relative;
         cursor: pointer; }
+        @media (max-width: 850px) {
+          header > .wrapper nav ul.nav-manage > li button, header > .wrapper nav ul.nav-manage > li a {
+            padding: 1.4285714286rem; } }
         header > .wrapper nav ul.nav-manage > li button svg, header > .wrapper nav ul.nav-manage > li a svg {
           color: #45413e;
           opacity: 0.5;
@@ -666,6 +670,8 @@ header {
           z-index: 15; }
           @media (max-width: 850px) {
             header > .wrapper nav ul.nav-manage > li button#wishlist > span, header > .wrapper nav ul.nav-manage > li button#cart > span, header > .wrapper nav ul.nav-manage > li a#wishlist > span, header > .wrapper nav ul.nav-manage > li a#cart > span {
+              top: 15%;
+              right: 15%;
               background-color: transparent; } }
 
 /* Main -------------------------------------------------- */
@@ -716,6 +722,9 @@ main {
           width: 40%;
           background-color: transparent;
           border-bottom: 0.1rem solid #ffffff; }
+          @media (max-width: 1050px) {
+            main section.breadcrumbs .wrapper h2:before {
+              width: 36%; } }
           @media (max-width: 500px) {
             main section.breadcrumbs .wrapper h2:before {
               width: 32%; } }
@@ -727,6 +736,9 @@ main {
           width: 40%;
           background-color: transparent;
           border-bottom: 0.1rem solid #ffffff; }
+          @media (max-width: 1050px) {
+            main section.breadcrumbs .wrapper h2:after {
+              width: 36%; } }
           @media (max-width: 500px) {
             main section.breadcrumbs .wrapper h2:after {
               width: 32%; } }
@@ -772,6 +784,10 @@ main {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-between; }
+        @media (max-width: 640px) {
+          main section.pop-items .wrapper form {
+            justify-content: center;
+            padding: 1.4285714286rem 1rem; } }
         main section.pop-items .wrapper form > * {
           width: 26%;
           margin: 1.0714285714rem 0;
@@ -780,8 +796,23 @@ main {
           align-items: center; }
           main section.pop-items .wrapper form > * * {
             font-size: 1rem; }
+          @media (max-width: 1050px) {
+            main section.pop-items .wrapper form > * {
+              width: 32%;
+              justify-content: space-around; }
+              main section.pop-items .wrapper form > * *, main section.pop-items .wrapper form > * select {
+                font-size: 0.9rem; } }
+          @media (max-width: 800px) {
+            main section.pop-items .wrapper form > * {
+              width: 46%; } }
+          @media (max-width: 640px) {
+            main section.pop-items .wrapper form > * {
+              width: 90%; } }
           main section.pop-items .wrapper form > * select, main section.pop-items .wrapper form > * ul {
             width: 80%; }
+            @media (max-width: 1050px) {
+              main section.pop-items .wrapper form > * select, main section.pop-items .wrapper form > * ul {
+                width: 70%; } }
         main section.pop-items .wrapper form select {
           border-color: rgba(69, 65, 62, 0.5); }
         main section.pop-items .wrapper form .color ul {
@@ -819,6 +850,10 @@ main {
             opacity: 0.9;
             visibility: visible; }
           main section.pop-items .wrapper div.items .item .img {
+            height: 18.5714285714rem;
+            border-radius: 10px 10px 0 0; }
+          main section.pop-items .wrapper div.items .item > a {
+            width: 100%;
             height: 18.5714285714rem;
             border-radius: 10px 10px 0 0; }
           main section.pop-items .wrapper div.items .item h4.name {
@@ -917,6 +952,24 @@ main {
                   main section.pop-items .wrapper div.items .item.com .com-overlay blockquote p img {
                     margin: 0 0.7rem;
                     transform: scale(1.8); }
+      main section.pop-items .wrapper div.img.noimage {
+        background-color: #262a32;
+        background-size: 90%; }
+      @media (max-width: 1030px) {
+        main section.pop-items .wrapper div.items .item {
+          width: 31%; } }
+      @media (max-width: 820px) {
+        main section.pop-items .wrapper div.items .item {
+          width: 46%;
+          margin: 2%; } }
+      @media (max-width: 600px) {
+        main section.pop-items .wrapper div.items {
+          justify-content: center; }
+          main section.pop-items .wrapper div.items .item {
+            width: 80%;
+            display: none; }
+            main section.pop-items .wrapper div.items .item:nth-child(-n+4) {
+              display: block; } }
       main section.pop-items .wrapper button#loadMore {
         margin-top: 3.6428571429rem;
         padding: 0.7142857143rem 6.4285714286rem;
@@ -932,6 +985,9 @@ main {
             color: #84bc22;
             background-color: #ffffff;
             border-color: #84bc22; }
+        @media (max-width: 600px) {
+          main section.pop-items .wrapper button#loadMore {
+            padding: 0.7142857143rem 2.8571428571rem; } }
   main section.feat-prod {
     background-color: #262a32; }
     @media (max-width: 580px) {
@@ -982,14 +1038,14 @@ main {
           width: 100%;
           display: flex;
           flex-wrap: nowrap;
-          justify-content: space-between;
+          justify-content: center;
           position: absolute;
           top: 0;
           left: 50%;
           transform: translateX(-50%);
           opacity: 0;
           visibility: hidden;
-          transition: all 0.8s ease; }
+          transition: all 0.5s ease; }
           main section.feat-prod .wrapper div.slider-arrows div.items .screen.active {
             position: relative;
             opacity: 1;
@@ -1000,6 +1056,7 @@ main {
               justify-content: space-evenly; } }
           main section.feat-prod .wrapper div.slider-arrows div.items .screen .item {
             width: 23%;
+            margin: 0 1%;
             padding-bottom: 1.5rem;
             background-color: #ffffff;
             border-radius: 12px;
@@ -1034,7 +1091,9 @@ footer .wrapper {
         footer .wrapper > div.contact.contact, footer .wrapper div.categories.contact, footer .wrapper div.about.contact {
           margin-bottom: 2rem; }
         footer .wrapper > div.contact ul.contact-menu, footer .wrapper > div.contact div.categories-menu, footer .wrapper > div.contact ul.about-menu, footer .wrapper div.categories ul.contact-menu, footer .wrapper div.categories div.categories-menu, footer .wrapper div.categories ul.about-menu, footer .wrapper div.about ul.contact-menu, footer .wrapper div.about div.categories-menu, footer .wrapper div.about ul.about-menu {
-          transition: all 0.4s ease;
+          transition-property: transform, opacity;
+          transition-duration: 0.3s;
+          transition-timing-function: ease;
           position: absolute;
           top: 1rem;
           transform: translateY(-10%);
@@ -1077,6 +1136,13 @@ footer .wrapper {
     margin: 0.7142857143rem 0; }
   footer .wrapper .contact {
     width: 17%; }
+    footer .wrapper .contact > span a {
+      margin-top: 1.2rem;
+      color: #84bc22;
+      font-weight: bold;
+      font-size: 1rem; }
+      footer .wrapper .contact > span a:hover {
+        color: #a9df4c; }
     footer .wrapper .contact h3 {
       margin-top: 2rem;
       margin-bottom: 0; }
@@ -1110,6 +1176,6 @@ footer .wrapper {
       opacity: 0.5;
       font-size: 1.2rem; }
       footer .wrapper .social ul li a svg path {
-        transition: all 0.3s ease; }
+        transition: color 0.3s ease; }
       footer .wrapper .social ul li a svg:hover path {
         color: #84bc22; }

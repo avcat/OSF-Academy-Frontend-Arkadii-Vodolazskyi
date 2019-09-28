@@ -45,130 +45,228 @@ function lightOrDark(color) {
 // ====================================
 
 // Interaction for color pick ...............................
-let colorBox = document.querySelector("main .pop-items form .color ul.colors");
+(function () {
+	let colorBox = document.querySelector("main .pop-items form .color ul.colors");
 
-// Initial states
-colorBox.children[0].classList.add("active");
+	// Initial states
+	colorBox.children[0].classList.add("active");
 
-// Add listeners
-colorBox.addEventListener("click", (e) => {
-	(Array.from(colorBox.children)).forEach(child => {
-		child.classList.remove("active");
-		child.style.borderColor = "";
-	});
-	e.target.classList.add("active");
+	// Add listeners
+	colorBox.addEventListener("click", (e) => {
+		(Array.from(colorBox.children)).forEach(child => {
+			child.classList.remove("active");
+			child.style.borderColor = "";
+		});
+		e.target.classList.add("active");
 
-	// Pick contrasting border
-	lightOrDark(e.target.style.backgroundColor) === "light" ? e.target.style.borderColor = "#000" : e.target.style.borderColor = "#ccc";
-}, true)
-
-// Interaction for slider-arrows ...............................
-let arrows = document.querySelectorAll("section.feat-prod .slider-arrows .arrows button");
-
-let arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
-
-// Initial states
-let focus = 1;
-arrowScreens[focus].classList.add("active");
-
-arrows[0].addEventListener("click", () => {
-
-	focus--;
-	if (focus < 0) {
-		focus = 0;
-	}
-
-	arrowScreens.forEach(screen => {
-		screen.classList.remove("active");
-	});
-
-	arrowScreens[focus].classList.add("active");
-});
-
-arrows[1].addEventListener("click", () => {
-
-	focus++;
-	if (focus > arrowScreens.length - 1) {
-		focus = arrowScreens.length - 1;
-	}
-
-	arrowScreens.forEach(screen => {
-		screen.classList.remove("active");
-	});
-
-	arrowScreens[focus].classList.add("active");
-});
-
-
-// Add to cart buttons .....................................
-let addToCart = document.querySelectorAll("section.pop-items button.addToCart");
-
-addToCart.forEach(button => {
-
-	button.addEventListener("click", () => {
-
-		addItem("cart");
-
+		// Pick contrasting border
+		lightOrDark(e.target.style.backgroundColor) === "light" ? e.target.style.borderColor = "#000" : e.target.style.borderColor = "#ccc";
 	}, true);
+})();
 
-});
+
+// Interaction for slider-arrows ..........................
+document.addEventListener("DOMContentLoaded", () => {
+
+	let arrowsLoaded = 0;
+
+	let arrows = document.querySelectorAll("section.feat-prod .slider-arrows .arrows button");
+
+	let arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
+
+	// Initial states
+	let focus = 1;
+	arrowScreens[focus].classList.add("active");
+
+	arrows[0].addEventListener("click", () => {
+
+		focus--;
+		if (focus < 0) {
+			focus = 0;
+		}
+
+		arrowScreens.forEach(screen => {
+			screen.classList.remove("active");
+		});
+
+		arrowScreens[focus].classList.add("active");
+	});
+
+	arrows[1].addEventListener("click", () => {
+
+		focus++;
+		if (focus > arrowScreens.length - 1) {
+			focus = arrowScreens.length - 1;
+		}
+
+		arrowScreens.forEach(screen => {
+			screen.classList.remove("active");
+		});
+
+		arrowScreens[focus].classList.add("active");
+
+
+
+		// ---------------- Pre-load with JSON ----------------
+
+		// Find slider's screen box
+		const arrowBox = document.querySelector("section.feat-prod div.slider-arrows div.items");
+
+		if (focus === arrowScreens.length - 1) {
+
+			// Load JSON
+			firebase.database().ref("/items").once('value', snap => {
+
+				// How many items are loaded already
+				if (arrowsLoaded < snap.val().length) {
+
+					// Create screen
+					let newScreen = document.createElement("div");
+					newScreen.classList.add("screen");
+
+					for (let i = arrowsLoaded; i < arrowsLoaded + 4; i++) {
+
+						if (i < snap.val().length) {
+
+							// Create item of the screen
+							let futureArrowItem = futureArrowItems(
+								snap.val()[i].image,
+								snap.val()[i].name,
+								snap.val()[i].tag
+							);
+
+							// Append item to the screen
+							newScreen.append(futureArrowItem);
+
+						}
+
+						// Add screen to the box
+						arrowBox.append(newScreen);
+
+						// Refresh arrow screens
+						arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
+					}
+
+				};
+
+			});
+
+			arrowsLoaded += 4;
+
+		}; // ---------------- end of pre-load with JSON ----------------
+
+	}); // ---------------- end of event listener ----------------
+
+}); // ---------------- end of document.onload listener ----------------
+
+// Forming new screen for the slider-arrows
+function futureArrowItems (imageURL, name, tag) {
+
+	let item = document.createElement("div");
+	item.classList.add("item");
+
+	let itemImage = document.createElement("div");
+	itemImage.classList.add("img");
+	itemImage.style.backgroundImage = `url(${imageURL})`;
+	item.append(itemImage);
+
+	let itemName = document.createElement("h4");
+	itemName.classList.add("name");
+	itemName.innerText = name;
+	item.append(itemName);
+
+	let itemTag = document.createElement("a");
+	itemTag.innerText = tag;
+	item.append(itemTag);
+
+	return item;
+}
+
 
 
 // Add to wishlist buttons .................................
-let addToWishlist = document.querySelectorAll("section.pop-items button.addToWishlist");
+(function () {
+	let addToWishlist = document.querySelectorAll("section.pop-items button.addToWishlist");
 
-addToWishlist.forEach(button => {
+	addToWishlist.forEach(button => {
 
-	button.addEventListener("click", () => {
+		button.addEventListener("click", () => {
 
-		addItem("wishlist");
+			addItem("wishlist");
 
-	}, true);
+		}, true);
 
-});
+	});
+})();
 
 
 // Load more .................................................
-const loadMoreBtn = document.getElementById("loadMore");
+(function () {
+	const loadMoreBtn = document.getElementById("loadMore");
 
-let itemsLoaded = 0;
+	let itemsShowed = 4;
+	let itemsLoaded = 0;
 
-loadMoreBtn.addEventListener("click" , () => {
+	loadMoreBtn.addEventListener("click" , () => {
 
-	// Find the item box
-	const popItems = document.querySelector("section.pop-items div.items");
+		// Find the item box
+		const popItemsBox = document.querySelector("section.pop-items div.items");
 
-	// Load JSON
-	firebase.database().ref("/items")
-	.once('value', snap => {
+		// Find all the items
+		let popItems = popItemsBox.children;
 
-		// How many items are loaded already
-		if (itemsLoaded < snap.val().length) {
+		// Firstly, show other items
+		if (itemsShowed < 16) {
 
-			for (let i = itemsLoaded; i < itemsLoaded + 4; i++) {
-
-				if (i < snap.val().length) {
-					// Form HTML
-					let newItem = createItem(
-						snap.val()[i].image,
-						snap.val()[i].name,
-						snap.val()[i].price
-					);
-
-					popItems.append(newItem);
-				} else {
-					loadMoreBtn.innerText = "All items are loaded"
-					loadMoreBtn.classList.remove("enabled");
-					break;
-				}
+			// Show next 4 items
+			for (let i = itemsShowed; i < itemsShowed + 4; i++) {
+				popItems[i].style.display = "block";
 			}
 
-			itemsLoaded += 4;
+			itemsShowed += 4;
 		}
 
-	});
+		// And, if all the items are showed already, we can download more items
+		else if (itemsShowed >= 16) {
 
-}, true);
+			// Load JSON
+			firebase.database().ref("/items")
+			.once('value', snap => {
+
+				// How many items are loaded already
+				if (itemsLoaded < snap.val().length) {
+
+					for (let i = itemsLoaded; i < itemsLoaded + 4; i++) {
+
+						if (i < snap.val().length) {
+							// Form HTML
+							let newItem = createItem(
+								snap.val()[i].image,
+								snap.val()[i].name,
+								snap.val()[i].price
+							);
+
+							newItem.style.display = "block";
+
+							popItemsBox.append(newItem);
+						}
+						else {
+							loadMoreBtn.innerText = "All items are loaded"
+							loadMoreBtn.classList.remove("enabled");
+							break;
+						}
+					}
+
+					itemsLoaded += 4;
+				}
+
+			});
+
+		}
+
+	}, true);
+
+})();
 
 
 function addItem (branchName) {

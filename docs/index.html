@@ -15,43 +15,43 @@
 <body>
 
 	<!-- Overlay -->
-	<div id="overlay">
-		<!-- Cookies Modal -->
-		<div id="cookies">
-			<div class="subwrapper">
-				<h6>This website uses cookies</h6>
-				<p>
-					OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for website performance and interaction with social media offering publicity tailored to your interests. If you continue browsing, we consider that you accept its use.<br>
-					You can expand this information consulting our <a href="#">Cookies Policy Page</a>.
-					<button id="accept-cookies" class="btn">Accept</button>
-					<span id="close-cookies"><i class="fas fa-times"></i></span>
-				</p>
-			</div>
+	<div id="overlay"></div>
+
+	<!-- Cookies Modal -->
+	<div id="cookies">
+		<div class="subwrapper">
+			<h6>This website uses cookies</h6>
+			<p>
+				OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for website performance and interaction with social media offering publicity tailored to your interests. If you continue browsing, we consider that you accept its use.<br>
+				You can expand this information consulting our <a href="#">Cookies Policy Page</a>.
+				<button id="accept-cookies" class="btn">Accept</button>
+				<span id="close-cookies"><i class="fas fa-times"></i></span>
+			</p>
+		</div>
+	</div>
+
+	<!-- Sign In modal -->
+	<form id="signinForm">
+		<h3>Sign in</h3>
+
+		<label for="email">Email</label>
+		<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+		<div class="forgot">
+			<label for="password">Password</label>
+			<a href="#">forgot password</a>
+		</div>
+		<div class="password">
+			<span class="showPassword">
+				<i class="far fa-eye"></i>
+			</span>
+			<!-- At least 6 characters length, contain 1 numeric, 1 uppercase letter, 1 special character -->
+			<input type="password" name="password" pattern="(?=.*\d)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.*[A-Z]).{6,}" required>
 		</div>
 
-		<!-- Sign In modal -->
-		<form id="signinForm">
-			<h3>Sign in</h3>
-
-			<label for="email">Email</label>
-			<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-
-			<div class="forgot">
-				<label for="password">Password</label>
-				<a href="#">forgot password</a>
-			</div>
-			<div class="password">
-				<span class="showPassword">
-					<i class="far fa-eye"></i>
-				</span>
-				<!-- At least 6 characters length, contain 1 numeric, 1 uppercase letter, 1 special character -->
-				<input type="password" name="password" pattern="(?=.*\d)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.*[A-Z]).{6,}" required>
-			</div>
-
-			<input type="submit" value="Login" id="login">
-			<a href="#" class="register">I don't have an account</a>
-		</form>
-	</div>
+		<input type="submit" value="Login" id="login">
+		<a href="#" class="register">I don't have an account</a>
+	</form>
 
 	<!-- Header -->
 	<header>
@@ -212,31 +212,31 @@
 					<div class="img active" style="background-image: url(./img/home/slider-dots/slider1.jpg)">
 						<h3>Control and manage any device with cloud solutions</h3>
 						<p>Improve business perfomance and the user experience with the right mix of IoT technology and processes</p>
-						<a href="clp.html">View more</a>
+						<a href="./clp.html">View more</a>
 					</div>
 					<!-- 2 screen -->
 					<div class="img" style="background-image: url(./img/home/slider-dots/slider2.jpg)">
 						<h3>Control and manage any device with cloud solutions</h3>
 						<p>Improve business perfomance and the user experience with the right mix of IoT technology and processes</p>
-						<a href="clp.html">View more</a>
+						<a href="./clp.html">View more</a>
 					</div>
 					<!-- 3 screen -->
 					<div class="img" style="background-image: url(./img/home/slider-dots/slider3.jpg)">
 						<h3>Control and manage any device with cloud solutions</h3>
 						<p>Improve business perfomance and the user experience with the right mix of IoT technology and processes</p>
-						<a href="clp.html">View more</a>
+						<a href="./clp.html">View more</a>
 					</div>
 					<!-- 4 screen -->
 					<div class="img" style="background-image: url(./img/home/slider-dots/slider1.jpg)">
 						<h3>Control and manage any device with cloud solutions</h3>
 						<p>Improve business perfomance and the user experience with the right mix of IoT technology and processes</p>
-						<a href="clp.html">View more</a>
+						<a href="./clp.html">View more</a>
 					</div>
 					<!-- 5 screen -->
 					<div class="img" style="background-image: url(./img/home/slider-dots/slider2.jpg)">
 						<h3>Control and manage any device with cloud solutions</h3>
 						<p>Improve business perfomance and the user experience with the right mix of IoT technology and processes</p>
-						<a href="clp.html">View more</a>
+						<a href="./clp.html">View more</a>
 					</div>
 					<ul class="dots">
 						<li><button class="active"></button></li>
@@ -255,7 +255,7 @@
 					<div class="follow">
 						<h4>Follow us on Facebook</h4>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit</p>
-						<a href="#">
+						<a href="https://www.facebook.com/OSFGlobalServices/">
 							<i class="fab fa-facebook-f"></i>
 							Follow
 						</a>
@@ -393,7 +393,7 @@
 		</section>
 
 		<!-- Featured Products -->
-		<section class="feat-prod">
+		<section class="feat-prod">./
 			<div class="wrapper">
 				<h2>Featured Products</h2>
 				<p>Unde omnis iste natus error sit voluptatem</p>
@@ -514,7 +514,9 @@
 			<div class="wrapper">
 				<div class="contact">
 					<span>© Copyright <span id="year"></span>.<br>
-						All Rights Reserved.</span>
+						All Rights Reserved.<br>
+						<a href="./release.html">Release Date</a>
+					</span>
 					<h3>Contact
 						<span class="arrow-down">&#9660;</span>
 					</h3>

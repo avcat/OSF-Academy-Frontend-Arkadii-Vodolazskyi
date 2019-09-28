@@ -207,9 +207,8 @@
 		<section class="breadcrumbs">
 			<div class="wrapper">
 				<ul>
-					<li><a href="home.html">Home</a></li>
+					<li><a href="./index.html">Home</a></li>
 					<li>/</li>
-					<!-- * What's this page? -->
 					<li><a href="#">OSF Theme</a></li>
 					<li>/</li>
 					<li>Ruffle Front V-Neck Cardigan</li>
@@ -237,6 +236,9 @@
 							<img src="img/pdp/product/aqua-front.jpg" alt="aqua-front">
 							<img src="img/pdp/product/aqua-back.jpg" alt="aqua-back">
 						</div>
+
+						<ul class="future-dots" id="images"></ul>
+
 						<div class="about">
 							<span class="price">$299.99</span>
 							<div class="colorpick">
@@ -255,7 +257,7 @@
 									<input type="number" name="amountpick">
 									<button class="plus">+</button>
 								</div>
-								<button>Add to cart</button>
+								<button id="addThisItem">Add to cart</button>
 							</div>
 							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore Beatae vitae dicta sunt explicabo.
 							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
@@ -312,7 +314,7 @@
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
 								</p>
 								<p>
-									Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+									Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
 								</p>
 							</div>
 							<!-- Tab 3 -->
@@ -344,10 +346,10 @@
 						<h4 class="name">Kristina Dam Oak Table With White Marble Top</h4>
 						<span>$ 799.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -357,10 +359,10 @@
 						<h4 class="name">Kristina Dam Oak Table With White Marble Top</h4>
 						<span>$ 2195.00</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -370,10 +372,10 @@
 						<h4 class="name">Activate Facial Mask and Charcoal Soap</h4>
 						<span>$ 129.55</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
@@ -383,15 +385,19 @@
 						<h4 class="name">Cocktail Table Walnut | <br>YES</h4>
 						<span>$ 629.99</span>
 						<div class="overlay">
-							<button>
+							<button class="addToCart">
 								<img src="img/icons/plus.svg" alt="plus">
 							</button>
-							<button>
+							<button class="addToWishlist">
 								<img src="img/icons/heart-filled.svg" alt="like">
 							</button>
 						</div>
 					</div>
 				</div>
+
+				<ul class="future-dots" id="popular"></ul>
+
+				<a href="#" class="toTop">Scroll to top</a>
 			</div>
 		</section>
 

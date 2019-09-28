@@ -1,145 +1,187 @@
-// Interaction for slider-dots
+// Interaction for slider-dots ..............................
+(function () {
+	let dots = document.querySelectorAll("section.slider .slider-dots ul.dots li button");
 
-let dots = document.querySelectorAll("section.slider .slider-dots ul.dots li button");
+	let dotsScreens = document.querySelectorAll("section.slider .slider-dots div.img");
 
-let dotsScreens = document.querySelectorAll("section.slider .slider-dots div.img");
+	for (let i = 0; i < dots.length; i++) {
 
-for (let i = 0; i < dots.length; i++) {
+		dots[i].addEventListener("click", () => {
+			dots.forEach(dot => {
+				dot.classList.remove("active");
+			});
+			dotsScreens.forEach(screen => {
+				screen.classList.remove("active");
+			});
 
-	dots[i].addEventListener("click", () => {
-		dots.forEach(dot => {
-			dot.classList.remove("active");
+			dots[i].classList.add("active");
+			dotsScreens[i].classList.add("active");
 		});
-		dotsScreens.forEach(screen => {
+
+	}
+})();
+
+
+// Interaction for slider-arrows ..........................
+
+document.addEventListener("DOMContentLoaded", () => {
+
+	let arrowsLoaded = 0;
+
+	let arrows = document.querySelectorAll("section.feat-prod .slider-arrows .arrows button");
+
+	let arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
+
+	// Initial states
+	let focus = 1;
+	arrowScreens[focus].classList.add("active");
+
+	arrows[0].addEventListener("click", () => {
+
+		focus--;
+		if (focus < 0) {
+			focus = 0;
+		}
+
+		arrowScreens.forEach(screen => {
 			screen.classList.remove("active");
 		});
 
-		dots[i].classList.add("active");
-		dotsScreens[i].classList.add("active");
+		arrowScreens[focus].classList.add("active");
 	});
 
+	arrows[1].addEventListener("click", () => {
+
+		focus++;
+		if (focus > arrowScreens.length - 1) {
+			focus = arrowScreens.length - 1;
+		}
+
+		arrowScreens.forEach(screen => {
+			screen.classList.remove("active");
+		});
+
+		arrowScreens[focus].classList.add("active");
+
+
+
+		// ---------------- Pre-load with JSON ----------------
+
+		// Find slider's screen box
+		const arrowBox = document.querySelector("section.feat-prod div.slider-arrows div.items");
+
+		if (focus === arrowScreens.length - 1) {
+
+			// Load JSON
+			firebase.database().ref("/items").once('value', snap => {
+
+				// How many items are loaded already
+				if (arrowsLoaded < snap.val().length) {
+
+					// Create screen
+					let newScreen = document.createElement("div");
+					newScreen.classList.add("screen");
+
+					for (let i = arrowsLoaded; i < arrowsLoaded + 4; i++) {
+
+						if (i < snap.val().length) {
+
+							// Create item of the screen
+							let futureArrowItem = futureArrowItems(
+								snap.val()[i].image,
+								snap.val()[i].name,
+								snap.val()[i].tag
+							);
+
+							// Append item to the screen
+							newScreen.append(futureArrowItem);
+
+						}
+
+						// Add screen to the box
+						arrowBox.append(newScreen);
+
+						// Refresh arrow screens
+						arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
+					}
+
+				};
+
+			});
+
+			arrowsLoaded += 4;
+
+		}; // ---------------- end of pre-load with JSON ----------------
+
+	}); // ---------------- end of event listener ----------------
+
+}); // ---------------- end of document.onload listener ----------------
+
+// Forming new screen for the slider-arrows
+function futureArrowItems (imageURL, name, tag) {
+
+	let item = document.createElement("div");
+	item.classList.add("item");
+
+	let itemImage = document.createElement("div");
+	itemImage.classList.add("img");
+	itemImage.style.backgroundImage = `url(${imageURL})`;
+	item.append(itemImage);
+
+	let itemName = document.createElement("h4");
+	itemName.classList.add("name");
+	itemName.innerText = name;
+	item.append(itemName);
+
+	let itemTag = document.createElement("a");
+	itemTag.innerText = tag;
+	item.append(itemTag);
+
+	return item;
 }
 
-// Interaction for slider-arrows
-let arrows = document.querySelectorAll("section.feat-prod .slider-arrows .arrows button");
-
-let arrowScreens = document.querySelectorAll("section.feat-prod .slider-arrows .items .screen");
-
-// Initial states
-let focus = 1;
-arrowScreens[focus].classList.add("active");
-
-arrows[0].addEventListener("click", () => {
-
-	focus--;
-	if (focus < 0) {
-		focus = 0;
-	}
-
-	arrowScreens.forEach(screen => {
-		screen.classList.remove("active");
-	});
-
-	arrowScreens[focus].classList.add("active");
-});
-
-arrows[1].addEventListener("click", () => {
-
-	focus++;
-	if (focus > arrowScreens.length - 1) {
-		focus = arrowScreens.length - 1;
-	}
-
-	arrowScreens.forEach(screen => {
-		screen.classList.remove("active");
-	});
-
-	arrowScreens[focus].classList.add("active");
-});
-
-
-
 // Buy now button ..............................................
+(function () {
+	const buyNow = document.querySelector("section.pop-items div.items div.item div.paired button");
 
-const buyNow = document.querySelector("section.pop-items div.items div.item div.paired button");
-
-buyNow.addEventListener("click", () => {
-
-	addItem("cart");
-
-}, true);
-
-
-// Add to cart buttons .....................................
-let addToCart = document.querySelectorAll("section.pop-items button.addToCart");
-
-addToCart.forEach(button => {
-
-	button.addEventListener("click", () => {
+	buyNow.addEventListener("click", () => {
 
 		addItem("cart");
 
 	}, true);
+})();
 
-});
+
+// Add to cart buttons .....................................
+(function () {
+	let addToCart = document.querySelectorAll("section.pop-items button.addToCart");
+
+	addToCart.forEach(button => {
+
+		button.addEventListener("click", () => {
+
+			addItem("cart");
+
+		}, true);
+
+	});
+})();
 
 
 // Add to wishlist buttons .................................
-let addToWishlist = document.querySelectorAll("section.pop-items button.addToWishlist");
+(function () {
+	let addToWishlist = document.querySelectorAll("section.pop-items button.addToWishlist");
 
-addToWishlist.forEach(button => {
+	addToWishlist.forEach(button => {
 
-	button.addEventListener("click", () => {
+		button.addEventListener("click", () => {
 
-		addItem("wishlist");
+			addItem("wishlist");
 
-	}, true);
-
-});
-
-
-// Load more .................................................
-const loadMoreBtn = document.getElementById("loadMore");
-
-let itemsLoaded = 0;
-
-loadMoreBtn.addEventListener("click" , () => {
-
-	// Find the item box
-	const popItems = document.querySelector("section.pop-items div.items");
-
-	// Load JSON
-	firebase.database().ref("/items")
-	.once('value', snap => {
-
-		// How many items are loaded already
-		if (itemsLoaded < snap.val().length) {
-
-			for (let i = itemsLoaded; i < itemsLoaded + 4; i++) {
-
-				if (i < snap.val().length) {
-					// Form HTML
-					let newItem = createItem(
-						snap.val()[i].image,
-						snap.val()[i].name,
-						snap.val()[i].price
-					);
-
-					popItems.append(newItem);
-				} else {
-					loadMoreBtn.innerText = "All items are loaded"
-					loadMoreBtn.classList.remove("enabled");
-					break;
-				}
-			}
-
-			itemsLoaded += 4;
-		}
+		}, true);
 
 	});
-
-}, true);
-
+})();
 
 function addItem (branchName) {
 
@@ -169,6 +211,51 @@ function addItem (branchName) {
 	});
 
 }
+
+// Load more .................................................
+(function () {
+	const loadMoreBtn = document.getElementById("loadMore");
+
+	let itemsLoaded = 0;
+
+	loadMoreBtn.addEventListener("click" , () => {
+
+		// Find the item box
+		const popItems = document.querySelector("section.pop-items div.items");
+
+		// Load JSON
+		firebase.database().ref("/items")
+		.once('value', snap => {
+
+			// How many items are loaded already
+			if (itemsLoaded < snap.val().length) {
+
+				for (let i = itemsLoaded; i < itemsLoaded + 4; i++) {
+
+					if (i < snap.val().length) {
+						// Form HTML
+						let newItem = createItem(
+							snap.val()[i].image,
+							snap.val()[i].name,
+							snap.val()[i].price
+						);
+
+						popItems.append(newItem);
+					} else {
+						loadMoreBtn.innerText = "All items are loaded"
+						loadMoreBtn.classList.remove("enabled");
+						break;
+					}
+				}
+
+				itemsLoaded += 4;
+			}
+
+		});
+
+	}, true);
+})();
+
 
 // Create item
 function createItem (imageURL, name, price) {

@@ -139,6 +139,8 @@ main
 					text-align: center
 					*
 						color: $white-color
+					@media (max-width: 850px)
+						margin-bottom: 1rem
 					span
 						font-size: to-rem(100px)
 						@media (max-width: 1280px)
@@ -157,6 +159,8 @@ main
 					h4
 						margin-bottom: to-rem(14px)
 						font-size: to-rem(18px)
+						@media (max-width: 850px)
+							font-size: 1rem
 					p
 						margin-bottom: to-rem(20px)
 						font-size: to-rem(13px)
@@ -175,6 +179,8 @@ main
 							color: $white-color
 							svg
 								color: $white-color
+						@media (max-width: 850px)
+							padding: to-rem(5px) to-rem(14px)
 
 	/* Popular Items ----------------------------------------- */
 	section.pop-items
@@ -182,6 +188,8 @@ main
 		.wrapper
 			padding-top: to-rem(30px)
 			padding-bottom: to-rem(60px)
+			@media (max-width: 440px)
+				padding-bottom: to-rem(30px)
 			h2
 				padding: (to-rem(15px)) 0
 				background-color: $darkblue-color
@@ -228,9 +236,11 @@ main
 					justify-content: center
 					.item
 						width: 80%
+						&.com
+							display: none
 			@media (max-width: 440px)
 				div.items
-					justify-content: center
+					min-height: to-rem(400px)
 					.item
 						display: none
 						position: absolute
@@ -240,7 +250,6 @@ main
 						&:nth-child(-n+5)
 							display: block
 						&.active
-							// * With js: make the first one active
 							position: relative
 							opacity: 1
 							visibility: visible
@@ -258,6 +267,7 @@ main
 					border: 0.25rem solid transparent
 					cursor: pointer
 					opacity: 0.5
+					transition: all 0.8s ease
 					&:hover
 						opacity: 1
 					&.active
@@ -283,6 +293,8 @@ main
 						background-color: $white-color
 						border-color: inherit
 						color: inherit
+				@media (max-width: 440px)
+					display: none
 
 	/* Banner ------------------------------------------------ */
 	section.banner

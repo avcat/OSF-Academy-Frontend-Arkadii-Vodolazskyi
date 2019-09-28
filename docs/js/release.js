@@ -1,6 +1,6 @@
 
 // Set deadline ------------------------------------------
-const deadline = new Date("sep 27, 2019 12:00:00").getTime();
+const deadline = new Date("sep 30, 2019 12:00:00").getTime();
 
 // Find tags to write in
 const spans = document.querySelectorAll("section.countdown div.release span");

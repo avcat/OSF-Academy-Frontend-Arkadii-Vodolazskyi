@@ -1,17 +1,11 @@
 ================ Todo: ================
 
-1. Find items
-2. slice into first 5 items
-3. for each of them create dot
-4. add event listener
+! PDP Future images not working
 
-5. continue adaptive
+! PDP amounts JSON not working
 
-! Fix no images
-
-JSON:
-Home Page:
-- featured prodcuts slider - take from popularItems.
+! Replace overlay/cookies/signin
+! Replace footer
 
 
 Cart Page (interaction):
@@ -25,15 +19,12 @@ Cart Page (interaction):
 
 
 Minor bugs:
-? Release HTML + center-round - is there need?
 
 ! Fix subscribe form on release.html
 
 ! Firebase JSON contains empty items
 
 ! Crazy body/overlay
-
-! remove on styles of menu on closing header menu
 
 Bonuses:
 Home/popular items:
@@ -51,12 +42,22 @@ Adaptive sections:
 Adaptive pages:
 - 404
 - Home
++ Release
++ CLP
 
+JS
++ Home future dots slider
++ PDP small screen product images slider
++ JSON slider
++ Removed on styles of menu on closing header menu
 
+----
++ Mobile: made icon boxes bigger
++ Provided link to Release page
++ Fixed Sign In
++ Fixed Release
++ Fixed no images
++ Fixed PDP Popular items
++ Fixed Breadcrumbs pages paths
+---
 
-Fixed:
-- GitHub Pages doesn't see files, that named with _
-
-! Corrupted logo SVG - so I had to replace all logo.svg with logo.png
-
-Replaced big sized images with lightweight ones
