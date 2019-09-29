@@ -72,7 +72,6 @@ a, button, input[type="submit"] {
 
 main section.cart .wrapper div.items div.item div.amountpick {
   display: inline-block;
-  margin-right: 1.7142857143rem;
   position: relative; }
   main section.cart .wrapper div.items div.item div.amountpick > input[type="number"] {
     -webkit-appearance: textfield;
@@ -156,7 +155,7 @@ main section.cart .wrapper form.manage div.checkout div.shipping ul.radios li > 
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 100;
   overflow: hidden;
   background-color: #000;
   opacity: 0;
@@ -170,7 +169,7 @@ main section.cart .wrapper form.manage div.checkout div.shipping ul.radios li > 
 #signinForm {
   position: absolute;
   width: 40%;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 200;
@@ -278,8 +277,13 @@ div#cookies {
     opacity: 1;
     visibility: visible; }
   div#cookies div.subwrapper {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative; }
+    @media (max-width: 920px) {
+      div#cookies div.subwrapper {
+        align-items: center; } }
     div#cookies div.subwrapper h6, div#cookies div.subwrapper a {
       color: #84bc22; }
     div#cookies div.subwrapper h6 {
@@ -287,14 +291,17 @@ div#cookies {
       font-size: 1.1428571429rem;
       line-height: 1.5; }
     div#cookies div.subwrapper p {
+      display: inline-block;
       width: 80%;
       color: #45413e;
       font-size: 1rem;
       line-height: 1.71; }
+      @media (max-width: 920px) {
+        div#cookies div.subwrapper p {
+          width: 100%; } }
     div#cookies div.subwrapper button#accept-cookies {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      min-width: 20%;
+      align-self: flex-end;
       padding: 0.6428571429rem 3.2857142857rem;
       border-color: transparent;
       color: #ffffff;
@@ -303,9 +310,13 @@ div#cookies {
         color: #84bc22;
         border-color: #84bc22;
         background-color: transparent; }
+      @media (max-width: 920px) {
+        div#cookies div.subwrapper button#accept-cookies {
+          align-self: center;
+          margin-top: 1rem; } }
     div#cookies div.subwrapper span#close-cookies {
       position: absolute;
-      top: -10%;
+      top: 0;
       right: 0;
       cursor: pointer;
       transition: all 0.3s ease; }
@@ -719,12 +730,12 @@ header {
           position: absolute;
           display: inline-block;
           top: -40%;
-          right: -50%;
-          font-size: 0.6rem;
+          right: -65%;
+          font-size: 0.7rem;
           color: #84bc22;
           background-color: #ffffff;
           border: 0.15rem solid #84bc22;
-          padding: 0.1428571429rem 0.3571428571rem;
+          padding: 0.2142857143rem 0.4285714286rem;
           border-radius: 50%;
           z-index: 15; }
           @media (max-width: 850px) {
@@ -781,10 +792,10 @@ main {
           border-bottom: 0.1rem solid #e5e2df; }
           @media (max-width: 1050px) {
             main section.breadcrumbs .wrapper h2:before {
-              width: 31.5%; } }
-          @media (max-width: 500px) {
-            main section.breadcrumbs .wrapper h2:before {
               width: 28%; } }
+          @media (max-width: 600px) {
+            main section.breadcrumbs .wrapper h2:before {
+              width: 24.5%; } }
         main section.breadcrumbs .wrapper h2:after {
           position: absolute;
           top: 50%;
@@ -795,10 +806,10 @@ main {
           border-bottom: 0.1rem solid #e5e2df; }
           @media (max-width: 1050px) {
             main section.breadcrumbs .wrapper h2:after {
-              width: 31.5%; } }
-          @media (max-width: 500px) {
-            main section.breadcrumbs .wrapper h2:after {
               width: 28%; } }
+          @media (max-width: 600px) {
+            main section.breadcrumbs .wrapper h2:after {
+              width: 24.5%; } }
   main section.cart {
     padding-bottom: 2.8571428571rem;
     background-color: #F1EDEA; }
@@ -808,6 +819,12 @@ main {
       main section.cart .wrapper div.items {
         padding: 7.1428571429rem;
         position: relative; }
+        @media (max-width: 1050px) {
+          main section.cart .wrapper div.items {
+            padding: 4.2857142857rem; } }
+        @media (max-width: 800px) {
+          main section.cart .wrapper div.items {
+            padding: 2.1428571429rem; } }
         main section.cart .wrapper div.items:after {
           position: absolute;
           bottom: 0;
@@ -821,14 +838,27 @@ main {
           flex-wrap: nowrap;
           justify-content: space-between;
           align-items: center; }
+          @media (max-width: 800px) {
+            main section.cart .wrapper div.items div.item {
+              justify-content: space-around; } }
+          @media (max-width: 600px) {
+            main section.cart .wrapper div.items div.item {
+              justify-content: space-between; } }
           main section.cart .wrapper div.items div.item:not(:last-child) {
             margin-bottom: 2.1428571429rem; }
           main section.cart .wrapper div.items div.item img {
-            width: 10%; }
+            width: 10%;
+            border-radius: 10px; }
+            @media (max-width: 800px) {
+              main section.cart .wrapper div.items div.item img {
+                width: 20%; } }
           main section.cart .wrapper div.items div.item div.info {
             width: 50%;
             padding-left: 1.5714285714rem;
             text-align: left; }
+            @media (max-width: 800px) {
+              main section.cart .wrapper div.items div.item div.info {
+                display: none; } }
             main section.cart .wrapper div.items div.item div.info h4 {
               font-size: 1.1428571429rem;
               color: #45413e;
@@ -838,11 +868,21 @@ main {
               color: #bdc3c7; }
           main section.cart .wrapper div.items div.item div.amountpick {
             width: 10%; }
+            @media (max-width: 800px) {
+              main section.cart .wrapper div.items div.item div.amountpick {
+                min-width: 70px; } }
           main section.cart .wrapper div.items div.item h3.price {
             width: 25%;
             text-align: center;
             font-size: 2.1428571429rem;
             color: #45413e; }
+            @media (max-width: 800px) {
+              main section.cart .wrapper div.items div.item h3.price {
+                font-size: 1.7142857143rem; } }
+            @media (max-width: 600px) {
+              main section.cart .wrapper div.items div.item h3.price {
+                font-size: 1.1428571429rem;
+                width: 15%; } }
           main section.cart .wrapper div.items div.item div.delete {
             width: 5%; }
             main section.cart .wrapper div.items div.item div.delete svg {
@@ -868,8 +908,26 @@ main {
         justify-content: space-between; }
         main section.cart .wrapper form.manage * {
           font-size: 1rem; }
+        @media (max-width: 1050px) {
+          main section.cart .wrapper form.manage {
+            padding: 2.8571428571rem;
+            flex-direction: column;
+            align-items: center; } }
         main section.cart .wrapper form.manage div.coupon {
-          width: 40%; }
+          width: 40%;
+          text-align: left; }
+          @media (max-width: 1050px) {
+            main section.cart .wrapper form.manage div.coupon {
+              width: 60%;
+              margin-bottom: 1rem; } }
+          @media (max-width: 850px) {
+            main section.cart .wrapper form.manage div.coupon {
+              width: 95%; } }
+          @media (max-width: 600px) {
+            main section.cart .wrapper form.manage div.coupon {
+              display: flex;
+              flex-direction: column;
+              align-items: center; } }
           main section.cart .wrapper form.manage div.coupon input[type="text"] {
             width: 60%;
             margin-right: 5%;
@@ -881,6 +939,10 @@ main {
             transition: all 0.5s ease; }
             main section.cart .wrapper form.manage div.coupon input[type="text"]:focus {
               border-color: #84bc22; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.coupon input[type="text"] {
+                width: 90%;
+                margin: 0 0 1rem; } }
           main section.cart .wrapper form.manage div.coupon input[type="submit"] {
             width: 30%;
             border-color: #84bc22;
@@ -889,6 +951,9 @@ main {
             main section.cart .wrapper form.manage div.coupon input[type="submit"]:hover {
               color: #ffffff;
               background-color: #84bc22; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.coupon input[type="submit"] {
+                width: 90%; } }
         main section.cart .wrapper form.manage div.checkout {
           width: 50%;
           display: flex;
@@ -897,6 +962,12 @@ main {
           align-content: flex-start; }
           main section.cart .wrapper form.manage div.checkout * {
             color: #45413e; }
+          @media (max-width: 1050px) {
+            main section.cart .wrapper form.manage div.checkout {
+              width: 60%; } }
+          @media (max-width: 850px) {
+            main section.cart .wrapper form.manage div.checkout {
+              width: 95%; } }
           main section.cart .wrapper form.manage div.checkout > div {
             display: flex;
             justify-content: flex-start;
@@ -906,8 +977,13 @@ main {
           main section.cart .wrapper form.manage div.checkout h5 {
             width: 55%;
             text-transform: uppercase; }
+          @media (max-width: 600px) {
+            main section.cart .wrapper form.manage div.checkout div.btns {
+              flex-direction: column;
+              align-items: center; } }
           main section.cart .wrapper form.manage div.checkout div.btns button.update {
-            width: 35%;
+            min-width: 35%;
+            white-space: nowrap;
             border-color: #84bc22;
             color: #84bc22;
             background-color: #ffffff;
@@ -915,30 +991,61 @@ main {
             main section.cart .wrapper form.manage div.checkout div.btns button.update:hover {
               color: #ffffff;
               background-color: #84bc22; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.checkout div.btns button.update {
+                width: 90%;
+                margin: 0 0 1rem; } }
           main section.cart .wrapper form.manage div.checkout div.btns input[type="submit"] {
-            width: 55%;
+            min-width: 55%;
             color: #ffffff;
+            background-color: #84bc22;
             border-color: transparent; }
             main section.cart .wrapper form.manage div.checkout div.btns input[type="submit"]:hover {
               border-color: #84bc22;
               color: #84bc22;
               background-color: #ffffff; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.checkout div.btns input[type="submit"] {
+                width: 90%; } }
           main section.cart .wrapper form.manage div.checkout div.subtotal {
             margin-top: 3rem; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.checkout div.subtotal {
+                width: 100%;
+                justify-content: space-between; } }
           main section.cart .wrapper form.manage div.checkout div.shipping {
             margin-top: 2.1428571429rem; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.checkout div.shipping {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start; }
+                main section.cart .wrapper form.manage div.checkout div.shipping > h5 {
+                  width: 100%;
+                  text-align: left;
+                  margin-bottom: 2rem; } }
             main section.cart .wrapper form.manage div.checkout div.shipping ul.radios {
               width: 45%; }
               main section.cart .wrapper form.manage div.checkout div.shipping ul.radios li {
                 padding-left: 8%; }
                 main section.cart .wrapper form.manage div.checkout div.shipping ul.radios li:not(:last-child) {
                   margin-bottom: 1rem; }
+                @media (max-width: 600px) {
+                  main section.cart .wrapper form.manage div.checkout div.shipping ul.radios li {
+                    min-width: 160px; } }
           main section.cart .wrapper form.manage div.checkout div.total {
             display: flex;
             align-items: center;
             margin-top: 3.8571428571rem; }
+            @media (max-width: 600px) {
+              main section.cart .wrapper form.manage div.checkout div.total {
+                width: 100%;
+                justify-content: space-between; } }
             main section.cart .wrapper form.manage div.checkout div.total span.price {
               font-size: 3.4285714286rem; }
+              @media (max-width: 800px) {
+                main section.cart .wrapper form.manage div.checkout div.total span.price {
+                  font-size: 1.7142857143rem; } }
 
 /* Footer ------------------------------------------------ */
 /* Footer ------------------------------------------------ */

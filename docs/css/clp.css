@@ -97,7 +97,7 @@ main section.pop-items .wrapper form select {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 100;
   overflow: hidden;
   background-color: #000;
   opacity: 0;
@@ -111,7 +111,7 @@ main section.pop-items .wrapper form select {
 #signinForm {
   position: absolute;
   width: 40%;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 200;
@@ -219,8 +219,13 @@ div#cookies {
     opacity: 1;
     visibility: visible; }
   div#cookies div.subwrapper {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative; }
+    @media (max-width: 920px) {
+      div#cookies div.subwrapper {
+        align-items: center; } }
     div#cookies div.subwrapper h6, div#cookies div.subwrapper a {
       color: #84bc22; }
     div#cookies div.subwrapper h6 {
@@ -228,14 +233,17 @@ div#cookies {
       font-size: 1.1428571429rem;
       line-height: 1.5; }
     div#cookies div.subwrapper p {
+      display: inline-block;
       width: 80%;
       color: #45413e;
       font-size: 1rem;
       line-height: 1.71; }
+      @media (max-width: 920px) {
+        div#cookies div.subwrapper p {
+          width: 100%; } }
     div#cookies div.subwrapper button#accept-cookies {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+      min-width: 20%;
+      align-self: flex-end;
       padding: 0.6428571429rem 3.2857142857rem;
       border-color: transparent;
       color: #ffffff;
@@ -244,9 +252,13 @@ div#cookies {
         color: #84bc22;
         border-color: #84bc22;
         background-color: transparent; }
+      @media (max-width: 920px) {
+        div#cookies div.subwrapper button#accept-cookies {
+          align-self: center;
+          margin-top: 1rem; } }
     div#cookies div.subwrapper span#close-cookies {
       position: absolute;
-      top: -10%;
+      top: 0;
       right: 0;
       cursor: pointer;
       transition: all 0.3s ease; }
@@ -660,12 +672,12 @@ header {
           position: absolute;
           display: inline-block;
           top: -40%;
-          right: -50%;
-          font-size: 0.6rem;
+          right: -65%;
+          font-size: 0.7rem;
           color: #84bc22;
           background-color: #ffffff;
           border: 0.15rem solid #84bc22;
-          padding: 0.1428571429rem 0.3571428571rem;
+          padding: 0.2142857143rem 0.4285714286rem;
           border-radius: 50%;
           z-index: 15; }
           @media (max-width: 850px) {
@@ -724,10 +736,10 @@ main {
           border-bottom: 0.1rem solid #ffffff; }
           @media (max-width: 1050px) {
             main section.breadcrumbs .wrapper h2:before {
-              width: 36%; } }
-          @media (max-width: 500px) {
-            main section.breadcrumbs .wrapper h2:before {
               width: 32%; } }
+          @media (max-width: 600px) {
+            main section.breadcrumbs .wrapper h2:before {
+              width: 28%; } }
         main section.breadcrumbs .wrapper h2:after {
           position: absolute;
           top: 50%;
@@ -738,10 +750,10 @@ main {
           border-bottom: 0.1rem solid #ffffff; }
           @media (max-width: 1050px) {
             main section.breadcrumbs .wrapper h2:after {
-              width: 36%; } }
-          @media (max-width: 500px) {
-            main section.breadcrumbs .wrapper h2:after {
               width: 32%; } }
+          @media (max-width: 600px) {
+            main section.breadcrumbs .wrapper h2:after {
+              width: 28%; } }
   main section.pop-items {
     background-color: #F1EDEA; }
     main section.pop-items .wrapper {

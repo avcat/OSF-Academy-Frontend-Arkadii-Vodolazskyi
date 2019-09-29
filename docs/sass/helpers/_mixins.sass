@@ -45,8 +45,7 @@ a, button, input[type="submit"]
 	display: inline-block
 	transition: all 0.5s ease
 
-// ? for background images
-%img
+.img
 	display: inline-block
 	width: 100%
 	height: 100%
@@ -54,9 +53,6 @@ a, button, input[type="submit"]
 	background-position: center
 	background-repeat: no-repeat
 	background-color: transparent
-
-.img
-	@extend %img
 
 %btn
 	text-transform: uppercase
@@ -108,7 +104,6 @@ a, button, input[type="submit"]
 // HTML: div => button.minus + input:number + button.plus
 %custom-number-input
 	display: inline-block
-	margin-right: to-rem(24px)
 	position: relative
 	> input[type="number"]
 		// Reset
@@ -199,7 +194,7 @@ a, button, input[type="submit"]
 	left: 0
 	right: 0
 	bottom: 0
-	z-index: 50
+	z-index: 100
 	overflow: hidden
 	background-color: #000
 	opacity: 0
@@ -213,7 +208,7 @@ a, button, input[type="submit"]
 #signinForm
 	position: absolute
 	width: 40%
-	top: 50%
+	top: 55%
 	left: 50%
 	transform: translate(-50%, -50%)
 	z-index: 200
@@ -321,8 +316,12 @@ div#cookies
 		visibility: visible
 	border-radius: $radius
 	div.subwrapper
-		text-align: left
+		display: flex
+		flex-direction: column
+		align-items: flex-start
 		position: relative
+		@media (max-width: 920px)
+			align-items: center
 		h6, a
 			color: $green-color
 		h6
@@ -330,14 +329,16 @@ div#cookies
 			font-size: to-rem(16px)
 			line-height: 1.5
 		p
+			display: inline-block
 			width: 80%
 			color: $grey-color
 			font-size: 1rem
 			line-height: 1.71
+			@media (max-width: 920px)
+				width: 100%
 		button#accept-cookies
-			position: absolute
-			bottom: 0
-			right: 0
+			min-width: 20%
+			align-self: flex-end
 			@extend %btn
 			padding: to-rem(9px) to-rem(46px)
 			border-color: transparent
@@ -347,9 +348,12 @@ div#cookies
 				color: $green-color
 				border-color: $green-color
 				background-color: transparent
+			@media (max-width: 920px)
+				align-self: center
+				margin-top: 1rem
 		span#close-cookies
 			position: absolute
-			top: -10%
+			top: 0
 			right: 0
 			cursor: pointer
 			transition: all 0.3s ease

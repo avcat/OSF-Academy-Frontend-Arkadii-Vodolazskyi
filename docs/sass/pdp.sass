@@ -23,6 +23,30 @@ main
 	$length-color: #e5e2df
 	@import ./sections/breadcrumbs
 
+	/* Future sliders styles ----------------------------------- */
+	ul.future-dots
+		display: none
+		margin-top: to-rem(20px)
+		padding: 1rem
+		> li
+			display: inline-block
+			margin: 0 0.5rem
+			padding: 0.25rem
+			background-color: $darkblue-color
+			border-radius: 50%
+			border: 0.25rem solid transparent
+			cursor: pointer
+			opacity: 0.5
+			transition: all 0.5s ease
+			&:hover
+				opacity: 1
+			&.active
+				opacity: 1
+				background-color: $white-color
+				border: solid 0.25rem $darkblue-color
+		@media (max-width: 440px)
+			display: block
+
 	/* Product ----------------------------------------- */
 	section.product
 		background-color: $cream-color
@@ -31,6 +55,7 @@ main
 			.sub-wrapper
 				background-color: $white-color
 				border-radius: $radius
+				position: relative
 				.overview
 					display: flex
 					flex-direction: row
@@ -43,6 +68,9 @@ main
 						font-size: to-rem(22px)
 						position: absolute
 						top: to-rem(34px)
+						@media (max-width: 640px)
+							top: 1.5rem
+							font-size: to-rem(18px)
 						left: to-rem(28px)
 						z-index: 10
 						path
@@ -73,11 +101,13 @@ main
 								visibility: visible
 								z-index: 110
 								width: 50%
-								top: 50%
+								top: 70%
 								left: 50%
 								transform: translate(-50%, -50%)
 								&:hover
 									opacity: 1
+								@media (max-width: 960px)
+									width: 80%
 					.small
 						width: 10%
 						padding: 1rem
@@ -159,6 +189,7 @@ main
 							> .amountpick
 								@extend %custom-number-input
 								width: 30%
+								margin-right: to-rem(24px)
 							> button
 								@extend %btn
 								min-width: 42%
@@ -334,7 +365,7 @@ main
 					div.item
 						width: 46%
 						margin: 1.5rem
-			@media (max-width: 850px)
+			@media (max-width: 600px)
 				div.items div.item
 					width: 80%
 			@media (max-width: 440px)
@@ -349,29 +380,6 @@ main
 							position: relative
 							opacity: 1
 							visibility: visible
-
-			ul.future-dots
-				display: none
-				margin-top: to-rem(20px)
-				padding: 1rem
-				> li
-					display: inline-block
-					margin: 0 0.5rem
-					padding: 0.25rem
-					background-color: $darkblue-color
-					border-radius: 50%
-					border: 0.25rem solid transparent
-					cursor: pointer
-					opacity: 0.5
-					transition: all 0.5s ease
-					&:hover
-						opacity: 1
-					&.active
-						opacity: 1
-						background-color: $white-color
-						border: solid 0.25rem $darkblue-color
-				@media (max-width: 440px)
-					display: block
 
 			// Scroll to top
 			a.toTop

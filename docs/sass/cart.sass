@@ -17,6 +17,8 @@ main
 	$length: 35%
 	$length-color: #e5e2df
 	@import ./sections/breadcrumbs
+	@media (max-width: 930px)
+		$length: 25%
 
 	/* Info ----------------------------------------- */
 	section.cart
@@ -28,6 +30,10 @@ main
 			div.items
 				padding: to-rem(100px)
 				position: relative
+				@media (max-width: 1050px)
+					padding: to-rem(60px)
+				@media (max-width: 800px)
+					padding: to-rem(30px)
 				&:after
 					position: absolute
 					bottom: 0
@@ -41,14 +47,23 @@ main
 					flex-wrap: nowrap
 					justify-content: space-between
 					align-items: center
+					@media (max-width: 800px)
+						justify-content: space-around
+					@media (max-width: 600px)
+						justify-content: space-between
 					&:not(:last-child)
 						margin-bottom: to-rem(30px)
 					img
 						width: 10%
+						border-radius: $radius
+						@media (max-width: 800px)
+							width: 20%
 					div.info
 						width: 50%
 						padding-left: to-rem(22px)
 						text-align: left
+						@media (max-width: 800px)
+							display: none
 						h4
 							font-size: to-rem(16px)
 							color: $grey-color
@@ -59,11 +74,18 @@ main
 					div.amountpick
 						@extend %custom-number-input
 						width: 10%
+						@media (max-width: 800px)
+							min-width: 70px
 					h3.price
 						width: 25%
 						text-align: center
 						font-size: to-rem(30px)
 						color: $grey-color
+						@media (max-width: 800px)
+							font-size: to-rem(24px)
+						@media (max-width: 600px)
+							font-size: to-rem(16px)
+							width: 15%
 					div.delete
 						width: 5%
 						svg
@@ -89,8 +111,22 @@ main
 				justify-content: space-between
 				*
 					font-size: 1rem
+				@media (max-width: 1050px)
+					padding: to-rem(40px)
+					flex-direction: column
+					align-items: center
 				div.coupon
 					width: 40%
+					text-align: left
+					@media (max-width: 1050px)
+						width: 60%
+						margin-bottom: 1rem
+					@media (max-width: 850px)
+						width: 95%
+					@media (max-width: 600px)
+						display: flex
+						flex-direction: column
+						align-items: center
 					input[type="text"]
 						width: 60%
 						margin-right: 5%
@@ -102,6 +138,9 @@ main
 						transition: all 0.5s ease
 						&:focus
 							border-color: $green-color
+						@media (max-width: 600px)
+							width: 90%
+							margin: 0 0 1rem
 					input[type="submit"]
 						width: 30%
 						@extend %btn
@@ -111,6 +150,8 @@ main
 						&:hover
 							color: $white-color
 							background-color: $green-color
+						@media (max-width: 600px)
+							width: 90%
 				div.checkout
 					width: 50%
 					display: flex
@@ -119,6 +160,10 @@ main
 					align-content: flex-start
 					*
 						color: $grey-color
+					@media (max-width: 1050px)
+						width: 60%
+					@media (max-width: 850px)
+						width: 95%
 					button
 						@extend %btn
 					> div
@@ -131,8 +176,12 @@ main
 						width: 55%
 						text-transform: uppercase
 					div.btns
+						@media (max-width: 600px)
+							flex-direction: column
+							align-items: center
 						button.update
-							width: 35%
+							min-width: 35%
+							white-space: nowrap
 							@extend %btn
 							border-color: $green-color
 							color: $green-color
@@ -141,19 +190,36 @@ main
 							&:hover
 								color: $white-color
 								background-color: $green-color
+							@media (max-width: 600px)
+								width: 90%
+								margin: 0 0 1rem
 						input[type="submit"]
-							width: 55%
+							min-width: 55%
 							@extend %btn
 							color: $white-color
+							background-color: $green-color
 							border-color: transparent
 							&:hover
 								border-color: $green-color
 								color: $green-color
 								background-color: $white-color
+							@media (max-width: 600px)
+								width: 90%
 					div.subtotal
 						margin-top: to-rem(42px)
+						@media (max-width: 600px)
+							width: 100%
+							justify-content: space-between
 					div.shipping
 						margin-top: to-rem(30px)
+						@media (max-width: 600px)
+							width: 100%
+							flex-direction: column
+							align-items: flex-start
+							> h5
+								width: 100%
+								text-align: left
+								margin-bottom: 2rem
 						ul.radios
 							width: 45%
 							li
@@ -161,12 +227,19 @@ main
 								@extend %custom-radio-input
 								&:not(:last-child)
 									margin-bottom: 1rem
+								@media (max-width: 600px)
+									min-width: 160px
 					div.total
 						display: flex
 						align-items: center
 						margin-top: to-rem(54px)
+						@media (max-width: 600px)
+							width: 100%
+							justify-content: space-between
 						span.price
 							font-size: to-rem(48px)
+							@media (max-width: 800px)
+								font-size: to-rem(24px)
 
 /* Footer ------------------------------------------------ */
 @import ./sections/footer

@@ -4,26 +4,43 @@
 const wishlistSpan = document.getElementById("wishlistAmount");
 const cartSpan = document.getElementById("cartAmount");
 
-(function () {
+function UpdateJSON () {
 
 	// Get wishlistAmount from JSON, show it with span
 	firebase.database().ref("/amounts/wishlist") // Link to the data
 	.once('value', snap => {
 
-		wishlistSpan.innerText = snap.val().length; // Get data
+		let countCart = 0;
+
+		Object.values(snap.val()).forEach(object => {
+
+			countCart++;
+
+		});
+
+		wishlistSpan.innerText = countCart; // Get data
 
 	});
 
-	// Get cartAmount from JSON, show it with span
+	// Do the same for the Wishlist
 	firebase.database().ref("/amounts/cart")
 	.once('value', snap => {
 
-		cartSpan.innerText = snap.val().length;
+		let countWishlist = 0;
+
+		Object.values(snap.val()).forEach(object => {
+
+			countWishlist++;
+
+		});
+
+		cartSpan.innerText = countWishlist;
 
 	});
 
-})();
+}
 
+UpdateJSON();
 
 // ========================== cookies.js ==========================
 (function () {
@@ -115,6 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	login.addEventListener("click", () => {
 
 		if (emailField.validity.valid === true && passwordField.validity.valid === true) {
+
+			overlay.classList.remove("active");
+			document.body.classList.remove("noscroll");
+			signinForm.classList.remove("active");
+
+		}
+
+	}, true);
+
+	// Close signin modal with Escape key
+	document.addEventListener("keyup", (e) => {
+
+		if (e.key === "Escape") {
 
 			overlay.classList.remove("active");
 			document.body.classList.remove("noscroll");
