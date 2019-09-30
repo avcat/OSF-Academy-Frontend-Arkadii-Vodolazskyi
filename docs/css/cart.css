@@ -37,12 +37,10 @@ main {
 .wrapper {
   width: 1280px;
   margin: 0 auto;
-  padding-left: 2%;
-  padding-right: 2%;
   text-align: center; }
   @media (max-width: 1280px) {
     .wrapper {
-      width: 100%; } }
+      width: 96%; } }
 
 section {
   overflow: hidden; }
@@ -333,7 +331,7 @@ header {
   right: 0;
   z-index: 60;
   background-color: #ffffff;
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 0.15rem solid #ccc; }
   header > .wrapper {
     display: flex;
     justify-content: space-between;
@@ -345,7 +343,7 @@ header {
         align-items: center; } }
     @media (max-width: 850px) {
       header > .wrapper {
-        padding: 1rem;
+        padding: 1rem 0;
         flex-direction: row;
         justify-content: flex-start; } }
     header > .wrapper button#hamburger {
