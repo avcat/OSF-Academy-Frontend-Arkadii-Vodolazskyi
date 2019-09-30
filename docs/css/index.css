@@ -11,9 +11,6 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth; }
-  @media (min-width: 1280px) {
-    html {
-      font-size: 1.09375vw; } }
 
 body {
   position: relative; }
@@ -38,7 +35,7 @@ main {
       padding: 0; } }
 
 .wrapper {
-  width: 91.4%;
+  width: 1280px;
   margin: 0 auto;
   text-align: center; }
   @media (max-width: 1280px) {
