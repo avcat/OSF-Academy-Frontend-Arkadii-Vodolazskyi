@@ -182,7 +182,20 @@ function futureArrowItems (imageURL, name, tag) {
 	return item;
 }
 
+// Add to cart buttons .....................................
+(function () {
+	let addToCart = document.querySelectorAll("section.pop-items button.addToCart");
 
+	addToCart.forEach(button => {
+
+		button.addEventListener("click", () => {
+
+			addItem("cart");
+
+		}, true);
+
+	});
+})();
 
 // Add to wishlist buttons .................................
 (function () {
@@ -204,7 +217,12 @@ function futureArrowItems (imageURL, name, tag) {
 (function () {
 	const loadMoreBtn = document.getElementById("loadMore");
 
-	let itemsShowed = 4;
+	let itemsShowed = 16;
+	// Items showed depends on the screen width
+	if (window.innerWidth <= 440) {
+		itemsShowed = 4;
+	}
+
 	let itemsLoaded = 0;
 
 	loadMoreBtn.addEventListener("click" , () => {
@@ -275,7 +293,11 @@ function addItem (branchName) {
 	firebase.database().ref(`/amounts/${branchName}`)
 	.once('value', snap => {
 
-		let newID = snap.val().length;
+		let newID = 1;
+
+		Object.values(snap.val()).forEach(object => {
+			newID++;
+		});
 
 		firebase.database().ref(`/amounts/${branchName}/${newID}`)
 		.update({
@@ -288,9 +310,9 @@ function addItem (branchName) {
 		firebase.database().ref(`/amounts/${branchName}`)
 		.once('value', snap => {
 			if (branchName === "cart") {
-				cartSpan.innerText = snap.val().length;
+				cartSpan.innerText = newID++;
 			} else if (branchName === "wishlist") {
-				wishlistSpan.innerText = snap.val().length;
+				wishlistSpan.innerText = newID++;
 			}
 		});
 

@@ -1,6 +1,6 @@
 
 // Set deadline ------------------------------------------
-const deadline = new Date("sep 30, 2019 12:00:00").getTime();
+const deadline = new Date("sep 30, 2019 18:00:00").getTime();
 
 // Find tags to write in
 const spans = document.querySelectorAll("section.countdown div.release span");
@@ -12,6 +12,10 @@ let x = setInterval(() => {
 	let now = new Date().getTime();
 
 	let remaining = deadline - now;
+
+	if (remaining <= 0) {
+		remaining = 0;
+	}
 
 	let months = Math.floor(remaining / (1000 * 60 * 60 * 24 * 30.5));
 	let days = Math.floor(remaining / (1000 * 60 * 60 * 24));

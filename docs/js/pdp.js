@@ -254,7 +254,11 @@ function addItem (branchName) {
 	firebase.database().ref(`/amounts/${branchName}`)
 	.once('value', snap => {
 
-		let newID = snap.val().length;
+		let newID = 1;
+
+		Object.values(snap.val()).forEach(object => {
+			newID++;
+		});
 
 		firebase.database().ref(`/amounts/${branchName}/${newID}`)
 		.update({
@@ -267,9 +271,9 @@ function addItem (branchName) {
 		firebase.database().ref(`/amounts/${branchName}`)
 		.once('value', snap => {
 			if (branchName === "cart") {
-				cartSpan.innerText = snap.val().length;
+				cartSpan.innerText = newID++;
 			} else if (branchName === "wishlist") {
-				wishlistSpan.innerText = snap.val().length;
+				wishlistSpan.innerText = newID++;
 			}
 		});
 

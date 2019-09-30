@@ -13,11 +13,11 @@ const cartPreload = [
 	},
 ];
 
+// Find items box
+const itemBox = document.querySelector("section.cart div.items");
+
 // Form items
 (function (JSONObject) {
-
-	// Find items box
-	const itemBox = document.querySelector("section.cart div.items");
 
 	// For each loader item - create item in HTML ................
 	for (let i = 0; i < JSONObject.length; i++) {
@@ -202,7 +202,60 @@ function sumTotal (shipping = 0) {
 
 	}
 
-	sum += shipping;
+	// If no items in the cart
+	if (sum <= 0) {
+		sum = 0;
+	} else {
+		sum += shipping;
+	}
+
+
 
 	return formatMoney(sum);
 }
+
+
+// Delete item .......................................
+
+(function () {
+
+	// Find items
+	const items = document.querySelectorAll("section.cart div.items div.item");
+
+	// Find their delete buttons
+	const itemsDeletes = document.querySelectorAll("section.cart div.items div.item div.delete button");
+
+	// For each...
+	for (let i = 0; i < itemsDeletes.length; i++) {
+
+		// Add event listeners to buttons
+		itemsDeletes[i].addEventListener("click", () => {
+
+			// Remove child from the parent - itemsBox
+			itemBox.removeChild(items[i]);
+
+			// Update Cart
+			cartPreload[i].price = 0;
+
+			// Update prices:
+			// Update cartSubtotal
+			cartSubtotal.innerText = sumTotal();
+
+			// Update cartTotal
+			cartTotal.innerText = sumTotal();
+
+			// If there's no items
+			if (itemBox.children.length === 0) {
+
+				// Create notation
+				let noItems = document.createElement("h2");
+				noItems.innerText = "You have no items in the cart."
+				itemBox.append(noItems);
+
+			}
+
+		}, true);
+
+	}
+
+})();
